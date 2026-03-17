@@ -129,22 +129,38 @@ export default function Home() {
       {/* FAQ */}
       <section>
         <h2 className="text-3xl font-bold mb-8 text-center">FAQ</h2>
-        <div className="space-y-6">
-          <details className="border border-gray-200 rounded-lg p-4">
-            <summary className="font-bold cursor-pointer">Can I use these with GPT or other LLMs?</summary>
-            <p className="mt-4 text-gray-700">Yes. These are OpenClaw skills, which work with any LLM. The scripts are framework-agnostic — they just need Node.js.</p>
+        <div className="space-y-4">
+          <details className="border border-gray-200 rounded-lg p-5">
+            <summary className="font-bold cursor-pointer text-lg">What&apos;s the difference between templates and free skills?</summary>
+            <p className="mt-3 text-gray-700">Free skills are raw API integrations — they let your agent talk to Google Sheets, Slack, HubSpot etc. Templates are complete agent setups: they include the skills <em>plus</em> decision logic, scoring engines, workflow automation, alert rules, and reporting. Templates are production-ready out of the box. Skills are building blocks.</p>
           </details>
-          <details className="border border-gray-200 rounded-lg p-4">
-            <summary className="font-bold cursor-pointer">What if I don't have an API key yet?</summary>
-            <p className="mt-4 text-gray-700">Each skill includes step-by-step setup instructions. Most tools offer free API keys or free tiers. No credit card required.</p>
+          <details className="border border-gray-200 rounded-lg p-5">
+            <summary className="font-bold cursor-pointer text-lg">Do I need technical skills to use these?</summary>
+            <p className="mt-3 text-gray-700">You need Node.js 18+ installed and basic comfort with a terminal. Templates include a SETUP.md that walks you through every step — API keys, environment variables, running the scripts. Most people are up and running in 15 minutes. No coding required to use them; coding required only if you want to customise them.</p>
           </details>
-          <details className="border border-gray-200 rounded-lg p-4">
-            <summary className="font-bold cursor-pointer">Do I have to buy all 5 skills?</summary>
-            <p className="mt-4 text-gray-700">No. Buy only what you need. But if you buy all 5, the bundle saves you $26.</p>
+          <details className="border border-gray-200 rounded-lg p-5">
+            <summary className="font-bold cursor-pointer text-lg">Which LLMs do the templates work with?</summary>
+            <p className="mt-3 text-gray-700">All of them. Templates are framework-agnostic — Claude, GPT-4, Gemini, Llama, or any model you prefer. You can also run the scripts standalone as cron jobs without any LLM at all. The AGENT.md file is your system prompt — load it into whatever LLM you use.</p>
           </details>
-          <details className="border border-gray-200 rounded-lg p-4">
-            <summary className="font-bold cursor-pointer">What's the refund policy?</summary>
-            <p className="mt-4 text-gray-700">30-day money-back guarantee if the skill doesn't work as described. No questions asked.</p>
+          <details className="border border-gray-200 rounded-lg p-5">
+            <summary className="font-bold cursor-pointer text-lg">Do I pay a monthly subscription?</summary>
+            <p className="mt-3 text-gray-700">No. One-time purchase, you own it forever. No SaaS fees, no seats, no usage limits. You run the code on your own infrastructure — your API keys, your data.</p>
+          </details>
+          <details className="border border-gray-200 rounded-lg p-5">
+            <summary className="font-bold cursor-pointer text-lg">What happens after I buy?</summary>
+            <p className="mt-3 text-gray-700">You&apos;re taken to a download page immediately after payment. You get a .tar.gz file containing all scripts, config files, and documentation. Unzip it, follow SETUP.md, and you&apos;re live. You can re-download anytime using your purchase link.</p>
+          </details>
+          <details className="border border-gray-200 rounded-lg p-5">
+            <summary className="font-bold cursor-pointer text-lg">What&apos;s the refund policy?</summary>
+            <p className="mt-3 text-gray-700">30-day money-back guarantee. If the template doesn&apos;t work as described, email support@abbilabs.xyz and we&apos;ll refund you in full — no questions asked.</p>
+          </details>
+          <details className="border border-gray-200 rounded-lg p-5">
+            <summary className="font-bold cursor-pointer text-lg">Can I use these for my clients?</summary>
+            <p className="mt-3 text-gray-700">Yes. Single purchase covers use across your own projects. If you want to resell or white-label, contact us at support@abbilabs.xyz.</p>
+          </details>
+          <details className="border border-gray-200 rounded-lg p-5">
+            <summary className="font-bold cursor-pointer text-lg">Do the free skills really cost nothing?</summary>
+            <p className="mt-3 text-gray-700">Yes, completely free. Direct download, no email required. We make these free because they&apos;re building blocks — if you find them useful, the templates are the full solution.</p>
           </details>
         </div>
       </section>
