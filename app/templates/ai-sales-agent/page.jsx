@@ -1,8 +1,4 @@
 'use client';
-export const metadata = {
-  title: 'AI Sales Agent Template | Abbi Labs',
-  description: 'Your AI agent manages your entire sales pipeline. Lead scoring, pipeline reports, follow-up detection. Connects to HubSpot, Slack, Google Sheets.',
-}
 
 async function handleCheckout(product) {
   const res = await fetch('/api/checkout', {
