@@ -1,5 +1,14 @@
 'use client';
 
+async function handleCheckout(product) {
+  const res = await fetch('/api/checkout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ product }),
+  });
+  const data = await res.json();
+  if (data.url) window.location.href = data.url;
+}
 
 export default function AIPaymentMonitorPage() {
   return (
