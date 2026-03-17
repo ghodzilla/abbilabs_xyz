@@ -2,12 +2,12 @@ import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
 
 export const metadata = {
-  title: 'Abbi Labs — AI Agent Integration Skills',
-  description: 'Production-ready AI agent integrations for Google Sheets, Slack, Notion, HubSpot, and Stripe. Built for OpenClaw.',
+  title: 'Abbi Labs — AI Agent Templates for Business',
+  description: 'Production-ready AI agent templates for founders. Automate your sales pipeline, payment monitoring, and more. Works with any LLM.',
   metadataBase: new URL('https://abbilabs.xyz'),
   openGraph: {
-    title: 'Abbi Labs',
-    description: 'AI Agent Integration Skills',
+    title: 'Abbi Labs — AI Agent Templates for Business',
+    description: 'Production-ready AI agent templates for founders. Works with Claude, GPT, Gemini, LangChain, and more.',
     url: 'https://abbilabs.xyz',
     type: 'website',
   },

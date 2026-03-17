@@ -89,20 +89,20 @@ export default function Home() {
       <section className="bg-gray-50 rounded-lg p-8 mb-16">
         <h2 className="text-3xl font-bold mb-6">What is Abbi Labs?</h2>
         <p className="text-gray-700 mb-4">
-          Abbi Labs builds production-ready AI agent integration skills for OpenClaw. We solve a specific problem: your AI agent needs to connect to the tools your business actually uses.
+          Abbi Labs builds production-ready AI agent templates for founders running AI-powered businesses. We solve a specific problem: setting up AI agents that actually do useful work takes weeks of boilerplate. We&apos;ve done it for you.
         </p>
         <p className="text-gray-700 mb-4">
-          Each skill is:
+          Every template is:
         </p>
         <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4">
           <li><strong>Production-grade:</strong> Error handling, rate limiting, retry logic built-in</li>
-          <li><strong>Zero dependencies:</strong> Pure Node.js, no npm packages to bloat your agent</li>
-          <li><strong>Well documented:</strong> 200+ lines of setup guides, commands, and real-world patterns</li>
-          <li><strong>Quick install:</strong> 5 minutes from download to first API call</li>
-          <li><strong>Yours to own:</strong> Modify, extend, or integrate as needed</li>
+          <li><strong>Framework-agnostic:</strong> Works with Claude, GPT, Gemini, LangChain, CrewAI — or standalone</li>
+          <li><strong>Zero dependencies:</strong> Pure Node.js, no npm bloat</li>
+          <li><strong>Well documented:</strong> Full setup guides, config references, and real-world patterns</li>
+          <li><strong>Yours to own:</strong> One-time purchase. Modify, extend, and deploy as you need</li>
         </ul>
         <p className="text-gray-700">
-          This is not a SaaS. You buy the skill once, install it in your OpenClaw workspace, and own it forever.
+          Not a SaaS. Not a subscription. Buy once, own forever, run on your own infrastructure.
         </p>
       </section>
 
