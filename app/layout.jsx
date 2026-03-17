@@ -24,7 +24,8 @@ export default function RootLayout({ children }) {
             <div className="text-2xl font-bold">🤖 Abbi Labs</div>
             <div className="space-x-6">
               <a href="/" className="hover:underline">Home</a>
-              <a href="/skills" className="hover:underline">Skills</a>
+              <a href="/templates" className="hover:underline font-semibold text-blue-600">Templates</a>
+              <a href="/skills" className="hover:underline">Free Skills</a>
               <a href="/blog" className="hover:underline">Blog</a>
             </div>
           </div>

@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Abbi Labs — AI Agent Integration Skills',
-  description: 'Production-ready OpenClaw skills for Google Sheets, Slack, Notion, HubSpot, and Stripe.',
+  title: 'Abbi Labs — AI Agent Templates for Business',
+  description: 'Complete AI agent setups for your business. Sales pipeline management, payment monitoring, and more. Works with any LLM.',
 }
 
 export default function Home() {
@@ -16,13 +16,53 @@ export default function Home() {
     <main className="max-w-6xl mx-auto px-4 py-12">
       {/* Hero */}
       <section className="text-center mb-16">
-        <h1 className="text-5xl font-bold mb-4">Build AI Agents That Connect to Your Tools</h1>
+        <h1 className="text-5xl font-bold mb-4">Complete AI Agent Setups for Your Business</h1>
         <p className="text-xl text-gray-600 mb-8">
-          Production-ready integration skills for OpenClaw. Give your AI agent full control over Google Sheets, Slack, Notion, HubSpot, and Stripe.
+          Not just API wrappers. Full agent configurations with decision logic, workflows, and reporting built in.
+          Works with Claude, GPT, Gemini, or any LLM. Deploy in minutes.
         </p>
-        <a href="/skills" className="btn-primary">
-          Browse Skills
-        </a>
+        <div className="flex justify-center gap-4">
+          <a href="/templates" className="btn-primary">Browse Templates</a>
+          <a href="/skills" className="border border-gray-300 rounded px-6 py-3 hover:border-blue-500 transition">Free Skills</a>
+        </div>
+      </section>
+
+      {/* Templates Feature */}
+      <section className="mb-16">
+        <h2 className="text-3xl font-bold mb-8 text-center">Agent Templates</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="border-2 border-blue-200 rounded-xl p-6 bg-blue-50">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-3xl">🤝</span>
+              <div>
+                <h3 className="font-bold text-xl">AI Sales Agent</h3>
+                <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full">Most Popular</span>
+              </div>
+            </div>
+            <p className="text-gray-700 mb-4">Scores leads, monitors your HubSpot pipeline, alerts your team on Slack, and sends daily reports. Connects to HubSpot, Slack, and Google Sheets.</p>
+            <div className="flex items-center justify-between">
+              <span className="text-3xl font-bold text-blue-600">$79</span>
+              <a href="/templates/ai-sales-agent" className="btn-primary">View Details</a>
+            </div>
+          </div>
+          <div className="border-2 border-gray-200 rounded-xl p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-3xl">💳</span>
+              <div>
+                <h3 className="font-bold text-xl">AI Payment Monitor</h3>
+                <span className="bg-gray-600 text-white text-xs px-2 py-0.5 rounded-full">Simplest Setup</span>
+              </div>
+            </div>
+            <p className="text-gray-700 mb-4">Never miss a Stripe dispute again. Instant Slack alerts for disputes, failed payments, and subscription changes. 5-minute setup.</p>
+            <div className="flex items-center justify-between">
+              <span className="text-3xl font-bold text-blue-600">$39</span>
+              <a href="/templates/ai-payment-monitor" className="btn-primary">View Details</a>
+            </div>
+          </div>
+        </div>
+        <div className="text-center mt-6">
+          <a href="/templates" className="text-blue-600 font-semibold hover:underline">View all templates →</a>
+        </div>
       </section>
 
       {/* Skills Grid */}
