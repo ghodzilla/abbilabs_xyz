@@ -18,11 +18,15 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link href="https://cdn.tailwindcss.com" rel="stylesheet" />
+        <link rel="icon" type="image/svg+xml" href="/brand/logo-icon.svg" />
       </head>
       <body className="bg-white text-gray-900">
         <nav className="border-b border-gray-200 px-4 py-4">
           <div className="max-w-6xl mx-auto flex justify-between items-center">
-            <div className="text-2xl font-bold">🤖 Abbi Labs</div>
+            <a href="/" className="flex items-center gap-2">
+              <img src="/brand/logo-icon.svg" alt="Abbi Labs" className="w-8 h-8 rounded-lg" />
+              <span className="text-xl font-bold">Abbi Labs</span>
+            </a>
             <div className="space-x-6">
               <a href="/" className="hover:underline">Home</a>
               <a href="/templates" className="hover:underline font-semibold text-blue-600">Templates</a>
@@ -38,7 +42,10 @@ export default function RootLayout({ children }) {
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
               <div>
-                <div className="text-lg font-bold text-gray-900 mb-3">🤖 Abbi Labs</div>
+                <div className="flex items-center gap-2 mb-3">
+                <img src="/brand/logo-icon.svg" alt="Abbi Labs" className="w-7 h-7 rounded-md" />
+                <span className="text-lg font-bold text-gray-900">Abbi Labs</span>
+              </div>
                 <p className="text-gray-500 text-xs">AI agent templates for founders building AI-powered businesses.</p>
               </div>
               <div>
