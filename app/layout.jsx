@@ -2,11 +2,11 @@ import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
 
 export const metadata = {
-  title: 'Abbi Labs — AI Agent Templates for Business',
+  title: 'Abbi Labs — AI Agents That Do Real Work',
   description: 'Production-ready AI agent templates for founders. Automate your sales pipeline, payment monitoring, and more. Works with any LLM.',
   metadataBase: new URL('https://abbilabs.xyz'),
   openGraph: {
-    title: 'Abbi Labs — AI Agent Templates for Business',
+    title: 'Abbi Labs — AI Agents That Do Real Work',
     description: 'Production-ready AI agent templates for founders. Works with Claude, GPT, Gemini, LangChain, and more.',
     url: 'https://abbilabs.xyz',
     type: 'website',
@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
                 <img src="/brand/logo-icon.svg" alt="Abbi Labs" className="w-7 h-7 rounded-md" />
                 <span className="text-lg font-bold text-gray-900">Abbi Labs</span>
               </div>
-                <p className="text-gray-500 text-xs">AI agent templates for founders building AI-powered businesses.</p>
+                <p className="text-gray-500 text-xs">AI agents that do real work — built for founders.</p>
               </div>
               <div>
                 <div className="font-semibold text-gray-900 mb-3">Products</div>

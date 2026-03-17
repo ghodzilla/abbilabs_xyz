@@ -24,7 +24,7 @@
   <text x="120" y="200" font-family="'Arial Black', 'Arial', sans-serif" font-weight="900" font-size="110" fill="white" letter-spacing="-1">Abbi Labs</text>
   
   <!-- Tagline -->
-  <text x="124" y="275" font-family="'Arial', sans-serif" font-weight="400" font-size="42" fill="white" opacity="0.8">AI Agent Templates for Business</text>
+  <text x="124" y="275" font-family="'Arial', sans-serif" font-weight="400" font-size="42" fill="white" opacity="0.8">AI agents that do real work</text>
   
   <!-- URL pill -->
   <rect x="120" y="320" width="320" height="60" rx="30" ry="30" fill="white" opacity="0.2"/>
