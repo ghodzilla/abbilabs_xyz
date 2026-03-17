@@ -14,9 +14,10 @@ const skillData = {
     price: 19,
     icon: '📊',
     description: 'Your AI agent that manages Google Sheets',
-    longDescription: 'Stop building spreadsheets by hand. Give your AI agent the ability to read, write, update, and manage Google Sheets at scale.',
-    features: ['Read, write, and append rows', 'Create new sheets and tabs', 'Search across spreadsheets', 'Update specific ranges', 'Works with any LLM', 'Zero dependencies'],
-    useCases: ['Daily revenue tracking', 'Meeting notes', 'Inventory management', 'Report generation', 'Data pipelines'],
+    longDescription: 'Stop building spreadsheets by hand. Give your AI agent the ability to read, write, append, search, and manage Google Sheets autonomously. Production-tested with real Google Sheets API. Set up in 5 minutes with a Google service account — share your spreadsheet, and your agent handles the rest.',
+    features: ['Read, write, and append rows', 'Search across spreadsheets', 'Add new sheet tabs', 'Update specific cell ranges', 'Clear ranges', 'List all sheets', 'Works with any LLM', 'Zero dependencies — pure Node.js'],
+    useCases: ['Daily revenue tracking', 'Meeting notes & action items', 'Inventory management', 'Automated report generation', 'Data pipelines', 'CRM data logging'],
+    tested: true,
     setupTime: '5 minutes',
     link: 'https://gumroad.com/l/abbi-google-sheets',
   },
@@ -81,6 +82,7 @@ export default function SkillPage({ params }) {
           <p className="text-xl text-gray-600 mt-4">{skill.longDescription}</p>
         </div>
         <div className="text-right">
+          {skill.tested && <span className="inline-block bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full mb-2">✅ Production Tested</span>}
           <div className="text-5xl font-bold text-blue-600">${skill.price}</div>
           <a href={skill.link} className="btn-primary mt-6 text-lg">
             Buy Now
