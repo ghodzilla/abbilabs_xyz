@@ -1,7 +1,3 @@
-import Stripe from 'stripe';
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 const DOWNLOAD_URLS = {
   'ai-sales-agent': 'https://github.com/ghodzilla/abbi-skills/releases/download/v1.0/ai-sales-agent.tar.gz',
   'ai-payment-monitor': 'https://github.com/ghodzilla/abbi-skills/releases/download/v1.0/ai-payment-monitor.tar.gz',
@@ -17,11 +13,19 @@ export async function GET(request) {
       return Response.json({ error: 'Missing session_id or product' }, { status: 400 });
     }
 
-    // Verify payment with Stripe
-    const session = await stripe.checkout.sessions.retrieve(sessionId);
+    const stripeKey = process.env.STRIPE_SECRET_KEY;
 
-    if (session.payment_status !== 'paid') {
-      return Response.json({ error: 'Payment not completed' }, { status: 403 });
+    // Verify payment with Stripe
+    const response = await fetch(`https://api.stripe.com/v1/checkout/sessions/${sessionId}`, {
+      headers: {
+        'Authorization': `Basic ${Buffer.from(stripeKey + ':').toString('base64')}`,
+      },
+    });
+
+    const session = await response.json();
+
+    if (!response.ok || session.payment_status !== 'paid') {
+      return Response.json({ error: 'Payment not verified' }, { status: 403 });
     }
 
     if (session.metadata?.product !== product) {
@@ -33,8 +37,7 @@ export async function GET(request) {
       return Response.json({ error: 'Download not found' }, { status: 404 });
     }
 
-    // Redirect to download
-    return Response.redirect(downloadUrl);
+    return Response.redirect(downloadUrl, 302);
   } catch (error) {
     console.error('Download error:', error);
     return Response.json({ error: error.message }, { status: 500 });
