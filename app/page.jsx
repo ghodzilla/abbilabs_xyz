@@ -5,11 +5,11 @@ export const metadata = {
 
 export default function Home() {
   const skills = [
-    { name: 'Google Sheets', price: '$19', slug: 'google-sheets', icon: '📊' },
-    { name: 'Slack', price: '$29', slug: 'slack', icon: '💬' },
-    { name: 'Notion', price: '$29', slug: 'notion', icon: '📝' },
-    { name: 'HubSpot', price: '$49', slug: 'hubspot', icon: '🧲' },
-    { name: 'Stripe', price: '$29', slug: 'stripe', icon: '💳' },
+    { name: 'Google Sheets', price: 'Free', slug: 'google-sheets', icon: '📊' },
+    { name: 'Slack', price: 'Free', slug: 'slack', icon: '💬' },
+    { name: 'Notion', price: 'Free', slug: 'notion', icon: '📝' },
+    { name: 'HubSpot', price: 'Free', slug: 'hubspot', icon: '🧲' },
+    { name: 'Stripe', price: 'Free', slug: 'stripe', icon: '💳' },
   ]
 
   return (

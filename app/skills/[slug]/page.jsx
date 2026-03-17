@@ -11,7 +11,7 @@ export async function generateStaticParams() {
 const skillData = {
   'google-sheets': {
     name: 'AI Agent for Google Sheets',
-    price: 19,
+    price: 0,
     icon: '📊',
     description: 'Your AI agent that manages Google Sheets',
     longDescription: 'Stop building spreadsheets by hand. Give your AI agent the ability to read, write, append, search, and manage Google Sheets autonomously. Production-tested with real Google Sheets API. Set up in 5 minutes with a Google service account — share your spreadsheet, and your agent handles the rest.',
@@ -23,7 +23,7 @@ const skillData = {
   },
   'slack': {
     name: 'AI Agent for Slack',
-    price: 29,
+    price: 0,
     icon: '💬',
     description: 'Your AI agent that manages Slack',
     longDescription: 'Your agent posts messages, reads channels, manages threads, reacts with emoji, and automates team communication. Production-tested against live Slack API. Set up in 5 minutes with a Slack bot token.',
@@ -35,7 +35,7 @@ const skillData = {
   },
   'notion': {
     name: 'AI Agent for Notion',
-    price: 29,
+    price: 0,
     icon: '📝',
     description: 'Your AI agent that manages Notion',
     longDescription: 'Create pages, query databases, update content, search your entire workspace. Production-tested against live Notion API. Supports markdown conversion, database entries, page archiving, and content appending.',
@@ -47,7 +47,7 @@ const skillData = {
   },
   'hubspot': {
     name: 'AI Agent for HubSpot',
-    price: 49,
+    price: 0,
     icon: '🧲',
     description: 'Your AI agent that operates your CRM',
     longDescription: 'Manage contacts, companies, deals, tickets, and notes in HubSpot. Production-tested against live HubSpot CRM API. Your agent becomes a sales rep who never forgets a follow-up.',
@@ -59,7 +59,7 @@ const skillData = {
   },
   'stripe': {
     name: 'AI Agent for Stripe',
-    price: 29,
+    price: 0,
     icon: '💳',
     description: 'Your AI agent that manages payments',
     longDescription: 'Track revenue, manage subscriptions, process refunds, create invoices. Production-tested against live Stripe API. 22 commands covering customers, products, payments, subscriptions, invoices, payouts, disputes, and revenue reporting.',
@@ -87,7 +87,7 @@ export default function SkillPage({ params }) {
         </div>
         <div className="text-right">
           {skill.tested && <span className="inline-block bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full mb-2">✅ Production Tested</span>}
-          <div className="text-5xl font-bold text-blue-600">${skill.price}</div>
+          <div className="text-5xl font-bold text-green-600">Free</div>
           <a href={skill.link} className="btn-primary mt-6 text-lg">
             Buy Now
           </a>
@@ -128,7 +128,7 @@ export default function SkillPage({ params }) {
       <div className="border-2 border-blue-200 rounded-lg p-8 text-center mb-12">
         <h2 className="text-2xl font-bold mb-4">Ready to Get Started?</h2>
         <a href={skill.link} className="btn-primary text-lg">
-          Buy {skill.name} - ${skill.price}
+          Download Free
         </a>
         <p className="text-gray-600 mt-4">30-day money-back guarantee. No questions asked.</p>
       </div>
