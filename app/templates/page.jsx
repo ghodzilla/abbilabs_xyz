@@ -1,7 +1,4 @@
-export const metadata = {
-  title: 'AI Agent Templates | Abbi Labs',
-  description: 'Complete AI agent setups for your business. Lead scoring, pipeline monitoring, payment alerts. Works with any LLM.',
-}
+'use client';
 
 const templates = [
   {
@@ -22,7 +19,6 @@ const templates = [
     ],
     tools: ['HubSpot', 'Slack', 'Google Sheets'],
     frameworks: 'Works with Claude, GPT, Gemini, LangChain, CrewAI, OpenClaw',
-    link: 'https://ghodex.gumroad.com/l/ai-sales-agent',
   },
   {
     slug: 'ai-payment-monitor',
@@ -42,9 +38,18 @@ const templates = [
     ],
     tools: ['Stripe', 'Slack'],
     frameworks: 'Works with Claude, GPT, Gemini, LangChain, CrewAI, OpenClaw — or standalone cron',
-    link: 'https://ghodex.gumroad.com/l/ai-payment-monitor',
   },
 ]
+
+async function handleCheckout(product) {
+  const res = await fetch('/api/checkout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ product }),
+  });
+  const data = await res.json();
+  if (data.url) window.location.href = data.url;
+}
 
 export default function TemplatesPage() {
   return (
@@ -81,14 +86,14 @@ export default function TemplatesPage() {
               <div className="text-right ml-8 flex-shrink-0">
                 <div className="text-4xl font-bold text-blue-600">${t.price}</div>
                 <div className="text-gray-500 text-sm mb-3">one-time</div>
-                <a href={t.link} className="btn-primary block text-center">Buy Now</a>
+                <button onClick={() => handleCheckout(t.slug)} className="btn-primary block text-center w-full">Buy Now — ${t.price}</button>
                 <p className="text-xs text-gray-500 mt-2">30-day money-back guarantee</p>
               </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
               <div>
-                <h3 className="font-bold text-gray-900 mb-3">What's included</h3>
+                <h3 className="font-bold text-gray-900 mb-3">What&apos;s included</h3>
                 <ul className="space-y-2">
                   {t.includes.map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-gray-700">
@@ -109,25 +114,32 @@ export default function TemplatesPage() {
                 </div>
                 <h3 className="font-bold text-gray-900 mb-2">Framework compatibility</h3>
                 <p className="text-gray-600 text-sm">{t.frameworks}</p>
-
                 <div className="mt-4 p-3 bg-green-50 rounded-lg">
                   <p className="text-green-800 text-sm font-medium">✅ Production tested against live APIs</p>
                   <p className="text-green-700 text-sm">Pure Node.js · Zero dependencies · Own it forever</p>
                 </div>
               </div>
             </div>
+
+            <div className="mt-6 pt-6 border-t border-gray-100 flex justify-between items-center">
+              <a href={`/templates/${t.slug}`} className="text-blue-600 hover:underline text-sm font-medium">
+                View full details →
+              </a>
+              <button onClick={() => handleCheckout(t.slug)} className="btn-primary px-8 py-2">
+                Buy Now — ${t.price}
+              </button>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Comparison with building yourself */}
       <section className="mt-16 bg-gray-50 rounded-xl p-8">
         <h2 className="text-2xl font-bold mb-6 text-center">Why buy a template instead of building it yourself?</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
             <h3 className="font-bold text-red-600 mb-4">Building from scratch</h3>
             <ul className="space-y-2 text-gray-700">
-              <li>❌ 10-20 hours to build and debug</li>
+              <li>❌ 10–20 hours to build and debug</li>
               <li>❌ HubSpot API quirks and pagination</li>
               <li>❌ OAuth flows and token management</li>
               <li>❌ Error handling, rate limiting, retries</li>
@@ -149,7 +161,6 @@ export default function TemplatesPage() {
         </div>
       </section>
 
-      {/* Free integration skills */}
       <section className="mt-12 border border-gray-200 rounded-xl p-8 text-center">
         <h2 className="text-xl font-bold mb-2">Also available: Free Integration Skills</h2>
         <p className="text-gray-600 mb-4">
