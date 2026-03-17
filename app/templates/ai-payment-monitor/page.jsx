@@ -90,6 +90,25 @@ export default function AIPaymentMonitorPage() {
         <p className="text-gray-600 mt-3 text-sm">No database. No Google account. No complex configuration.</p>
       </section>
 
+      {/* FAQ */}
+      <section className="mb-10">
+        <h2 className="text-2xl font-bold mb-6">FAQ</h2>
+        <div className="space-y-3">
+          {[
+            { q: "How quickly does it alert on a dispute?", a: "Within minutes. The monitor runs on your configured interval (default: every 30 min via cron). We recommend 15–30 minute intervals for 24/7 coverage." },
+            { q: "Do I need a paid Stripe plan?", a: "No. Works with any Stripe account that has live payments enabled." },
+            { q: "Can I customise the refund rate threshold?", a: "Yes — it's a single value in config.json. Default is 5%. Change it to whatever makes sense for your business." },
+            { q: "Does it work without Slack?", a: "Slack is the primary notification channel. Email support is on the roadmap — contact us if that's a blocker." },
+            { q: "What's the refund policy?", a: "30-day money-back guarantee. Email support@abbilabs.xyz if it doesn't work as described." },
+          ].map((item, i) => (
+            <details key={i} className="border border-gray-200 rounded-lg p-4">
+              <summary className="font-semibold cursor-pointer">{item.q}</summary>
+              <p className="mt-3 text-gray-700 text-sm">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
       <section className="bg-blue-50 rounded-xl p-8 text-center">
         <h2 className="text-2xl font-bold mb-2">Stop missing disputes.</h2>
         <p className="text-gray-600 mb-6">One-time purchase. 5-minute setup. 30-day money-back guarantee.</p>

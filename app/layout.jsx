@@ -28,6 +28,7 @@ export default function RootLayout({ children }) {
               <a href="/templates" className="hover:underline font-semibold text-blue-600">Templates</a>
               <a href="/skills" className="hover:underline">Free Skills</a>
               <a href="/blog" className="hover:underline">Blog</a>
+              <a href="/faq" className="hover:underline">FAQ</a>
             </div>
           </div>
         </nav>
