@@ -1,4 +1,5 @@
 import './globals.css'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata = {
   title: 'Abbi Labs — AI Agent Integration Skills',
@@ -31,6 +32,7 @@ export default function RootLayout({ children }) {
           </div>
         </nav>
         {children}
+        <Analytics />
         <footer className="border-t border-gray-200 mt-12 py-8 text-center text-gray-600 text-sm">
           <div className="max-w-6xl mx-auto">
             <p>© 2026 Abbi Labs. All rights reserved.</p>
