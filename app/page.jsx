@@ -1,3 +1,5 @@
+import NewsletterSignup from './components/NewsletterSignup'
+
 export const metadata = {
   title: 'Abbi Labs — AI Agent Templates for Business',
   description: 'Complete AI agent setups for your business. Sales pipeline management, payment monitoring, and more. Works with any LLM.',
@@ -125,6 +127,9 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      {/* Newsletter */}
+      <NewsletterSignup />
 
       {/* FAQ */}
       <section>

@@ -34,10 +34,38 @@ export default function RootLayout({ children }) {
         </nav>
         {children}
         <Analytics />
-        <footer className="border-t border-gray-200 mt-12 py-8 text-center text-gray-600 text-sm">
-          <div className="max-w-6xl mx-auto">
-            <p>© 2026 Abbi Labs. All rights reserved.</p>
-            <p className="mt-2">AI agent skills for OpenClaw. Build production AI agents fast.</p>
+        <footer className="border-t border-gray-200 mt-12 py-10 text-gray-600 text-sm">
+          <div className="max-w-6xl mx-auto px-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+              <div>
+                <div className="text-lg font-bold text-gray-900 mb-3">🤖 Abbi Labs</div>
+                <p className="text-gray-500 text-xs">AI agent templates for founders building AI-powered businesses.</p>
+              </div>
+              <div>
+                <div className="font-semibold text-gray-900 mb-3">Products</div>
+                <div className="space-y-2">
+                  <a href="/templates/ai-sales-agent" className="block hover:underline">AI Sales Agent</a>
+                  <a href="/templates/ai-payment-monitor" className="block hover:underline">AI Payment Monitor</a>
+                  <a href="/skills" className="block hover:underline">Free Skills</a>
+                </div>
+              </div>
+              <div>
+                <div className="font-semibold text-gray-900 mb-3">Company</div>
+                <div className="space-y-2">
+                  <a href="/blog" className="block hover:underline">Blog</a>
+                  <a href="/faq" className="block hover:underline">FAQ</a>
+                  <a href="mailto:support@abbilabs.xyz" className="block hover:underline">Support</a>
+                </div>
+              </div>
+              <div>
+                <div className="font-semibold text-gray-900 mb-3">Newsletter</div>
+                <p className="text-xs text-gray-500 mb-2">The AI Operator — weekly tactics for AI-powered founders.</p>
+                <a href="https://abbilabs.beehiiv.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-xs">Subscribe free →</a>
+              </div>
+            </div>
+            <div className="border-t border-gray-100 pt-6 text-center text-xs text-gray-400">
+              © 2026 Abbi Labs. All rights reserved. · <a href="mailto:support@abbilabs.xyz" className="hover:underline">support@abbilabs.xyz</a>
+            </div>
           </div>
         </footer>
       </body>
