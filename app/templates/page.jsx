@@ -1,5 +1,15 @@
 'use client';
 
+async function handleCheckout(product) {
+  const res = await fetch('/api/checkout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ product }),
+  });
+  const data = await res.json();
+  if (data.url) window.location.href = data.url;
+}
+
 const templates = [
   {
     slug: 'ai-sales-agent',
@@ -40,16 +50,6 @@ const templates = [
     frameworks: 'Works with Claude, GPT, Gemini, LangChain, CrewAI, OpenClaw — or standalone cron',
   },
 ]
-
-async function handleCheckout(product) {
-  const res = await fetch('/api/checkout', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ product }),
-  });
-  const data = await res.json();
-  if (data.url) window.location.href = data.url;
-}
 
 export default function TemplatesPage() {
   return (
@@ -120,15 +120,6 @@ export default function TemplatesPage() {
                 </div>
               </div>
             </div>
-
-            <div className="mt-6 pt-6 border-t border-gray-100 flex justify-between items-center">
-              <a href={`/templates/${t.slug}`} className="text-blue-600 hover:underline text-sm font-medium">
-                View full details →
-              </a>
-              <button onClick={() => handleCheckout(t.slug)} className="btn-primary px-8 py-2">
-                Buy Now — ${t.price}
-              </button>
-            </div>
           </div>
         ))}
       </div>
@@ -139,7 +130,7 @@ export default function TemplatesPage() {
           <div>
             <h3 className="font-bold text-red-600 mb-4">Building from scratch</h3>
             <ul className="space-y-2 text-gray-700">
-              <li>❌ 10–20 hours to build and debug</li>
+              <li>❌ 10-20 hours to build and debug</li>
               <li>❌ HubSpot API quirks and pagination</li>
               <li>❌ OAuth flows and token management</li>
               <li>❌ Error handling, rate limiting, retries</li>

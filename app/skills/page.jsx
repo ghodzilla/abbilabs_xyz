@@ -11,7 +11,7 @@ const skills = [
     price: 0,
     description: 'Read, write, and manage Google Sheets. Your agent logs data, generates reports, tracks metrics.',
     features: ['Read & write data', 'Create sheets', 'Search across sheets', 'Works with any LLM', '~300 lines of code'],
-    link: 'https://ghodex.gumroad.com/l/vbyeh',
+    link: 'https://abbilabs.xyz/downloads/google-sheets.tar.gz',
   },
   {
     slug: 'slack',
@@ -20,7 +20,7 @@ const skills = [
     price: 0,
     description: 'Send messages, read channels, manage threads. Your agent becomes a team member.',
     features: ['Send messages', 'Read channel history', 'Manage threads', 'React to messages', 'Search conversations'],
-    link: 'https://ghodex.gumroad.com/l/lijnyn',
+    link: 'https://abbilabs.xyz/downloads/slack-agent.tar.gz',
   },
   {
     slug: 'notion',
@@ -29,7 +29,7 @@ const skills = [
     price: 0,
     description: 'Create pages, query databases, update content. Your agent manages your Notion workspace.',
     features: ['Search pages', 'Create entries', 'Query databases', 'Update properties', 'Markdown conversion'],
-    link: 'https://ghodex.gumroad.com/l/qubdry',
+    link: 'https://abbilabs.xyz/downloads/notion-agent.tar.gz',
   },
   {
     slug: 'hubspot',
@@ -38,7 +38,7 @@ const skills = [
     price: 0,
     description: 'Manage contacts, deals, tickets. Your agent runs your CRM.',
     features: ['Manage contacts', 'Track deals', 'Create tickets', 'Log notes', 'Associate records'],
-    link: 'https://ghodex.gumroad.com/l/wtemx',
+    link: 'https://abbilabs.xyz/downloads/hubspot-agent.tar.gz',
   },
   {
     slug: 'stripe',
@@ -47,7 +47,7 @@ const skills = [
     price: 0,
     description: 'Track revenue, manage subscriptions, process refunds. Your agent handles payments.',
     features: ['Manage customers', 'Track payments', 'Create invoices', 'Process refunds', 'Revenue reports'],
-    link: 'https://ghodex.gumroad.com/l/cujnmk',
+    link: 'https://abbilabs.xyz/downloads/stripe-agent.tar.gz',
   },
 ]
 
