@@ -1,6 +1,15 @@
-export const metadata = {
-  title: 'AI Payment Monitor Template | Abbi Labs',
-  description: 'Never miss a Stripe dispute again. Instant Slack alerts for disputes, failed payments, and subscription changes.',
+'use client';
+
+export const metadata = undefined;
+
+async function handleCheckout(product) {
+  const res = await fetch('/api/checkout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ product }),
+  });
+  const data = await res.json();
+  if (data.url) window.location.href = data.url;
 }
 
 export default function AIPaymentMonitorPage() {
@@ -23,7 +32,7 @@ export default function AIPaymentMonitorPage() {
           <div className="text-right ml-8 flex-shrink-0">
             <div className="text-5xl font-bold text-blue-600">$39</div>
             <div className="text-gray-500 mb-3">one-time · own forever</div>
-            <a href="https://ghodex.gumroad.com/l/ai-payment-monitor" className="btn-primary block text-center text-lg px-8 py-3">Buy Now</a>
+            <button onClick={() => handleCheckout('ai-payment-monitor')} className="btn-primary block text-center text-lg px-8 py-3 w-full">Buy Now — $39</button>
             <p className="text-xs text-gray-500 mt-2">30-day money-back guarantee</p>
           </div>
         </div>
@@ -80,14 +89,14 @@ export default function AIPaymentMonitorPage() {
           <div>export STRIPE_SECRET_KEY=&quot;sk_live_...&quot;</div>
           <div>export SLACK_BOT_TOKEN=&quot;xoxb-...&quot;</div>
         </div>
-        <p className="text-gray-600 mt-3 text-sm">No database. No Google account. No complex configuration. The simplest setup of any Abbi Labs template.</p>
+        <p className="text-gray-600 mt-3 text-sm">No database. No Google account. No complex configuration.</p>
       </section>
 
       <section className="bg-blue-50 rounded-xl p-8 text-center">
         <h2 className="text-2xl font-bold mb-2">Stop missing disputes.</h2>
         <p className="text-gray-600 mb-6">One-time purchase. 5-minute setup. 30-day money-back guarantee.</p>
         <div className="text-4xl font-bold text-blue-600 mb-4">$39</div>
-        <a href="https://ghodex.gumroad.com/l/ai-payment-monitor" className="btn-primary text-lg px-12 py-4">Buy Now</a>
+        <button onClick={() => handleCheckout('ai-payment-monitor')} className="btn-primary text-lg px-12 py-4">Buy Now — $39</button>
       </section>
     </main>
   )

@@ -1,6 +1,17 @@
+'use client';
 export const metadata = {
   title: 'AI Sales Agent Template | Abbi Labs',
   description: 'Your AI agent manages your entire sales pipeline. Lead scoring, pipeline reports, follow-up detection. Connects to HubSpot, Slack, Google Sheets.',
+}
+
+async function handleCheckout(product) {
+  const res = await fetch('/api/checkout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ product }),
+  });
+  const data = await res.json();
+  if (data.url) window.location.href = data.url;
 }
 
 export default function AISalesAgentPage() {
@@ -137,7 +148,7 @@ export default function AISalesAgentPage() {
         <h2 className="text-2xl font-bold mb-2">Ready to automate your sales pipeline?</h2>
         <p className="text-gray-600 mb-6">One-time purchase. Own it forever. 30-day money-back guarantee.</p>
         <div className="text-4xl font-bold text-blue-600 mb-4">$79</div>
-        <a href="https://ghodex.gumroad.com/l/ai-sales-agent" className="btn-primary text-lg px-12 py-4">Buy Now</a>
+        <button onClick={() => handleCheckout("ai-sales-agent")} className="btn-primary text-lg px-12 py-4">Buy Now — $79</button>
         <p className="text-gray-500 text-sm mt-4">Instant download · Full source code included</p>
       </section>
     </main>
