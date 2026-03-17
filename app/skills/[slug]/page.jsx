@@ -19,7 +19,7 @@ const skillData = {
     useCases: ['Daily revenue tracking', 'Meeting notes & action items', 'Inventory management', 'Automated report generation', 'Data pipelines', 'CRM data logging'],
     tested: true,
     setupTime: '5 minutes',
-    link: 'https://gumroad.com/l/abbi-google-sheets',
+    link: 'https://ghodex.gumroad.com/l/vbyeh',
   },
   'slack': {
     name: 'AI Agent for Slack',
@@ -31,7 +31,7 @@ const skillData = {
     useCases: ['Daily standup bot', 'Alert system', 'Customer support', 'Meeting recaps', 'Team updates', 'Incident notifications'],
     tested: true,
     setupTime: '5 minutes',
-    link: 'https://gumroad.com/l/abbi-slack',
+    link: 'https://ghodex.gumroad.com/l/lijnyn',
   },
   'notion': {
     name: 'AI Agent for Notion',
@@ -43,7 +43,7 @@ const skillData = {
     useCases: ['Knowledge base management', 'Task database', 'CRM management', 'Content calendar', 'Meeting notes', 'Wiki automation'],
     tested: true,
     setupTime: '5 minutes',
-    link: 'https://gumroad.com/l/abbi-notion',
+    link: 'https://ghodex.gumroad.com/l/qubdry',
   },
   'hubspot': {
     name: 'AI Agent for HubSpot',
@@ -55,7 +55,7 @@ const skillData = {
     useCases: ['Sales pipeline automation', 'Customer onboarding', 'Lead qualification', 'Support triage', 'Revenue operations', 'CRM data entry'],
     tested: true,
     setupTime: '5 minutes',
-    link: 'https://gumroad.com/l/abbi-hubspot',
+    link: 'https://ghodex.gumroad.com/l/wtemx',
   },
   'stripe': {
     name: 'AI Agent for Stripe',
@@ -67,7 +67,7 @@ const skillData = {
     useCases: ['Daily revenue tracking', 'Subscription management', 'Refund handling', 'Invoice automation', 'Financial reporting', 'Customer lifecycle management'],
     tested: true,
     setupTime: '5 minutes',
-    link: 'https://gumroad.com/l/abbi-stripe',
+    link: 'https://ghodex.gumroad.com/l/cujnmk',
   },
 }
 

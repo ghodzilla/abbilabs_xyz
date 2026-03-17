@@ -11,7 +11,7 @@ const skills = [
     price: 19,
     description: 'Read, write, and manage Google Sheets. Your agent logs data, generates reports, tracks metrics.',
     features: ['Read & write data', 'Create sheets', 'Search across sheets', 'Works with any LLM', '~300 lines of code'],
-    link: 'https://gumroad.com/l/abbi-google-sheets',
+    link: 'https://ghodex.gumroad.com/l/vbyeh',
   },
   {
     slug: 'slack',
@@ -20,7 +20,7 @@ const skills = [
     price: 29,
     description: 'Send messages, read channels, manage threads. Your agent becomes a team member.',
     features: ['Send messages', 'Read channel history', 'Manage threads', 'React to messages', 'Search conversations'],
-    link: 'https://gumroad.com/l/abbi-slack',
+    link: 'https://ghodex.gumroad.com/l/lijnyn',
   },
   {
     slug: 'notion',
@@ -29,7 +29,7 @@ const skills = [
     price: 29,
     description: 'Create pages, query databases, update content. Your agent manages your Notion workspace.',
     features: ['Search pages', 'Create entries', 'Query databases', 'Update properties', 'Markdown conversion'],
-    link: 'https://gumroad.com/l/abbi-notion',
+    link: 'https://ghodex.gumroad.com/l/qubdry',
   },
   {
     slug: 'hubspot',
@@ -38,7 +38,7 @@ const skills = [
     price: 49,
     description: 'Manage contacts, deals, tickets. Your agent runs your CRM.',
     features: ['Manage contacts', 'Track deals', 'Create tickets', 'Log notes', 'Associate records'],
-    link: 'https://gumroad.com/l/abbi-hubspot',
+    link: 'https://ghodex.gumroad.com/l/wtemx',
   },
   {
     slug: 'stripe',
@@ -47,7 +47,7 @@ const skills = [
     price: 29,
     description: 'Track revenue, manage subscriptions, process refunds. Your agent handles payments.',
     features: ['Manage customers', 'Track payments', 'Create invoices', 'Process refunds', 'Revenue reports'],
-    link: 'https://gumroad.com/l/abbi-stripe',
+    link: 'https://ghodex.gumroad.com/l/cujnmk',
   },
 ]
 
