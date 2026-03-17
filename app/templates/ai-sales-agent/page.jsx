@@ -31,7 +31,7 @@ export default function AISalesAgentPage() {
           <div className="text-right ml-8 flex-shrink-0">
             <div className="text-5xl font-bold text-blue-600">$79</div>
             <div className="text-gray-500 mb-3">one-time · own forever</div>
-            <a href="https://ghodex.gumroad.com/l/ai-sales-agent" className="btn-primary block text-center text-lg px-8 py-3">Buy Now</a>
+            <button onClick={() => handleCheckout("ai-sales-agent")} className="btn-primary block text-center text-lg px-8 py-3 w-full">Buy Now — $79</button>
             <p className="text-xs text-gray-500 mt-2">30-day money-back guarantee</p>
           </div>
         </div>
