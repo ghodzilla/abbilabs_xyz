@@ -32,7 +32,7 @@ export default function Home() {
       {/* Templates Feature */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center">Agent Templates</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="border-2 border-blue-200 rounded-xl p-6 bg-blue-50">
             <div className="flex items-center gap-3 mb-3">
               <span className="text-3xl">🤝</span>
@@ -45,6 +45,20 @@ export default function Home() {
             <div className="flex items-center justify-between">
               <span className="text-3xl font-bold text-blue-600">$79</span>
               <a href="/templates/ai-sales-agent" className="btn-primary">View Details</a>
+            </div>
+          </div>
+          <div className="border-2 border-gray-200 rounded-xl p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-3xl">🎧</span>
+              <div>
+                <h3 className="font-bold text-xl">AI Customer Support Agent</h3>
+                <span className="bg-green-600 text-white text-xs px-2 py-0.5 rounded-full">New</span>
+              </div>
+            </div>
+            <p className="text-gray-700 mb-4">Handle 70% of support tickets autonomously. Triages, auto-responds from your knowledge base, and escalates to Slack with full context. Email + Intercom.</p>
+            <div className="flex items-center justify-between">
+              <span className="text-3xl font-bold text-blue-600">$99</span>
+              <a href="/templates/ai-customer-support-agent" className="btn-primary">View Details</a>
             </div>
           </div>
           <div className="border-2 border-gray-200 rounded-xl p-6">
