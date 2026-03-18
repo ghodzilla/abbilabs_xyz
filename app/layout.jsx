@@ -1,5 +1,6 @@
 import './globals.css'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 
 export const metadata = {
   title: 'Abbi Labs — AI Agents That Do Real Work',
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
         </nav>
         {children}
         <Analytics />
+        <SpeedInsights />
         <footer className="border-t border-gray-200 mt-12 py-10 text-gray-600 text-sm">
           <div className="max-w-6xl mx-auto px-4">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
