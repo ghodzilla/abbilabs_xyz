@@ -31,7 +31,7 @@ export default function AIPaymentMonitorPage() {
             <div className="text-5xl font-bold text-blue-600">$39</div>
             <div className="text-gray-500 mb-3">one-time · own forever</div>
             <button onClick={() => handleCheckout('ai-payment-monitor')} className="btn-primary block text-center text-lg px-8 py-3 w-full">Buy Now — $39</button>
-            <p className="text-xs text-gray-500 mt-2">30-day money-back guarantee</p>
+            <p className="text-xs text-gray-500 mt-2">30-day guarantee if it doesn't work as described</p>
           </div>
         </div>
       </div>
@@ -99,7 +99,7 @@ export default function AIPaymentMonitorPage() {
             { q: "Do I need a paid Stripe plan?", a: "No. Works with any Stripe account that has live payments enabled." },
             { q: "Can I customise the refund rate threshold?", a: "Yes — it's a single value in config.json. Default is 5%. Change it to whatever makes sense for your business." },
             { q: "Does it work without Slack?", a: "Slack is the primary notification channel. Email support is on the roadmap — contact us if that's a blocker." },
-            { q: "What's the refund policy?", a: "30-day money-back guarantee. Email support@abbilabs.xyz if it doesn't work as described." },
+            { q: "What's the refund policy?", a: "30-day money-back guarantee if it doesn't work as described. Email support@abbilabs.xyz first — we'll fix it or refund you." },
           ].map((item, i) => (
             <details key={i} className="border border-gray-200 rounded-lg p-4">
               <summary className="font-semibold cursor-pointer">{item.q}</summary>
@@ -111,7 +111,7 @@ export default function AIPaymentMonitorPage() {
 
       <section className="bg-blue-50 rounded-xl p-8 text-center">
         <h2 className="text-2xl font-bold mb-2">Stop missing disputes.</h2>
-        <p className="text-gray-600 mb-6">One-time purchase. 5-minute setup. 30-day money-back guarantee.</p>
+        <p className="text-gray-600 mb-6">One-time purchase. 5-minute setup. 30-day guarantee if it doesn't work as described.</p>
         <div className="text-4xl font-bold text-blue-600 mb-4">$39</div>
         <button onClick={() => handleCheckout('ai-payment-monitor')} className="btn-primary text-lg px-12 py-4">Buy Now — $39</button>
       </section>

@@ -130,7 +130,7 @@ export default function SkillPage({ params }) {
         <a href={skill.link} className="btn-primary text-lg">
           Download Free
         </a>
-        <p className="text-gray-600 mt-4">30-day money-back guarantee. No questions asked.</p>
+        <p className="text-gray-600 mt-4">30-day guarantee if it doesn't work as described. Email us first — we'll fix it or refund you.</p>
       </div>
     </main>
   )

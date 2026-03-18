@@ -191,7 +191,7 @@ export default function StripeDisputeMonitorPage() {
         <a href="/templates/ai-payment-monitor" className="inline-block bg-white text-blue-600 font-bold text-lg px-10 py-4 rounded-lg hover:bg-blue-50 transition-colors">
           Get Instant Alerts — $39
         </a>
-        <p className="text-blue-200 text-sm mt-4">30-day money-back guarantee · Instant download · Full source code</p>
+        <p className="text-blue-200 text-sm mt-4">30-day guarantee if it doesn't work as described · Instant download · Full source code</p>
       </section>
 
       {/* FAQ */}
@@ -221,7 +221,7 @@ export default function StripeDisputeMonitorPage() {
             },
             {
               q: "What's the refund policy?",
-              a: '30-day money-back guarantee. If it doesn\'t work as described, email support@abbilabs.xyz for a full refund.',
+              a: '30-day money-back guarantee if it doesn\'t work as described. Email support@abbilabs.xyz first — we\'ll fix it or refund you in full.',
             },
           ].map((item, i) => (
             <details key={i} className="border border-gray-200 rounded-lg p-4">

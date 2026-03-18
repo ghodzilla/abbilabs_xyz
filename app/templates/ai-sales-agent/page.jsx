@@ -32,7 +32,7 @@ export default function AISalesAgentPage() {
             <div className="text-5xl font-bold text-blue-600">$79</div>
             <div className="text-gray-500 mb-3">one-time · own forever</div>
             <button onClick={() => handleCheckout("ai-sales-agent")} className="btn-primary block text-center text-lg px-8 py-3 w-full">Buy Now — $79</button>
-            <p className="text-xs text-gray-500 mt-2">30-day money-back guarantee</p>
+            <p className="text-xs text-gray-500 mt-2">30-day guarantee if it doesn't work as described</p>
           </div>
         </div>
       </div>
@@ -148,7 +148,7 @@ export default function AISalesAgentPage() {
             { q: "Can I customise the lead scoring rules?", a: "Yes. All rules are in config.json — change job title weights, company size, industry, engagement multipliers without touching code." },
             { q: "Does it work with LLMs other than Claude?", a: "Yes. Framework-agnostic — works with GPT-4, Gemini, Llama, or any LLM. You can also run it as a standalone cron job with no LLM." },
             { q: "What if I don't use Google Sheets?", a: "Google Sheets is optional for logging. The lead scoring and Slack alerts work without it." },
-            { q: "What's the refund policy?", a: "30-day money-back guarantee. Email support@abbilabs.xyz if it doesn't work as described." },
+            { q: "What's the refund policy?", a: "30-day money-back guarantee if it doesn't work as described. Email support@abbilabs.xyz first — we'll fix it or refund you." },
           ].map((item, i) => (
             <details key={i} className="border border-gray-200 rounded-lg p-4">
               <summary className="font-semibold cursor-pointer">{item.q}</summary>
@@ -161,7 +161,7 @@ export default function AISalesAgentPage() {
       {/* CTA */}
       <section className="bg-blue-50 rounded-xl p-8 text-center">
         <h2 className="text-2xl font-bold mb-2">Ready to automate your sales pipeline?</h2>
-        <p className="text-gray-600 mb-6">One-time purchase. Own it forever. 30-day money-back guarantee.</p>
+        <p className="text-gray-600 mb-6">One-time purchase. Own it forever. 30-day guarantee if it doesn't work as described.</p>
         <div className="text-4xl font-bold text-blue-600 mb-4">$79</div>
         <button onClick={() => handleCheckout("ai-sales-agent")} className="btn-primary text-lg px-12 py-4">Buy Now — $79</button>
         <p className="text-gray-500 text-sm mt-4">Instant download · Full source code included</p>

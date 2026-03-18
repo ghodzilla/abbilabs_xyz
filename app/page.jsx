@@ -171,7 +171,7 @@ export default function Home() {
           </details>
           <details className="border border-gray-200 rounded-lg p-5">
             <summary className="font-bold cursor-pointer text-lg">What&apos;s the refund policy?</summary>
-            <p className="mt-3 text-gray-700">30-day money-back guarantee. If the template doesn&apos;t work as described, email support@abbilabs.xyz and we&apos;ll refund you in full — no questions asked.</p>
+            <p className="mt-3 text-gray-700">30-day money-back guarantee if it doesn&apos;t work as described. Email support@abbilabs.xyz first — we&apos;ll work to fix it. If we can&apos;t resolve it, we&apos;ll refund you in full.</p>
           </details>
           <details className="border border-gray-200 rounded-lg p-5">
             <summary className="font-bold cursor-pointer text-lg">Can I use these for my clients?</summary>

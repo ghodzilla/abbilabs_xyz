@@ -59,7 +59,7 @@ const faqs = [
       },
       {
         q: "What's the refund policy?",
-        a: "30-day money-back guarantee. If a template doesn't work as described, email support@abbilabs.xyz and we'll refund you in full — no questions asked."
+        a: "30-day money-back guarantee if it doesn't work as described. Email support@abbilabs.xyz first — we'll fix it or refund you in full."
       },
       {
         q: "Can I use the templates for client projects?",

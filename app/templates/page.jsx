@@ -110,7 +110,7 @@ export default function TemplatesPage() {
                 <div className="text-4xl font-bold text-blue-600">${t.price}</div>
                 <div className="text-gray-500 text-sm mb-3">one-time</div>
                 <button onClick={() => handleCheckout(t.slug)} className="btn-primary block text-center w-full">Buy Now — ${t.price}</button>
-                <p className="text-xs text-gray-500 mt-2">30-day money-back guarantee</p>
+                <p className="text-xs text-gray-500 mt-2">30-day guarantee if it doesn't work as described</p>
               </div>
             </div>
 

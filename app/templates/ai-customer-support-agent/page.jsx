@@ -33,7 +33,7 @@ export default function AICustomerSupportAgentPage() {
             <div className="text-5xl font-bold text-blue-600">$99</div>
             <div className="text-gray-500 mb-3">one-time · own forever</div>
             <button onClick={() => handleCheckout("ai-customer-support-agent")} className="btn-primary block text-center text-lg px-8 py-3 w-full">Buy Now — $99</button>
-            <p className="text-xs text-gray-500 mt-2">30-day money-back guarantee</p>
+            <p className="text-xs text-gray-500 mt-2">30-day guarantee if it doesn't work as described</p>
           </div>
         </div>
       </div>
@@ -281,7 +281,7 @@ export default function AICustomerSupportAgentPage() {
             { q: "What if it gets a question wrong?", a: "The confidence threshold (default 70%) prevents uncertain responses. Low confidence = auto-escalate to human. The agent never guesses." },
             { q: "Does it handle non-English tickets?", a: "Yes. It auto-detects the customer's language and responds in kind. Tested with Spanish, French, German, and more." },
             { q: "Can it detect social engineering?", a: "Yes. Requests to access other accounts, reset passwords for others, or share credentials are auto-escalated as security incidents." },
-            { q: "What's the refund policy?", a: "30-day money-back guarantee. Email support@abbilabs.xyz if it doesn't work as described." },
+            { q: "What's the refund policy?", a: "30-day money-back guarantee if it doesn't work as described. Email support@abbilabs.xyz first — we'll fix it or refund you." },
           ].map((item, i) => (
             <details key={i} className="border border-gray-200 rounded-lg p-4">
               <summary className="font-semibold cursor-pointer">{item.q}</summary>
@@ -294,7 +294,7 @@ export default function AICustomerSupportAgentPage() {
       {/* CTA */}
       <section className="bg-blue-50 rounded-xl p-8 text-center">
         <h2 className="text-2xl font-bold mb-2">Stop answering the same questions manually</h2>
-        <p className="text-gray-600 mb-6">One-time purchase. Own it forever. 30-day money-back guarantee.</p>
+        <p className="text-gray-600 mb-6">One-time purchase. Own it forever. 30-day guarantee if it doesn't work as described.</p>
         <div className="text-4xl font-bold text-blue-600 mb-4">$99</div>
         <button onClick={() => handleCheckout("ai-customer-support-agent")} className="btn-primary text-lg px-12 py-4">Buy Now — $99</button>
         <p className="text-gray-500 text-sm mt-4">Instant download · Full source code · 28 files · 3,000+ lines</p>
