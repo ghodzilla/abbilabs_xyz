@@ -7,6 +7,10 @@ const PRODUCTS = {
     priceId: 'price_1TC3FMDzmCNTEBpx04UUbvm2',
     name: 'AI Payment Monitor Template',
   },
+  'ai-customer-support-agent': {
+    priceId: 'price_1TCPTEDzmCNTEBpxjDWUl16G',
+    name: 'AI Customer Support Agent Template',
+  },
 };
 
 export async function POST(request) {
