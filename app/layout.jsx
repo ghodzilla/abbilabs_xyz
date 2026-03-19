@@ -64,6 +64,7 @@ export default function RootLayout({ children }) {
               <div>
                 <div className="font-semibold text-gray-900 mb-3">Products</div>
                 <div className="space-y-2">
+                  <a href="/templates/ai-ceo-blueprint" className="block hover:underline">AI CEO Blueprint Kit</a>
                   <a href="/templates/ai-sales-agent" className="block hover:underline">AI Sales Agent</a>
                   <a href="/templates/ai-customer-support-agent" className="block hover:underline">AI Customer Support Agent</a>
                   <a href="/templates/ai-payment-monitor" className="block hover:underline">AI Payment Monitor</a>
