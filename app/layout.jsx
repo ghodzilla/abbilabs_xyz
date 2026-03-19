@@ -65,8 +65,17 @@ export default function RootLayout({ children }) {
                 <div className="font-semibold text-gray-900 mb-3">Products</div>
                 <div className="space-y-2">
                   <a href="/templates/ai-sales-agent" className="block hover:underline">AI Sales Agent</a>
+                  <a href="/templates/ai-customer-support-agent" className="block hover:underline">AI Customer Support Agent</a>
                   <a href="/templates/ai-payment-monitor" className="block hover:underline">AI Payment Monitor</a>
                   <a href="/skills" className="block hover:underline">Free Skills</a>
+                </div>
+              </div>
+              <div>
+                <div className="font-semibold text-gray-900 mb-3">Solutions</div>
+                <div className="space-y-2">
+                  <a href="/hubspot-pipeline-automation" className="block hover:underline">HubSpot Automation</a>
+                  <a href="/stripe-dispute-monitor" className="block hover:underline">Stripe Dispute Monitor</a>
+                  <a href="/ai-customer-support-automation" className="block hover:underline">Support Automation</a>
                 </div>
               </div>
               <div>
