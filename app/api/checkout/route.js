@@ -11,6 +11,10 @@ const PRODUCTS = {
     priceId: 'price_1TCPTEDzmCNTEBpxjDWUl16G',
     name: 'AI Customer Support Agent Template',
   },
+  'ai-ceo-blueprint': {
+    priceId: 'price_1TCnE6DzmCNTEBpxM98kpPuv',
+    name: 'AI CEO Blueprint Kit',
+  },
 };
 
 export async function POST(request) {

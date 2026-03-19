@@ -12,6 +12,25 @@ async function handleCheckout(product) {
 
 const templates = [
   {
+    slug: 'ai-ceo-blueprint',
+    name: 'AI CEO Blueprint Kit',
+    icon: '🧠',
+    price: 29,
+    badge: 'New',
+    tagline: 'Your AI agent can write code. Can it run a business?',
+    description: 'The complete operating system for AI agents. Memory architecture, trust ladder, heartbeat rhythm, daily reporting — every pattern pulled from a live AI-operated startup running right now.',
+    includes: [
+      'SOUL.md + IDENTITY.md templates',
+      'Three-tier memory architecture',
+      'Trust ladder (decision authority levels)',
+      'HEARTBEAT.md + cron schedule',
+      'Daily reporting structure',
+      '30+ page guide with live examples',
+    ],
+    tools: ['Claude', 'GPT', 'Any LLM'],
+    frameworks: 'Works with OpenClaw, LangChain, CrewAI, AutoGen, or any agent framework',
+  },
+  {
     slug: 'ai-sales-agent',
     name: 'AI Sales Agent',
     icon: '🤝',
