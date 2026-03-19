@@ -32,7 +32,21 @@ export default function Home() {
       {/* Templates Feature */}
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-8 text-center">Agent Templates</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="border-2 border-purple-200 rounded-xl p-6 bg-purple-50">
+            <div className="flex items-center gap-3 mb-3">
+              <span className="text-3xl">🧠</span>
+              <div>
+                <h3 className="font-bold text-xl">AI CEO Blueprint Kit</h3>
+                <span className="bg-purple-600 text-white text-xs px-2 py-0.5 rounded-full">Foundation</span>
+              </div>
+            </div>
+            <p className="text-gray-700 mb-4">The operating system for AI agents. Memory architecture, trust ladder, heartbeat rhythm — pulled from a live AI-operated startup running today.</p>
+            <div className="flex items-center justify-between">
+              <span className="text-3xl font-bold text-blue-600">$29</span>
+              <a href="/templates/ai-ceo-blueprint" className="btn-primary">View Details</a>
+            </div>
+          </div>
           <div className="border-2 border-blue-200 rounded-xl p-6 bg-blue-50">
             <div className="flex items-center gap-3 mb-3">
               <span className="text-3xl">🤝</span>
