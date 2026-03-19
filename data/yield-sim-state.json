@@ -1,0 +1,438 @@
+{
+  "startedAt": "2026-03-19T09:35:56.715Z",
+  "lastUpdatedAt": "2026-03-19T10:15:11.242Z",
+  "capital": 5000,
+  "strategyA": {
+    "name": "Max APY",
+    "positions": [
+      {
+        "chain": "Base",
+        "project": "pancakeswap-amm-v3",
+        "symbol": "USDC-CBBTC",
+        "tvlUsd": 2610718,
+        "apyBase": 59.82857,
+        "apyReward": null,
+        "apy": 59.82857,
+        "rewardTokens": null,
+        "pool": "156f81c0-0d71-4c06-b24d-5b851d63ff93",
+        "apyPct1D": 22.40213,
+        "apyPct7D": -3.63444,
+        "apyPct30D": 26.84115,
+        "stablecoin": false,
+        "ilRisk": "yes",
+        "exposure": "multi",
+        "predictions": {
+          "predictedClass": "Stable/Up",
+          "predictedProbability": 69,
+          "binnedConfidence": 2
+        },
+        "poolMeta": "0.01%",
+        "mu": 144.51394,
+        "sigma": 3.10009,
+        "count": 344,
+        "outlier": true,
+        "underlyingTokens": [
+          "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf"
+        ],
+        "il7d": null,
+        "apyBase7d": null,
+        "apyMean30d": 50.75071,
+        "volumeUsd1d": 42793297.49468,
+        "volumeUsd7d": 276327948.82989,
+        "apyBaseInception": null,
+        "type": "lp",
+        "weight": 0.2
+      },
+      {
+        "chain": "Base",
+        "project": "beefy",
+        "symbol": "CBBTC-USDC",
+        "tvlUsd": 1125310,
+        "apyBase": null,
+        "apyReward": null,
+        "apy": 58.19722,
+        "rewardTokens": null,
+        "pool": "e2c4bdd8-669e-4de8-895b-c57aea659ebe",
+        "apyPct1D": 31.64395,
+        "apyPct7D": -20.85332,
+        "apyPct30D": -23.6351,
+        "stablecoin": false,
+        "ilRisk": "yes",
+        "exposure": "multi",
+        "predictions": {
+          "predictedClass": "Down",
+          "predictedProbability": 86,
+          "binnedConfidence": 3
+        },
+        "poolMeta": "Uniswap",
+        "mu": 76.2916,
+        "sigma": 2.7351,
+        "count": 469,
+        "outlier": true,
+        "underlyingTokens": [
+          "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf",
+          "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        ],
+        "il7d": null,
+        "apyBase7d": null,
+        "apyMean30d": 106.70081,
+        "volumeUsd1d": null,
+        "volumeUsd7d": null,
+        "apyBaseInception": null,
+        "type": "lp",
+        "weight": 0.2
+      },
+      {
+        "chain": "Base",
+        "project": "aerodrome-slipstream",
+        "symbol": "EURC-USDC",
+        "tvlUsd": 1862078,
+        "apyBase": 42.40862,
+        "apyReward": 10.99957,
+        "apy": 53.40819,
+        "rewardTokens": [
+          "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
+        ],
+        "pool": "847c874f-d4e7-47ed-8870-97d2f24a8767",
+        "apyPct1D": 28.76442,
+        "apyPct7D": 5.39241,
+        "apyPct30D": 36.46752,
+        "stablecoin": true,
+        "ilRisk": "yes",
+        "exposure": "multi",
+        "predictions": {
+          "predictedClass": "Down",
+          "predictedProbability": 78,
+          "binnedConfidence": 3
+        },
+        "poolMeta": "CL50 - 0.0088%",
+        "mu": 27.37815,
+        "sigma": 0.69282,
+        "count": 246,
+        "outlier": false,
+        "underlyingTokens": [
+          "0x60a3E35Cc302bFA44Cb288Bc5a4F316Fdb1adb42",
+          "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
+        ],
+        "il7d": null,
+        "apyBase7d": 18.82898,
+        "apyMean30d": 26.99494,
+        "volumeUsd1d": 6120462.48897,
+        "volumeUsd7d": 19074207.15049,
+        "apyBaseInception": null,
+        "type": "lp",
+        "weight": 0.2
+      },
+      {
+        "chain": "Base",
+        "project": "uniswap-v3",
+        "symbol": "WETH-CBBTC",
+        "tvlUsd": 9615973,
+        "apyBase": 51.36845,
+        "apyReward": null,
+        "apy": 51.36845,
+        "rewardTokens": null,
+        "pool": "ae6e650d-2da1-43ee-b960-2adfdf4dc2b7",
+        "apyPct1D": 29.24784,
+        "apyPct7D": null,
+        "apyPct30D": null,
+        "stablecoin": false,
+        "ilRisk": "yes",
+        "exposure": "multi",
+        "predictions": {
+          "predictedClass": "Down",
+          "predictedProbability": 88,
+          "binnedConfidence": 3
+        },
+        "poolMeta": "0.3%",
+        "mu": 34.48433,
+        "sigma": 1.16494,
+        "count": 439,
+        "outlier": false,
+        "underlyingTokens": [
+          "0x4200000000000000000000000000000000000006",
+          "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf"
+        ],
+        "il7d": null,
+        "apyBase7d": null,
+        "apyMean30d": 33.20435,
+        "volumeUsd1d": 4511028.31639,
+        "volumeUsd7d": 23234281.46035,
+        "apyBaseInception": null,
+        "type": "lp",
+        "weight": 0.2
+      },
+      {
+        "chain": "Base",
+        "project": "uniswap-v3",
+        "symbol": "USDC-CBBTC",
+        "tvlUsd": 2823819,
+        "apyBase": 45.18312,
+        "apyReward": null,
+        "apy": 45.18312,
+        "rewardTokens": null,
+        "pool": "5f229682-5d41-4330-9b50-9bf2d2f1af79",
+        "apyPct1D": 12.13052,
+        "apyPct7D": null,
+        "apyPct30D": null,
+        "stablecoin": false,
+        "ilRisk": "yes",
+        "exposure": "multi",
+        "predictions": {
+          "predictedClass": "Down",
+          "predictedProbability": 85,
+          "binnedConfidence": 3
+        },
+        "poolMeta": "0.3%",
+        "mu": 26.69766,
+        "sigma": 1.22309,
+        "count": 400,
+        "outlier": false,
+        "underlyingTokens": [
+          "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf"
+        ],
+        "il7d": null,
+        "apyBase7d": null,
+        "apyMean30d": 46.8002,
+        "volumeUsd1d": 1165195.73009,
+        "volumeUsd7d": 7056773.94297,
+        "apyBaseInception": null,
+        "type": "lp",
+        "weight": 0.2
+      }
+    ],
+    "virtualBalance": 2500.100041097965,
+    "totalEarned": 0.10004109796500033,
+    "snapshots": [
+      {
+        "ts": "2026-03-19T09:35:56.715Z",
+        "balance": 2500
+      },
+      {
+        "ts": "2026-03-19T10:15:11.242Z",
+        "balance": 2500.100041097965
+      }
+    ]
+  },
+  "strategyB": {
+    "name": "Risk-Adjusted",
+    "positions": [
+      {
+        "chain": "Solana",
+        "project": "jupiter-lend",
+        "symbol": "USDS",
+        "tvlUsd": 28295843,
+        "apyBase": 2.15278,
+        "apyReward": 2.95263,
+        "apy": 5.10542,
+        "rewardTokens": [
+          "USDSwr9ApdHk5bvJKMjzff41FfuX8bSxdKcR81vTwcA"
+        ],
+        "pool": "0d01dc1f-7c3e-46e2-af40-6ec4454c93f0",
+        "apyPct1D": -0.01014,
+        "apyPct7D": 0.2152,
+        "apyPct30D": null,
+        "stablecoin": true,
+        "ilRisk": "no",
+        "exposure": "single",
+        "predictions": {
+          "predictedClass": "Stable/Up",
+          "predictedProbability": 56.99999999999999,
+          "binnedConfidence": 1
+        },
+        "poolMeta": "Earn",
+        "mu": 4.9261,
+        "sigma": 0.01201,
+        "count": 21,
+        "outlier": false,
+        "underlyingTokens": [
+          "USDSwr9ApdHk5bvJKMjzff41FfuX8bSxdKcR81vTwcA"
+        ],
+        "il7d": null,
+        "apyBase7d": null,
+        "apyMean30d": 4.90332,
+        "volumeUsd1d": null,
+        "volumeUsd7d": null,
+        "apyBaseInception": null,
+        "type": "lending",
+        "weight": 0.2
+      },
+      {
+        "chain": "Ethereum",
+        "project": "fluid-lending",
+        "symbol": "USDT",
+        "tvlUsd": 138737159,
+        "apyBase": 2.66,
+        "apyReward": 2,
+        "apy": 4.66,
+        "rewardTokens": [
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7",
+          "0x6f40d4a6237c257fff2db00fa0510deeecd303eb"
+        ],
+        "pool": "4e8cc592-c8d5-4824-8155-128ba521e903",
+        "apyPct1D": 0.08,
+        "apyPct7D": 0.74,
+        "apyPct30D": 1.11,
+        "stablecoin": true,
+        "ilRisk": "no",
+        "exposure": "single",
+        "predictions": {
+          "predictedClass": "Stable/Up",
+          "predictedProbability": 72,
+          "binnedConfidence": 2
+        },
+        "poolMeta": null,
+        "mu": 8.22374,
+        "sigma": 0.18872,
+        "count": 658,
+        "outlier": false,
+        "underlyingTokens": [
+          "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+        ],
+        "il7d": null,
+        "apyBase7d": null,
+        "apyMean30d": 3.92914,
+        "volumeUsd1d": null,
+        "volumeUsd7d": null,
+        "apyBaseInception": null,
+        "type": "lending",
+        "weight": 0.2
+      },
+      {
+        "chain": "Solana",
+        "project": "jito-liquid-staking",
+        "symbol": "JITOSOL",
+        "tvlUsd": 1136768692,
+        "apyBase": 5.69,
+        "apyReward": null,
+        "apy": 5.69,
+        "rewardTokens": null,
+        "pool": "0e7d0722-9054-4907-8593-567b353c0900",
+        "apyPct1D": -0.09,
+        "apyPct7D": -0.24,
+        "apyPct30D": -0.39,
+        "stablecoin": false,
+        "ilRisk": "no",
+        "exposure": "single",
+        "predictions": {
+          "predictedClass": "Stable/Up",
+          "predictedProbability": 54,
+          "binnedConfidence": 1
+        },
+        "poolMeta": null,
+        "mu": 6.72288,
+        "sigma": 0.04696,
+        "count": 359,
+        "outlier": false,
+        "underlyingTokens": [
+          "J1toso1uCk3RLmjorhTtrVwY9HJ7X8V9yYac6Y7kGCPn"
+        ],
+        "il7d": null,
+        "apyBase7d": null,
+        "apyMean30d": 5.85189,
+        "volumeUsd1d": null,
+        "volumeUsd7d": null,
+        "apyBaseInception": null,
+        "type": "lp",
+        "score": 0.43806249999999997,
+        "weight": 0.2
+      },
+      {
+        "chain": "Base",
+        "project": "uniswap-v3",
+        "symbol": "WETH-CBBTC",
+        "tvlUsd": 9615973,
+        "apyBase": 51.36845,
+        "apyReward": null,
+        "apy": 51.36845,
+        "rewardTokens": null,
+        "pool": "ae6e650d-2da1-43ee-b960-2adfdf4dc2b7",
+        "apyPct1D": 29.24784,
+        "apyPct7D": null,
+        "apyPct30D": null,
+        "stablecoin": false,
+        "ilRisk": "yes",
+        "exposure": "multi",
+        "predictions": {
+          "predictedClass": "Down",
+          "predictedProbability": 88,
+          "binnedConfidence": 3
+        },
+        "poolMeta": "0.3%",
+        "mu": 34.48433,
+        "sigma": 1.16494,
+        "count": 439,
+        "outlier": false,
+        "underlyingTokens": [
+          "0x4200000000000000000000000000000000000006",
+          "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf"
+        ],
+        "il7d": null,
+        "apyBase7d": null,
+        "apyMean30d": 33.20435,
+        "volumeUsd1d": 4511028.31639,
+        "volumeUsd7d": 23234281.46035,
+        "apyBaseInception": null,
+        "type": "lp",
+        "score": 0.43573535661087714,
+        "weight": 0.2
+      },
+      {
+        "chain": "Base",
+        "project": "pancakeswap-amm-v3",
+        "symbol": "USDC-CBBTC",
+        "tvlUsd": 2610718,
+        "apyBase": 59.82857,
+        "apyReward": null,
+        "apy": 59.82857,
+        "rewardTokens": null,
+        "pool": "156f81c0-0d71-4c06-b24d-5b851d63ff93",
+        "apyPct1D": 22.40213,
+        "apyPct7D": -3.63444,
+        "apyPct30D": 26.84115,
+        "stablecoin": false,
+        "ilRisk": "yes",
+        "exposure": "multi",
+        "predictions": {
+          "predictedClass": "Stable/Up",
+          "predictedProbability": 69,
+          "binnedConfidence": 2
+        },
+        "poolMeta": "0.01%",
+        "mu": 144.51394,
+        "sigma": 3.10009,
+        "count": 344,
+        "outlier": true,
+        "underlyingTokens": [
+          "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+          "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf"
+        ],
+        "il7d": null,
+        "apyBase7d": null,
+        "apyMean30d": 50.75071,
+        "volumeUsd1d": 42793297.49468,
+        "volumeUsd7d": 276327948.82989,
+        "apyBaseInception": null,
+        "type": "lp",
+        "score": 0.4225505582404655,
+        "weight": 0.2
+      }
+    ],
+    "virtualBalance": 2500.0472803446214,
+    "totalEarned": 0.047280344621366065,
+    "snapshots": [
+      {
+        "ts": "2026-03-19T09:35:56.715Z",
+        "balance": 2500
+      },
+      {
+        "ts": "2026-03-19T10:15:11.242Z",
+        "balance": 2500.0472803446214
+      }
+    ]
+  },
+  "cycles": 2,
+  "history": []
+}
