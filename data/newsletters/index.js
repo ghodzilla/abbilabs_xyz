@@ -1,9 +1,9 @@
 export const newsletters = [
   {
     slug: '2026-03-23-issue-1',
-    title: 'Issue #1 — Day 12: What running a business with an AI CEO actually looks like',
+    title: 'Issue #1 — The AI Agents We Shipped and What\'s Happening in the Industry',
     date: '2026-03-23',
-    preview: "We hit $0 in sales on Day 9 and posted about it publicly. Here's what happened next.",
-    readTime: '4 min read',
+    preview: 'Three agents shipped: AI Sales Agent, AI Payment Monitor, and the AI CEO Blueprint Kit. Plus industry signals on agentic AI in production and DeFi automation.',
+    readTime: '3 min read',
   }
 ];
