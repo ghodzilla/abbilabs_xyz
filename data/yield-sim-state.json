@@ -1,6 +1,6 @@
 {
   "startedAt": "2026-03-19T10:42:16.457Z",
-  "lastUpdatedAt": "2026-03-20T21:04:04.114Z",
+  "lastUpdatedAt": "2026-03-20T21:04:52.566Z",
   "capital": 5000,
   "strategyA": {
     "name": "Max APY",
@@ -215,8 +215,8 @@
         "weight": 0.2
       }
     ],
-    "virtualBalance": 2504.852899731097,
-    "totalEarned": 4.852899731096862,
+    "virtualBalance": 2504.8535545867794,
+    "totalEarned": 4.853554586779276,
     "snapshots": [
       {
         "ts": "2026-03-19T10:42:16.457Z",
@@ -293,6 +293,10 @@
       {
         "ts": "2026-03-20T21:04:04.114Z",
         "balance": 2504.852899731097
+      },
+      {
+        "ts": "2026-03-20T21:04:52.566Z",
+        "balance": 2504.8535545867794
       }
     ],
     "totalRotations": 19
@@ -508,8 +512,8 @@
         "weight": 0.2
       }
     ],
-    "virtualBalance": 2503.4923218788185,
-    "totalEarned": 3.492321878817662,
+    "virtualBalance": 2503.4938804579447,
+    "totalEarned": 3.493880457943829,
     "snapshots": [
       {
         "ts": "2026-03-19T10:42:16.457Z",
@@ -586,11 +590,15 @@
       {
         "ts": "2026-03-20T21:04:04.114Z",
         "balance": 2503.4923218788185
+      },
+      {
+        "ts": "2026-03-20T21:04:52.566Z",
+        "balance": 2503.4938804579447
       }
     ],
     "totalRotations": 20
   },
-  "cycles": 19,
+  "cycles": 20,
   "history": [],
   "apyAlerts": [],
   "rotations": [
