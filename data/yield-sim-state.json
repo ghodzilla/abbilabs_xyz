@@ -1,6 +1,6 @@
 {
   "startedAt": "2026-03-19T10:42:16.457Z",
-  "lastUpdatedAt": "2026-03-20T09:04:00.331Z",
+  "lastUpdatedAt": "2026-03-20T09:21:39.823Z",
   "capital": 5000,
   "strategyA": {
     "name": "Max APY",
@@ -122,6 +122,8 @@
         "volumeUsd7d": 909916371.50158,
         "apyBaseInception": null,
         "type": "lp",
+        "entryDate": "2026-03-20T09:21:39.823Z",
+        "entryApy": 65.99823,
         "weight": 0.2
       },
       {
@@ -161,6 +163,8 @@
         "volumeUsd7d": null,
         "apyBaseInception": null,
         "type": "lp",
+        "entryDate": "2026-03-20T09:21:39.823Z",
+        "entryApy": 65.11473,
         "weight": 0.2
       },
       {
@@ -200,11 +204,13 @@
         "volumeUsd7d": 481594269.86266,
         "apyBaseInception": null,
         "type": "lp",
+        "entryDate": "2026-03-20T09:21:39.823Z",
+        "entryApy": 58.26326,
         "weight": 0.2
       }
     ],
-    "virtualBalance": 2504.172311624198,
-    "totalEarned": 4.172311624198495,
+    "virtualBalance": 2504.194629668971,
+    "totalEarned": 4.194629668971611,
     "snapshots": [
       {
         "ts": "2026-03-19T10:42:16.457Z",
@@ -237,8 +243,13 @@
       {
         "ts": "2026-03-20T09:04:00.331Z",
         "balance": 2504.172311624198
+      },
+      {
+        "ts": "2026-03-20T09:21:39.823Z",
+        "balance": 2504.194629668971
       }
-    ]
+    ],
+    "totalRotations": 3
   },
   "strategyB": {
     "name": "Risk-Adjusted",
@@ -362,6 +373,8 @@
         "apyBaseInception": null,
         "type": "lp",
         "score": 0.5839547980974359,
+        "entryDate": "2026-03-20T09:21:39.823Z",
+        "entryApy": 65.99823,
         "weight": 0.2
       },
       {
@@ -404,6 +417,8 @@
         "apyBaseInception": null,
         "type": "lp",
         "score": 0.5501274742745385,
+        "entryDate": "2026-03-20T09:21:39.823Z",
+        "entryApy": 66.31203,
         "weight": 0.2
       },
       {
@@ -444,11 +459,13 @@
         "apyBaseInception": null,
         "type": "lp",
         "score": 0.5078404270189486,
+        "entryDate": "2026-03-20T09:21:39.823Z",
+        "entryApy": 44.46297,
         "weight": 0.2
       }
     ],
-    "virtualBalance": 2502.5016630735768,
-    "totalEarned": 2.5016630735767267,
+    "virtualBalance": 2502.50324804821,
+    "totalEarned": 2.503248048209946,
     "snapshots": [
       {
         "ts": "2026-03-19T10:42:16.457Z",
@@ -481,10 +498,89 @@
       {
         "ts": "2026-03-20T09:04:00.331Z",
         "balance": 2502.5016630735768
+      },
+      {
+        "ts": "2026-03-20T09:21:39.823Z",
+        "balance": 2502.50324804821
       }
-    ]
+    ],
+    "totalRotations": 3
   },
-  "cycles": 8,
+  "cycles": 9,
   "history": [],
-  "apyAlerts": []
+  "apyAlerts": [],
+  "rotations": [
+    {
+      "strategy": "A",
+      "symbol": "SOL-USDC",
+      "chain": "Solana",
+      "project": "orca-dex",
+      "entryDate": "2026-03-19T10:42:16.457Z",
+      "exitDate": "2026-03-20T09:21:39.823Z",
+      "exitReason": "correlation_breach",
+      "entryApy": 65.99823,
+      "exitCorr": -0.2965,
+      "earned": 0.8535
+    },
+    {
+      "strategy": "A",
+      "symbol": "ETH-USDC",
+      "chain": "Base",
+      "project": "uniswap-v4",
+      "entryDate": "2026-03-19T10:42:16.457Z",
+      "exitDate": "2026-03-20T09:21:39.823Z",
+      "exitReason": "correlation_breach",
+      "entryApy": 65.11473,
+      "exitCorr": -0.3504,
+      "earned": 0.842
+    },
+    {
+      "strategy": "A",
+      "symbol": "WETH-USDC",
+      "chain": "Base",
+      "project": "pancakeswap-amm-v3",
+      "entryDate": "2026-03-19T10:42:16.457Z",
+      "exitDate": "2026-03-20T09:21:39.823Z",
+      "exitReason": "correlation_breach",
+      "entryApy": 58.26326,
+      "exitCorr": -0.4043,
+      "earned": 0.7534
+    },
+    {
+      "strategy": "B",
+      "symbol": "SOL-USDC",
+      "chain": "Solana",
+      "project": "orca-dex",
+      "entryDate": "2026-03-19T10:42:16.457Z",
+      "exitDate": "2026-03-20T09:21:39.823Z",
+      "exitReason": "correlation_breach",
+      "entryApy": 65.99823,
+      "exitCorr": -0.2965,
+      "earned": 0.8535
+    },
+    {
+      "strategy": "B",
+      "symbol": "WETH-USDC",
+      "chain": "Base",
+      "project": "aerodrome-slipstream",
+      "entryDate": "2026-03-19T10:42:16.457Z",
+      "exitDate": "2026-03-20T09:21:39.823Z",
+      "exitReason": "correlation_breach",
+      "entryApy": 66.31203,
+      "exitCorr": -0.4043,
+      "earned": 0.8575
+    },
+    {
+      "strategy": "B",
+      "symbol": "USDC-WETH",
+      "chain": "Ethereum",
+      "project": "uniswap-v3",
+      "entryDate": "2026-03-19T10:42:16.457Z",
+      "exitDate": "2026-03-20T09:21:39.823Z",
+      "exitReason": "correlation_breach",
+      "entryApy": 44.46297,
+      "exitCorr": -0.4043,
+      "earned": 0.575
+    }
+  ]
 }
