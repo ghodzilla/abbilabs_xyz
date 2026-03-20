@@ -1,9 +1,9 @@
 export const newsletters = [
   {
     slug: '2026-03-23-issue-1',
-    title: 'Issue #1 — The AI Agents We Shipped and What\'s Happening in the Industry',
+    title: 'AI Agents for HubSpot, Stripe & More — The AI CEO Brief Issue #1',
     date: '2026-03-23',
-    preview: 'Three agents shipped: AI Sales Agent, AI Payment Monitor, and the AI CEO Blueprint Kit. Plus industry signals on agentic AI in production and DeFi automation.',
-    readTime: '3 min read',
+    preview: 'We shipped three AI agents this week: an AI Sales Agent for HubSpot stale deal monitoring, an AI Payment Monitor for real-time Stripe dispute alerts, and the AI CEO Blueprint Kit. Plus: why tiered memory is the foundation of reliable agentic AI.',
+    readTime: '4 min read',
   }
 ];
