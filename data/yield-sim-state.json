@@ -1,6 +1,6 @@
 {
   "startedAt": "2026-03-19T10:42:16.457Z",
-  "lastUpdatedAt": "2026-03-20T09:22:12.979Z",
+  "lastUpdatedAt": "2026-03-20T09:31:25.989Z",
   "capital": 5000,
   "strategyA": {
     "name": "Max APY",
@@ -12,7 +12,7 @@
         "tvlUsd": 2115014,
         "apyBase": 66.54822,
         "apyReward": null,
-        "apy": 66.54822,
+        "apy": 68.85341,
         "rewardTokens": null,
         "pool": "42146a39-080e-4af1-8318-ad857f68b565",
         "apyPct1D": -4.25337,
@@ -47,56 +47,13 @@
         "weight": 0.2
       },
       {
-        "chain": "Base",
-        "project": "aerodrome-slipstream",
-        "symbol": "WETH-USDC",
-        "tvlUsd": 14552854,
-        "apyBase": 13.36629,
-        "apyReward": 52.94573,
-        "apy": 66.31203,
-        "rewardTokens": [
-          "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
-        ],
-        "pool": "10137e20-efbc-4e15-a733-17ecb52c48e8",
-        "apyPct1D": 38.06379,
-        "apyPct7D": -56.30507,
-        "apyPct30D": 30.9856,
-        "stablecoin": false,
-        "ilRisk": "yes",
-        "exposure": "multi",
-        "predictions": {
-          "predictedClass": "Down",
-          "predictedProbability": 96,
-          "binnedConfidence": 3
-        },
-        "poolMeta": "CL100 - 0.0592%",
-        "mu": 82.52996,
-        "sigma": 1.95622,
-        "count": 247,
-        "outlier": true,
-        "underlyingTokens": [
-          "0x4200000000000000000000000000000000000006",
-          "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
-        ],
-        "il7d": null,
-        "apyBase7d": 14.70008,
-        "apyMean30d": 55.31689,
-        "volumeUsd1d": 57602110.78683,
-        "volumeUsd7d": 444668687.12595,
-        "apyBaseInception": null,
-        "type": "lp",
-        "entryDate": "2026-03-20T09:22:12.979Z",
-        "entryApy": 66.31203,
-        "weight": 0.2
-      },
-      {
         "chain": "Solana",
         "project": "orca-dex",
         "symbol": "SOL-USDC",
         "tvlUsd": 29492214,
         "apyBase": 65.99823,
         "apyReward": 0,
-        "apy": 65.99823,
+        "apy": 66.0544,
         "rewardTokens": null,
         "pool": "a5c85bc8-eb41-45c0-a520-d18d7529c0d8",
         "apyPct1D": -12.42081,
@@ -137,7 +94,7 @@
         "tvlUsd": 1646522,
         "apyBase": 65.11473,
         "apyReward": null,
-        "apy": 65.11473,
+        "apy": 69.10344,
         "rewardTokens": null,
         "pool": "642f316f-f3bf-414b-9536-122c688831e0",
         "apyPct1D": -20.16479,
@@ -178,7 +135,7 @@
         "tvlUsd": 4744361,
         "apyBase": 58.26326,
         "apyReward": null,
-        "apy": 58.26326,
+        "apy": 61.12232,
         "rewardTokens": null,
         "pool": "f6bf9f50-2c82-4dcc-a603-11f9785d88c0",
         "apyPct1D": -4.20106,
@@ -211,10 +168,51 @@
         "entryDate": "2026-03-20T09:22:12.979Z",
         "entryApy": 58.26326,
         "weight": 0.2
+      },
+      {
+        "chain": "Arbitrum",
+        "project": "beefy",
+        "symbol": "WBTC-USDC",
+        "tvlUsd": 1133263,
+        "apyBase": null,
+        "apyReward": null,
+        "apy": 50.58258,
+        "rewardTokens": null,
+        "pool": "016d7542-9b1a-4d58-bfe4-c9d81d1f5629",
+        "apyPct1D": -12.41397,
+        "apyPct7D": -29.84419,
+        "apyPct30D": -89.35029,
+        "stablecoin": false,
+        "ilRisk": "yes",
+        "exposure": "multi",
+        "predictions": {
+          "predictedClass": "Down",
+          "predictedProbability": 61,
+          "binnedConfidence": 2
+        },
+        "poolMeta": "Uniswap",
+        "mu": 66.66195,
+        "sigma": 2.36874,
+        "count": 627,
+        "outlier": true,
+        "underlyingTokens": [
+          "0x2f2a2543B76A4166549F7aaB2e75Bef0aefC5B0f",
+          "0xaf88d065e77c8cC2239327C5EDb3A432268e5831"
+        ],
+        "il7d": null,
+        "apyBase7d": null,
+        "apyMean30d": 86.17243,
+        "volumeUsd1d": null,
+        "volumeUsd7d": null,
+        "apyBaseInception": null,
+        "type": "lp",
+        "entryDate": "2026-03-20T09:31:25.989Z",
+        "entryApy": 50.58258,
+        "weight": 0.2
       }
     ],
-    "virtualBalance": 2504.194629668971,
-    "totalEarned": 4.194629668971611,
+    "virtualBalance": 2504.217068908977,
+    "totalEarned": 4.2170689089773825,
     "snapshots": [
       {
         "ts": "2026-03-19T10:42:16.457Z",
@@ -259,9 +257,13 @@
       {
         "ts": "2026-03-20T09:22:12.979Z",
         "balance": 2504.194629668971
+      },
+      {
+        "ts": "2026-03-20T09:31:25.989Z",
+        "balance": 2504.217068908977
       }
     ],
-    "totalRotations": 13
+    "totalRotations": 14
   },
   "strategyB": {
     "name": "Risk-Adjusted",
@@ -313,7 +315,7 @@
         "tvlUsd": 142195105,
         "apyBase": 2.4,
         "apyReward": 1.93,
-        "apy": 4.33,
+        "apy": 4.32,
         "rewardTokens": [
           "0xdAC17F958D2ee523a2206206994597C13D831ec7",
           "0x6f40d4a6237c257fff2db00fa0510deeecd303eb"
@@ -351,15 +353,15 @@
         "chain": "Solana",
         "project": "orca-dex",
         "symbol": "SOL-USDC",
-        "tvlUsd": 29492214,
-        "apyBase": 65.99823,
+        "tvlUsd": 29498132,
+        "apyBase": 66.0544,
         "apyReward": 0,
-        "apy": 65.99823,
+        "apy": 66.0544,
         "rewardTokens": null,
         "pool": "a5c85bc8-eb41-45c0-a520-d18d7529c0d8",
-        "apyPct1D": -12.42081,
-        "apyPct7D": -23.97302,
-        "apyPct30D": -3.43679,
+        "apyPct1D": -13.71756,
+        "apyPct7D": -24.32897,
+        "apyPct30D": -3.03377,
         "stablecoin": false,
         "ilRisk": "yes",
         "exposure": "multi",
@@ -369,8 +371,8 @@
           "binnedConfidence": 2
         },
         "poolMeta": null,
-        "mu": 94.18273,
-        "sigma": 1.97744,
+        "mu": 94.1828,
+        "sigma": 1.97743,
         "count": 892,
         "outlier": true,
         "underlyingTokens": [
@@ -378,74 +380,30 @@
           "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
         ],
         "il7d": null,
-        "apyBase7d": 64.33598,
-        "apyMean30d": 78.83934,
-        "volumeUsd1d": 133153569.01509,
-        "volumeUsd7d": 909916371.50158,
+        "apyBase7d": 64.29232,
+        "apyMean30d": 78.83513,
+        "volumeUsd1d": 133379434.9036,
+        "volumeUsd7d": 909377147.15929,
         "apyBaseInception": null,
         "type": "lp",
-        "score": 0.5839547980974359,
-        "entryDate": "2026-03-20T09:22:12.979Z",
-        "entryApy": 65.99823,
-        "weight": 0.2
-      },
-      {
-        "chain": "Base",
-        "project": "aerodrome-slipstream",
-        "symbol": "WETH-USDC",
-        "tvlUsd": 14552854,
-        "apyBase": 13.36629,
-        "apyReward": 52.94573,
-        "apy": 66.31203,
-        "rewardTokens": [
-          "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
-        ],
-        "pool": "10137e20-efbc-4e15-a733-17ecb52c48e8",
-        "apyPct1D": 38.06379,
-        "apyPct7D": -56.30507,
-        "apyPct30D": 30.9856,
-        "stablecoin": false,
-        "ilRisk": "yes",
-        "exposure": "multi",
-        "predictions": {
-          "predictedClass": "Down",
-          "predictedProbability": 96,
-          "binnedConfidence": 3
-        },
-        "poolMeta": "CL100 - 0.0592%",
-        "mu": 82.52996,
-        "sigma": 1.95622,
-        "count": 247,
-        "outlier": true,
-        "underlyingTokens": [
-          "0x4200000000000000000000000000000000000006",
-          "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913"
-        ],
-        "il7d": null,
-        "apyBase7d": 14.70008,
-        "apyMean30d": 55.31689,
-        "volumeUsd1d": 57602110.78683,
-        "volumeUsd7d": 444668687.12595,
-        "apyBaseInception": null,
-        "type": "lp",
-        "score": 0.5501274742745385,
-        "entryDate": "2026-03-20T09:22:12.979Z",
-        "entryApy": 66.31203,
+        "score": 0.5843160267147118,
+        "entryDate": "2026-03-20T09:31:25.989Z",
+        "entryApy": 66.0544,
         "weight": 0.2
       },
       {
         "chain": "Ethereum",
         "project": "uniswap-v3",
         "symbol": "USDC-WETH",
-        "tvlUsd": 93534779,
-        "apyBase": 44.46297,
+        "tvlUsd": 93778080,
+        "apyBase": 44.85035,
         "apyReward": null,
-        "apy": 44.46297,
+        "apy": 44.85035,
         "rewardTokens": null,
         "pool": "665dc8bc-c79d-4800-97f7-304bf368e547",
-        "apyPct1D": 8.88749,
-        "apyPct7D": -20.40731,
-        "apyPct30D": -3.09254,
+        "apyPct1D": 4.32812,
+        "apyPct7D": -20.74601,
+        "apyPct30D": -3.17044,
         "stablecoin": false,
         "ilRisk": "yes",
         "exposure": "multi",
@@ -455,8 +413,8 @@
           "binnedConfidence": 3
         },
         "poolMeta": "0.05%",
-        "mu": 29.62796,
-        "sigma": 0.91159,
+        "mu": 29.6282,
+        "sigma": 0.9116,
         "count": 1425,
         "outlier": false,
         "underlyingTokens": [
@@ -464,20 +422,62 @@
           "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
         ],
         "il7d": null,
-        "apyBase7d": 16.69552,
-        "apyMean30d": 47.70164,
-        "volumeUsd1d": 227881299.13379,
-        "volumeUsd7d": 989173260.81213,
+        "apyBase7d": 17.85544,
+        "apyMean30d": 47.69733,
+        "volumeUsd1d": 230464658.87817,
+        "volumeUsd7d": 991512821.74487,
         "apyBaseInception": null,
         "type": "lp",
-        "score": 0.5078404270189486,
-        "entryDate": "2026-03-20T09:22:12.979Z",
-        "entryApy": 44.46297,
+        "score": 0.5103931767940452,
+        "entryDate": "2026-03-20T09:31:25.989Z",
+        "entryApy": 44.85035,
+        "weight": 0.2
+      },
+      {
+        "chain": "Base",
+        "project": "pancakeswap-amm-v3",
+        "symbol": "WETH-USDC",
+        "tvlUsd": 2081090,
+        "apyBase": 68.85341,
+        "apyReward": null,
+        "apy": 68.85341,
+        "rewardTokens": null,
+        "pool": "42146a39-080e-4af1-8318-ad857f68b565",
+        "apyPct1D": -2.20147,
+        "apyPct7D": -17.35448,
+        "apyPct30D": 16.87451,
+        "stablecoin": false,
+        "ilRisk": "yes",
+        "exposure": "multi",
+        "predictions": {
+          "predictedClass": "Down",
+          "predictedProbability": 51,
+          "binnedConfidence": 1
+        },
+        "poolMeta": "0.05%",
+        "mu": 100.05355,
+        "sigma": 2.03111,
+        "count": 345,
+        "outlier": true,
+        "underlyingTokens": [
+          "0x4200000000000000000000000000000000000006",
+          "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913"
+        ],
+        "il7d": null,
+        "apyBase7d": null,
+        "apyMean30d": 73.38004,
+        "volumeUsd1d": 7851516.69915,
+        "volumeUsd7d": 50120038.44738,
+        "apyBaseInception": null,
+        "type": "lp",
+        "score": 0.46746774644241573,
+        "entryDate": "2026-03-20T09:31:25.989Z",
+        "entryApy": 68.85341,
         "weight": 0.2
       }
     ],
-    "virtualBalance": 2502.5032976487914,
-    "totalEarned": 2.50329764879111,
+    "virtualBalance": 2502.5041249384944,
+    "totalEarned": 2.504124938494021,
     "snapshots": [
       {
         "ts": "2026-03-19T10:42:16.457Z",
@@ -522,11 +522,15 @@
       {
         "ts": "2026-03-20T09:22:12.979Z",
         "balance": 2502.5032976487914
+      },
+      {
+        "ts": "2026-03-20T09:31:25.989Z",
+        "balance": 2502.5041249384944
       }
     ],
-    "totalRotations": 9
+    "totalRotations": 12
   },
-  "cycles": 11,
+  "cycles": 12,
   "history": [],
   "apyAlerts": [],
   "rotations": [
@@ -793,6 +797,54 @@
       "entryApy": 44.46297,
       "exitCorr": -0.4103,
       "earned": 0.0001
+    },
+    {
+      "strategy": "A",
+      "symbol": "WETH-USDC",
+      "chain": "Base",
+      "project": "aerodrome-slipstream",
+      "entryDate": "2026-03-20T09:22:12.979Z",
+      "exitDate": "2026-03-20T09:31:25.989Z",
+      "exitReason": "apy_collapse",
+      "entryApy": 66.31203,
+      "exitCorr": null,
+      "earned": 0.0058
+    },
+    {
+      "strategy": "B",
+      "symbol": "WETH-USDC",
+      "chain": "Base",
+      "project": "aerodrome-slipstream",
+      "entryDate": "2026-03-20T09:22:12.979Z",
+      "exitDate": "2026-03-20T09:31:25.989Z",
+      "exitReason": "apy_collapse",
+      "entryApy": 66.31203,
+      "exitCorr": null,
+      "earned": 0.0058
+    },
+    {
+      "strategy": "B",
+      "symbol": "SOL-USDC",
+      "chain": "Solana",
+      "project": "orca-dex",
+      "entryDate": "2026-03-20T09:22:12.979Z",
+      "exitDate": "2026-03-20T09:31:25.989Z",
+      "exitReason": "correlation_breach",
+      "entryApy": 65.99823,
+      "exitCorr": -0.2696,
+      "earned": 0.0058
+    },
+    {
+      "strategy": "B",
+      "symbol": "USDC-WETH",
+      "chain": "Ethereum",
+      "project": "uniswap-v3",
+      "entryDate": "2026-03-20T09:22:12.979Z",
+      "exitDate": "2026-03-20T09:31:25.989Z",
+      "exitReason": "correlation_breach",
+      "entryApy": 44.46297,
+      "exitCorr": -0.3061,
+      "earned": 0.0039
     }
   ]
 }
