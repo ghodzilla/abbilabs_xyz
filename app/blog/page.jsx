@@ -5,6 +5,12 @@ export const metadata = {
 
 const posts = [
   {
+    slug: 'ai-customer-support-agent',
+    title: 'AI Customer Support Agent: Handle 70% of Tickets Automatically',
+    excerpt: 'Your team is drowning in repetitive tickets. This AI agent handles 70% of them automatically and escalates the rest with full context — $99 one-time.',
+    date: '2026-03-20',
+  },
+  {
     slug: 'ai-agent-for-hubspot',
     title: 'How to Build an AI Agent for HubSpot',
     excerpt: 'Give your CRM superpowers. Learn how to build an agent that manages contacts, deals, and tickets autonomously.',
