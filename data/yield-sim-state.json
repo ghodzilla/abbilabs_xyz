@@ -1,6 +1,6 @@
 {
   "startedAt": "2026-03-19T10:42:16.457Z",
-  "lastUpdatedAt": "2026-03-20T12:04:02.685Z",
+  "lastUpdatedAt": "2026-03-20T15:04:01.397Z",
   "capital": 5000,
   "strategyA": {
     "name": "Max APY",
@@ -12,7 +12,7 @@
         "tvlUsd": 1271413,
         "apyBase": 0,
         "apyReward": 32.45288,
-        "apy": 32.3357,
+        "apy": 32.34192,
         "rewardTokens": [
           "0x940181a94A35A4569E4529A3CDfB74e38FD98631"
         ],
@@ -55,7 +55,7 @@
         "tvlUsd": 53797882,
         "apyBase": 22.21934,
         "apyReward": null,
-        "apy": 21.52619,
+        "apy": 19.51116,
         "rewardTokens": null,
         "pool": "bb7e9353-129f-4e01-b822-f4250d0abb8a",
         "apyPct1D": -5.44444,
@@ -137,7 +137,7 @@
         "tvlUsd": 47540638,
         "apyBase": 12.61067,
         "apyReward": null,
-        "apy": 12.35267,
+        "apy": 11.04428,
         "rewardTokens": null,
         "pool": "d59a5728-d391-4989-86f6-a94e11e0eb3b",
         "apyPct1D": -8.75327,
@@ -178,7 +178,7 @@
         "tvlUsd": 1577992,
         "apyBase": 0,
         "apyReward": 13.00834,
-        "apy": 12.89842,
+        "apy": 12.77349,
         "rewardTokens": [
           "0x00Da8466B296E382E5Da2Bf20962D0cB87200c78"
         ],
@@ -215,8 +215,8 @@
         "weight": 0.2
       }
     ],
-    "virtualBalance": 2504.3717582621675,
-    "totalEarned": 4.371758262167727,
+    "virtualBalance": 2504.53820815226,
+    "totalEarned": 4.538208152260155,
     "snapshots": [
       {
         "ts": "2026-03-19T10:42:16.457Z",
@@ -281,6 +281,10 @@
       {
         "ts": "2026-03-20T12:04:02.685Z",
         "balance": 2504.3717582621675
+      },
+      {
+        "ts": "2026-03-20T15:04:01.397Z",
+        "balance": 2504.53820815226
       }
     ],
     "totalRotations": 19
@@ -335,7 +339,7 @@
         "tvlUsd": 142195105,
         "apyBase": 2.4,
         "apyReward": 1.93,
-        "apy": 4.33,
+        "apy": 4.25,
         "rewardTokens": [
           "0xdAC17F958D2ee523a2206206994597C13D831ec7",
           "0x6f40d4a6237c257fff2db00fa0510deeecd303eb"
@@ -376,7 +380,7 @@
         "tvlUsd": 29498132,
         "apyBase": 66.0544,
         "apyReward": 0,
-        "apy": 65.22089,
+        "apy": 62.52275,
         "rewardTokens": null,
         "pool": "a5c85bc8-eb41-45c0-a520-d18d7529c0d8",
         "apyPct1D": -13.71756,
@@ -418,7 +422,7 @@
         "tvlUsd": 2081090,
         "apyBase": 68.85341,
         "apyReward": null,
-        "apy": 68.58033,
+        "apy": 70.85584,
         "rewardTokens": null,
         "pool": "42146a39-080e-4af1-8318-ad857f68b565",
         "apyPct1D": -2.20147,
@@ -457,26 +461,26 @@
         "chain": "Ethereum",
         "project": "uniswap-v3",
         "symbol": "USDC-WETH",
-        "tvlUsd": 93778080,
-        "apyBase": 44.85035,
+        "tvlUsd": 93561915,
+        "apyBase": 41.12607,
         "apyReward": null,
-        "apy": 44.19864,
+        "apy": 41.12607,
         "rewardTokens": null,
         "pool": "665dc8bc-c79d-4800-97f7-304bf368e547",
-        "apyPct1D": 4.32812,
-        "apyPct7D": -20.74601,
-        "apyPct30D": -3.17044,
+        "apyPct1D": -8.44101,
+        "apyPct7D": -22.01106,
+        "apyPct30D": -13.25119,
         "stablecoin": false,
         "ilRisk": "yes",
         "exposure": "multi",
         "predictions": {
           "predictedClass": "Down",
-          "predictedProbability": 84,
+          "predictedProbability": 87,
           "binnedConfidence": 3
         },
         "poolMeta": "0.05%",
-        "mu": 29.6282,
-        "sigma": 0.9116,
+        "mu": 29.62584,
+        "sigma": 0.91154,
         "count": 1425,
         "outlier": false,
         "underlyingTokens": [
@@ -484,20 +488,20 @@
           "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
         ],
         "il7d": null,
-        "apyBase7d": 17.85544,
-        "apyMean30d": 47.69733,
-        "volumeUsd1d": 230464658.87817,
-        "volumeUsd7d": 991512821.74487,
+        "apyBase7d": 16.65705,
+        "apyMean30d": 47.64217,
+        "volumeUsd1d": 210840191.02148,
+        "volumeUsd7d": 976967037.45874,
         "apyBaseInception": null,
         "type": "lp",
-        "score": 0.5103931767940452,
-        "entryDate": "2026-03-20T09:53:14.986Z",
-        "entryApy": 44.85035,
+        "score": 0.48699949942919163,
+        "entryDate": "2026-03-20T15:04:01.397Z",
+        "entryApy": 41.12607,
         "weight": 0.2
       }
     ],
-    "virtualBalance": 2502.7592431846256,
-    "totalEarned": 2.759243184624602,
+    "virtualBalance": 2503.0044821532974,
+    "totalEarned": 3.004482153296545,
     "snapshots": [
       {
         "ts": "2026-03-19T10:42:16.457Z",
@@ -562,11 +566,15 @@
       {
         "ts": "2026-03-20T12:04:02.685Z",
         "balance": 2502.7592431846256
+      },
+      {
+        "ts": "2026-03-20T15:04:01.397Z",
+        "balance": 2503.0044821532974
       }
     ],
-    "totalRotations": 17
+    "totalRotations": 18
   },
-  "cycles": 16,
+  "cycles": 17,
   "history": [],
   "apyAlerts": [],
   "rotations": [
@@ -1001,6 +1009,18 @@
       "entryApy": 44.85035,
       "exitCorr": -0.4145,
       "earned": 0.0029
+    },
+    {
+      "strategy": "B",
+      "symbol": "USDC-WETH",
+      "chain": "Ethereum",
+      "project": "uniswap-v3",
+      "entryDate": "2026-03-20T09:53:14.986Z",
+      "exitDate": "2026-03-20T15:04:01.397Z",
+      "exitReason": "correlation_breach",
+      "entryApy": 44.85035,
+      "exitCorr": -0.2892,
+      "earned": 0.1307
     }
   ]
 }
