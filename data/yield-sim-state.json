@@ -1,6 +1,6 @@
 {
   "startedAt": "2026-03-19T10:42:16.457Z",
-  "lastUpdatedAt": "2026-03-20T09:46:30.242Z",
+  "lastUpdatedAt": "2026-03-20T09:53:14.986Z",
   "capital": 5000,
   "strategyA": {
     "name": "Max APY",
@@ -215,8 +215,8 @@
         "weight": 0.2
       }
     ],
-    "virtualBalance": 2504.2430145775143,
-    "totalEarned": 4.243014577514483,
+    "virtualBalance": 2504.249328857286,
+    "totalEarned": 4.2493288572860966,
     "snapshots": [
       {
         "ts": "2026-03-19T10:42:16.457Z",
@@ -273,6 +273,10 @@
       {
         "ts": "2026-03-20T09:46:30.242Z",
         "balance": 2504.2430145775143
+      },
+      {
+        "ts": "2026-03-20T09:53:14.986Z",
+        "balance": 2504.249328857286
       }
     ],
     "totalRotations": 19
@@ -404,48 +408,6 @@
         "weight": 0.2
       },
       {
-        "chain": "Ethereum",
-        "project": "uniswap-v3",
-        "symbol": "USDC-WETH",
-        "tvlUsd": 93778080,
-        "apyBase": 44.85035,
-        "apyReward": null,
-        "apy": 44.85035,
-        "rewardTokens": null,
-        "pool": "665dc8bc-c79d-4800-97f7-304bf368e547",
-        "apyPct1D": 4.32812,
-        "apyPct7D": -20.74601,
-        "apyPct30D": -3.17044,
-        "stablecoin": false,
-        "ilRisk": "yes",
-        "exposure": "multi",
-        "predictions": {
-          "predictedClass": "Down",
-          "predictedProbability": 84,
-          "binnedConfidence": 3
-        },
-        "poolMeta": "0.05%",
-        "mu": 29.6282,
-        "sigma": 0.9116,
-        "count": 1425,
-        "outlier": false,
-        "underlyingTokens": [
-          "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
-          "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
-        ],
-        "il7d": null,
-        "apyBase7d": 17.85544,
-        "apyMean30d": 47.69733,
-        "volumeUsd1d": 230464658.87817,
-        "volumeUsd7d": 991512821.74487,
-        "apyBaseInception": null,
-        "type": "lp",
-        "score": 0.5103931767940452,
-        "entryDate": "2026-03-20T09:46:30.242Z",
-        "entryApy": 44.85035,
-        "weight": 0.2
-      },
-      {
         "chain": "Base",
         "project": "pancakeswap-amm-v3",
         "symbol": "WETH-USDC",
@@ -486,10 +448,52 @@
         "entryDate": "2026-03-20T09:46:30.242Z",
         "entryApy": 68.85341,
         "weight": 0.2
+      },
+      {
+        "chain": "Ethereum",
+        "project": "uniswap-v3",
+        "symbol": "USDC-WETH",
+        "tvlUsd": 93778080,
+        "apyBase": 44.85035,
+        "apyReward": null,
+        "apy": 44.85035,
+        "rewardTokens": null,
+        "pool": "665dc8bc-c79d-4800-97f7-304bf368e547",
+        "apyPct1D": 4.32812,
+        "apyPct7D": -20.74601,
+        "apyPct30D": -3.17044,
+        "stablecoin": false,
+        "ilRisk": "yes",
+        "exposure": "multi",
+        "predictions": {
+          "predictedClass": "Down",
+          "predictedProbability": 84,
+          "binnedConfidence": 3
+        },
+        "poolMeta": "0.05%",
+        "mu": 29.6282,
+        "sigma": 0.9116,
+        "count": 1425,
+        "outlier": false,
+        "underlyingTokens": [
+          "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+        ],
+        "il7d": null,
+        "apyBase7d": 17.85544,
+        "apyMean30d": 47.69733,
+        "volumeUsd1d": 230464658.87817,
+        "volumeUsd7d": 991512821.74487,
+        "apyBaseInception": null,
+        "type": "lp",
+        "score": 0.5103931767940452,
+        "entryDate": "2026-03-20T09:53:14.986Z",
+        "entryApy": 44.85035,
+        "weight": 0.2
       }
     ],
-    "virtualBalance": 2502.51459043849,
-    "totalEarned": 2.5145904384891473,
+    "virtualBalance": 2502.5238525530326,
+    "totalEarned": 2.5238525530317526,
     "snapshots": [
       {
         "ts": "2026-03-19T10:42:16.457Z",
@@ -546,11 +550,15 @@
       {
         "ts": "2026-03-20T09:46:30.242Z",
         "balance": 2502.51459043849
+      },
+      {
+        "ts": "2026-03-20T09:53:14.986Z",
+        "balance": 2502.5238525530326
       }
     ],
-    "totalRotations": 16
+    "totalRotations": 17
   },
-  "cycles": 14,
+  "cycles": 15,
   "history": [],
   "apyAlerts": [],
   "rotations": [
@@ -973,6 +981,18 @@
       "entryApy": 68.85341,
       "exitCorr": -0.2766,
       "earned": 0.0042
+    },
+    {
+      "strategy": "B",
+      "symbol": "USDC-WETH",
+      "chain": "Ethereum",
+      "project": "uniswap-v3",
+      "entryDate": "2026-03-20T09:46:30.242Z",
+      "exitDate": "2026-03-20T09:53:14.986Z",
+      "exitReason": "correlation_breach",
+      "entryApy": 44.85035,
+      "exitCorr": -0.4145,
+      "earned": 0.0029
     }
   ]
 }
