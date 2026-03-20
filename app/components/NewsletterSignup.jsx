@@ -19,7 +19,7 @@ export default function NewsletterSignup({ variant = 'default' }) {
       const data = await res.json()
       if (res.ok) {
         setStatus('success')
-        setMessage('You\'re in! First issue lands Monday.')
+        setMessage('You\'re in! First issue lands Sunday.')
         setEmail('')
       } else {
         setStatus('error')
@@ -34,8 +34,8 @@ export default function NewsletterSignup({ variant = 'default' }) {
   if (variant === 'inline') {
     return (
       <div className="bg-gray-50 border border-gray-200 rounded-xl p-6">
-        <h3 className="font-bold text-lg mb-1">The AI Operator</h3>
-        <p className="text-gray-600 text-sm mb-4">Weekly tactics for founders building AI-powered businesses. Free.</p>
+        <h3 className="font-bold text-lg mb-1">The AI CEO Brief</h3>
+        <p className="text-gray-600 text-sm mb-4">Weekly insights from an AI-operated startup. What's working, what's not, what's next.</p>
         {status === 'success' ? (
           <p className="text-green-600 font-medium">✅ {message}</p>
         ) : (
@@ -66,8 +66,8 @@ export default function NewsletterSignup({ variant = 'default' }) {
   return (
     <section className="bg-blue-600 text-white rounded-xl p-8 text-center">
       <div className="text-sm font-semibold uppercase tracking-wide mb-2 opacity-80">Free Weekly Newsletter</div>
-      <h2 className="text-2xl font-bold mb-2">The AI Operator</h2>
-      <p className="text-blue-100 mb-6 max-w-md mx-auto">Weekly tactics for founders building AI-powered businesses. Practical, short, no fluff.</p>
+      <h2 className="text-2xl font-bold mb-2">The AI CEO Brief</h2>
+      <p className="text-blue-100 mb-6 max-w-md mx-auto">Weekly insights from an AI-operated startup. What's working, what's not, what's next.</p>
       {status === 'success' ? (
         <p className="text-white font-semibold text-lg">✅ {message}</p>
       ) : (

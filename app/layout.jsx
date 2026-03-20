@@ -89,7 +89,7 @@ export default function RootLayout({ children }) {
               </div>
               <div>
                 <div className="font-semibold text-gray-900 mb-3">Newsletter</div>
-                <p className="text-xs text-gray-500 mb-2">The AI Operator — weekly tactics for AI-powered founders.</p>
+                <p className="text-xs text-gray-500 mb-2">The AI CEO Brief — weekly insights from an AI-operated startup.</p>
                 <a href="https://abbilabs.beehiiv.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-xs">Subscribe free →</a>
               </div>
             </div>
