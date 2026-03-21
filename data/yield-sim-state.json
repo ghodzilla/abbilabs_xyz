@@ -1,7 +1,7 @@
 {
   "version": "2.1",
   "startedAt": "2026-03-20T23:38:46.467Z",
-  "lastUpdatedAt": "2026-03-21T03:03:03.170Z",
+  "lastUpdatedAt": "2026-03-21T06:03:03.406Z",
   "capital": 5000,
   "rotations": [],
   "strategyA": {
@@ -53,21 +53,16 @@
         "isLending": false,
         "estimatedGas": 0.05,
         "tvl_24h_ago": 1274238,
-        "tvl_24h_updateCycle": 4,
-        "crystallisedEarnings": 0.062852349818045,
-        "atRiskCapital": 500.0628523498181,
-        "cumulativeReturn": 0.00012570469963608998,
+        "tvl_24h_updateCycle": 5,
+        "crystallisedEarnings": 0.11824052165198864,
+        "atRiskCapital": 500.11824052165207,
+        "cumulativeReturn": 0.0002364810433039773,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.09742114221796974,
+        "yieldIncomeAUD": 0.1832728085605824,
         "gasDeductibleAUD": 0.07750000000000001,
         "audSnapshots": [
-          {
-            "timestamp": "2026-03-20T23:46:56.578Z",
-            "yieldAUD": 0.0016316054546317213,
-            "totalYieldAUD": 0.0038954350780200523
-          },
           {
             "timestamp": "2026-03-20T23:51:19.903Z",
             "yieldAUD": 0.002092932248961143,
@@ -112,6 +107,11 @@
             "timestamp": "2026-03-21T03:03:03.170Z",
             "yieldAUD": 0.03437148379917879,
             "totalYieldAUD": 0.09742114221796974
+          },
+          {
+            "timestamp": "2026-03-21T06:03:03.406Z",
+            "yieldAUD": 0.08585166634261265,
+            "totalYieldAUD": 0.1832728085605824
           }
         ]
       },
@@ -119,10 +119,10 @@
         "chain": "Base",
         "project": "pancakeswap-amm-v3",
         "symbol": "WETH-USDC",
-        "tvlUsd": 2164354,
+        "tvlUsd": 2198917,
         "apyBase": 70.35672,
         "apyReward": null,
-        "apy": 67.02494,
+        "apy": 61.32327,
         "rewardTokens": null,
         "pool": "42146a39-080e-4af1-8318-ad857f68b565",
         "apyPct1D": 3.10947,
@@ -159,14 +159,14 @@
         "isLending": false,
         "estimatedGas": 0.05,
         "tvl_24h_ago": 2164354,
-        "tvl_24h_updateCycle": 0,
-        "crystallisedEarnings": 0.12566854257203397,
-        "atRiskCapital": 500.125668542572,
-        "cumulativeReturn": 0.0002513370851440679,
+        "tvl_24h_updateCycle": 1,
+        "crystallisedEarnings": 0.24046862962721188,
+        "atRiskCapital": 500.2404686296272,
+        "cumulativeReturn": 0.0004809372592544238,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.19478624098665262,
+        "yieldIncomeAUD": 0.3727263759221784,
         "gasDeductibleAUD": 0.07750000000000001,
         "audSnapshots": [
           {
@@ -208,6 +208,11 @@
             "timestamp": "2026-03-21T03:03:03.170Z",
             "yieldAUD": 0.07123653962769037,
             "totalYieldAUD": 0.19478624098665262
+          },
+          {
+            "timestamp": "2026-03-21T06:03:03.406Z",
+            "yieldAUD": 0.17794013493552574,
+            "totalYieldAUD": 0.3727263759221784
           }
         ]
       },
@@ -215,10 +220,10 @@
         "chain": "Arbitrum",
         "project": "beefy",
         "symbol": "WBTC-USDC",
-        "tvlUsd": 1101364,
+        "tvlUsd": 1101851,
         "apyBase": null,
         "apyReward": null,
-        "apy": 56.41603,
+        "apy": 42.42558,
         "rewardTokens": null,
         "pool": "016d7542-9b1a-4d58-bfe4-c9d81d1f5629",
         "apyPct1D": -2.00489,
@@ -255,14 +260,14 @@
         "isLending": false,
         "estimatedGas": 0.1,
         "tvl_24h_ago": 1101364,
-        "tvl_24h_updateCycle": 0,
-        "crystallisedEarnings": 0.11277582679520648,
-        "atRiskCapital": 500.11277582679514,
-        "cumulativeReturn": 0.00022555165359041296,
+        "tvl_24h_updateCycle": 1,
+        "crystallisedEarnings": 0.20940251823637773,
+        "atRiskCapital": 500.2094025182363,
+        "cumulativeReturn": 0.00041880503647275544,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.17480253153257003,
+        "yieldIncomeAUD": 0.32457390326638547,
         "gasDeductibleAUD": 0.15500000000000003,
         "audSnapshots": [
           {
@@ -304,6 +309,11 @@
             "timestamp": "2026-03-21T03:03:03.170Z",
             "yieldAUD": 0.05957497020607719,
             "totalYieldAUD": 0.17480253153257003
+          },
+          {
+            "timestamp": "2026-03-21T06:03:03.406Z",
+            "yieldAUD": 0.14977137173381544,
+            "totalYieldAUD": 0.32457390326638547
           }
         ]
       },
@@ -311,10 +321,10 @@
         "chain": "Solana",
         "project": "orca-dex",
         "symbol": "SOL-USDC",
-        "tvlUsd": 29454348,
+        "tvlUsd": 29694466,
         "apyBase": 62.50097,
         "apyReward": 0,
-        "apy": 60.4937,
+        "apy": 58.45602,
         "rewardTokens": null,
         "pool": "a5c85bc8-eb41-45c0-a520-d18d7529c0d8",
         "apyPct1D": -9.13667,
@@ -351,14 +361,14 @@
         "isLending": false,
         "estimatedGas": 0.02,
         "tvl_24h_ago": 29454348,
-        "tvl_24h_updateCycle": 0,
-        "crystallisedEarnings": 0.11285980250104997,
-        "atRiskCapital": 500.11285980250113,
-        "cumulativeReturn": 0.00022571960500209994,
+        "tvl_24h_updateCycle": 1,
+        "crystallisedEarnings": 0.21647055046649194,
+        "atRiskCapital": 500.21647055046657,
+        "cumulativeReturn": 0.00043294110093298387,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.17493269387662747,
+        "yieldIncomeAUD": 0.3355293532230625,
         "gasDeductibleAUD": 0.031000000000000003,
         "audSnapshots": [
           {
@@ -400,6 +410,11 @@
             "timestamp": "2026-03-21T03:03:03.170Z",
             "yieldAUD": 0.064910297896262,
             "totalYieldAUD": 0.17493269387662747
+          },
+          {
+            "timestamp": "2026-03-21T06:03:03.406Z",
+            "yieldAUD": 0.16059665934643502,
+            "totalYieldAUD": 0.3355293532230625
           }
         ]
       },
@@ -407,10 +422,10 @@
         "chain": "Base",
         "project": "uniswap-v4",
         "symbol": "ETH-USDC",
-        "tvlUsd": 1685392,
+        "tvlUsd": 1897440,
         "apyBase": 58.77057,
         "apyReward": null,
-        "apy": 57.22493,
+        "apy": 46.01188,
         "rewardTokens": null,
         "pool": "642f316f-f3bf-414b-9536-122c688831e0",
         "apyPct1D": -13.29854,
@@ -447,14 +462,14 @@
         "isLending": false,
         "estimatedGas": 0.05,
         "tvl_24h_ago": 1685392,
-        "tvl_24h_updateCycle": 0,
-        "crystallisedEarnings": 0.107008719436895,
-        "atRiskCapital": 500.1070087194369,
-        "cumulativeReturn": 0.00021401743887378998,
+        "tvl_24h_updateCycle": 1,
+        "crystallisedEarnings": 0.2050197260657879,
+        "atRiskCapital": 500.2050197260658,
+        "cumulativeReturn": 0.0004100394521315758,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.16586351512718725,
+        "yieldIncomeAUD": 0.31778057540197124,
         "gasDeductibleAUD": 0.07750000000000001,
         "audSnapshots": [
           {
@@ -496,12 +511,17 @@
             "timestamp": "2026-03-21T03:03:03.170Z",
             "yieldAUD": 0.06221402352795393,
             "totalYieldAUD": 0.16586351512718725
+          },
+          {
+            "timestamp": "2026-03-21T06:03:03.406Z",
+            "yieldAUD": 0.15191706027478402,
+            "totalYieldAUD": 0.31778057540197124
           }
         ]
       }
     ],
-    "virtualBalance": 2500.5212915282,
-    "totalEarned": 0.5212915281992229,
+    "virtualBalance": 2500.9897282331244,
+    "totalEarned": 0.9897282331238505,
     "totalRotations": 0,
     "snapshots": [
       {
@@ -555,6 +575,10 @@
       {
         "ts": "2026-03-21T03:03:03.170Z",
         "balance": 2500.5212915282
+      },
+      {
+        "ts": "2026-03-21T06:03:03.406Z",
+        "balance": 2500.9897282331244
       }
     ]
   },
@@ -565,10 +589,10 @@
         "chain": "Solana",
         "project": "jupiter-lend",
         "symbol": "USDS",
-        "tvlUsd": 28241186,
+        "tvlUsd": 29421802,
         "apyBase": 2.15278,
         "apyReward": 2.95263,
-        "apy": 5.10542,
+        "apy": 4.83914,
         "rewardTokens": [
           "USDSwr9ApdHk5bvJKMjzff41FfuX8bSxdKcR81vTwcA"
         ],
@@ -606,21 +630,16 @@
         "isLending": true,
         "estimatedGas": 0.02,
         "tvl_24h_ago": 28246480,
-        "tvl_24h_updateCycle": 4,
+        "tvl_24h_updateCycle": 5,
         "crystallisedEarnings": 0,
         "atRiskCapital": 500,
         "cumulativeReturn": 0,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.015378013346160423,
+        "yieldIncomeAUD": 0.028928653624356135,
         "gasDeductibleAUD": 0.031000000000000003,
         "audSnapshots": [
-          {
-            "timestamp": "2026-03-20T23:46:56.578Z",
-            "yieldAUD": 0.00025756067628789325,
-            "totalYieldAUD": 0.0006149234014318557
-          },
           {
             "timestamp": "2026-03-20T23:51:19.903Z",
             "yieldAUD": 0.00033038373895310125,
@@ -665,6 +684,11 @@
             "timestamp": "2026-03-21T03:03:03.170Z",
             "yieldAUD": 0.00542536082704893,
             "totalYieldAUD": 0.015378013346160423
+          },
+          {
+            "timestamp": "2026-03-21T06:03:03.406Z",
+            "yieldAUD": 0.013550640278195712,
+            "totalYieldAUD": 0.028928653624356135
           }
         ]
       },
@@ -672,10 +696,10 @@
         "chain": "Arbitrum",
         "project": "fluid-lending",
         "symbol": "USDC",
-        "tvlUsd": 40652111,
+        "tvlUsd": 40811321,
         "apyBase": 3.75,
         "apyReward": 1.18,
-        "apy": 4.42,
+        "apy": 4.4,
         "rewardTokens": [
           "0xaf88d065e77c8cC2239327C5EDb3A432268e5831",
           "0x61e030a56d33e8260fdd81f03b162a79fe3449cd"
@@ -714,21 +738,16 @@
         "isLending": true,
         "estimatedGas": 0.1,
         "tvl_24h_ago": 37605382,
-        "tvl_24h_updateCycle": 4,
+        "tvl_24h_updateCycle": 5,
         "crystallisedEarnings": 0,
         "atRiskCapital": 500,
         "cumulativeReturn": 0,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.014243189467037672,
+        "yieldIncomeAUD": 0.025974610198265476,
         "gasDeductibleAUD": 0.15500000000000003,
         "audSnapshots": [
-          {
-            "timestamp": "2026-03-20T23:46:56.578Z",
-            "yieldAUD": 0.0002487110040112887,
-            "totalYieldAUD": 0.0005937949020960172
-          },
           {
             "timestamp": "2026-03-20T23:51:19.903Z",
             "yieldAUD": 0.0003190318980688736,
@@ -773,6 +792,11 @@
             "timestamp": "2026-03-21T03:03:03.170Z",
             "yieldAUD": 0.004718241020738204,
             "totalYieldAUD": 0.014243189467037672
+          },
+          {
+            "timestamp": "2026-03-21T06:03:03.406Z",
+            "yieldAUD": 0.011731420731227805,
+            "totalYieldAUD": 0.025974610198265476
           }
         ]
       },
@@ -780,10 +804,10 @@
         "chain": "Ethereum",
         "project": "fluid-lending",
         "symbol": "USDT",
-        "tvlUsd": 141239021,
+        "tvlUsd": 141243024,
         "apyBase": 2.25,
         "apyReward": 1.96,
-        "apy": 4.22,
+        "apy": 4.24,
         "rewardTokens": [
           "0xdAC17F958D2ee523a2206206994597C13D831ec7",
           "0x6f40d4a6237c257fff2db00fa0510deeecd303eb"
@@ -822,21 +846,16 @@
         "isLending": true,
         "estimatedGas": 30,
         "tvl_24h_ago": 141280558,
-        "tvl_24h_updateCycle": 4,
+        "tvl_24h_updateCycle": 5,
         "crystallisedEarnings": 0,
         "atRiskCapital": 500,
         "cumulativeReturn": 0,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.01273042813839739,
+        "yieldIncomeAUD": 0.023931015352375067,
         "gasDeductibleAUD": 46.5,
         "audSnapshots": [
-          {
-            "timestamp": "2026-03-20T23:46:56.578Z",
-            "yieldAUD": 0.00021238809876014716,
-            "totalYieldAUD": 0.0005070743484430492
-          },
           {
             "timestamp": "2026-03-20T23:51:19.903Z",
             "yieldAUD": 0.0002724390042332572,
@@ -881,6 +900,11 @@
             "timestamp": "2026-03-21T03:03:03.170Z",
             "yieldAUD": 0.004516334310391299,
             "totalYieldAUD": 0.01273042813839739
+          },
+          {
+            "timestamp": "2026-03-21T06:03:03.406Z",
+            "yieldAUD": 0.011200587213977677,
+            "totalYieldAUD": 0.023931015352375067
           }
         ]
       },
@@ -888,10 +912,10 @@
         "chain": "Ethereum",
         "project": "sparklend",
         "symbol": "USDS",
-        "tvlUsd": 619536027,
+        "tvlUsd": 619514294,
         "apyBase": null,
         "apyReward": 4.06744,
-        "apy": 4.04836,
+        "apy": 4.06482,
         "rewardTokens": [
           "0xc20059e0317DE91738d13af027DfC4a50781b066"
         ],
@@ -929,21 +953,16 @@
         "isLending": true,
         "estimatedGas": 30,
         "tvl_24h_ago": 619518062,
-        "tvl_24h_updateCycle": 4,
+        "tvl_24h_updateCycle": 5,
         "crystallisedEarnings": 0,
         "atRiskCapital": 500,
         "cumulativeReturn": 0,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.012234723576733261,
+        "yieldIncomeAUD": 0.02297974946620688,
         "gasDeductibleAUD": 46.5,
         "audSnapshots": [
-          {
-            "timestamp": "2026-03-20T23:46:56.578Z",
-            "yieldAUD": 0.00020519616352042118,
-            "totalYieldAUD": 0.0004899036788197617
-          },
           {
             "timestamp": "2026-03-20T23:51:19.903Z",
             "yieldAUD": 0.0002632136112538052,
@@ -988,6 +1007,11 @@
             "timestamp": "2026-03-21T03:03:03.170Z",
             "yieldAUD": 0.004307913451968465,
             "totalYieldAUD": 0.012234723576733261
+          },
+          {
+            "timestamp": "2026-03-21T06:03:03.406Z",
+            "yieldAUD": 0.010745025889473616,
+            "totalYieldAUD": 0.02297974946620688
           }
         ]
       },
@@ -1040,21 +1064,16 @@
         "isLending": false,
         "estimatedGas": 0.05,
         "tvl_24h_ago": 1274238,
-        "tvl_24h_updateCycle": 4,
+        "tvl_24h_updateCycle": 5,
         "crystallisedEarnings": 0,
         "atRiskCapital": 500,
         "cumulativeReturn": 0,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.09741695637194445,
+        "yieldIncomeAUD": 0.18325783211305557,
         "gasDeductibleAUD": 0.07750000000000001,
         "audSnapshots": [
-          {
-            "timestamp": "2026-03-20T23:46:56.578Z",
-            "yieldAUD": 0.0016316006886111117,
-            "totalYieldAUD": 0.003895429456388889
-          },
           {
             "timestamp": "2026-03-20T23:51:19.903Z",
             "yieldAUD": 0.0020929217291666665,
@@ -1099,12 +1118,17 @@
             "timestamp": "2026-03-21T03:03:03.170Z",
             "yieldAUD": 0.03436868775527779,
             "totalYieldAUD": 0.09741695637194445
+          },
+          {
+            "timestamp": "2026-03-21T06:03:03.406Z",
+            "yieldAUD": 0.08584087574111111,
+            "totalYieldAUD": 0.18325783211305557
           }
         ]
       }
     ],
-    "virtualBalance": 2500.098066652196,
-    "totalEarned": 0.09806665219372464,
+    "virtualBalance": 2500.183917329521,
+    "totalEarned": 0.18391732951887685,
     "totalRotations": 0,
     "snapshots": [
       {
@@ -1158,17 +1182,21 @@
       {
         "ts": "2026-03-21T03:03:03.170Z",
         "balance": 2500.098066652196
+      },
+      {
+        "ts": "2026-03-21T06:03:03.406Z",
+        "balance": 2500.183917329521
       }
     ]
   },
-  "cycles": 13,
+  "cycles": 14,
   "history": [],
   "circuitBreaker": {
     "active": false,
     "triggeredAt": null,
-    "peakValue24h": 5000.396362146574,
+    "peakValue24h": 5000.619358180396,
     "stableCount": 0,
-    "cyclesSinceReset": 4
+    "cyclesSinceReset": 5
   },
   "profitVault": {
     "strategyA": {
@@ -1176,7 +1204,7 @@
       "pool": null
     },
     "strategyB": {
-      "balance": 0.09806665219372464,
+      "balance": 0.18391732951887685,
       "pool": null
     }
   },
@@ -1187,13 +1215,13 @@
       "totalCGT_AUD": 0,
       "totalYieldIncome_AUD": 0,
       "totalGasDeductible_AUD": 0,
-      "afterTaxReturn_AUD": 0.8080018687087954
+      "afterTaxReturn_AUD": 1.5340787613419684
     },
     "strategyB": {
       "totalCGT_AUD": 0,
       "totalYieldIncome_AUD": 0,
       "totalGasDeductible_AUD": 0,
-      "afterTaxReturn_AUD": 0.1520033109002732
+      "afterTaxReturn_AUD": 0.2850718607542591
     }
   },
   "apyAlerts": []
