@@ -1,5 +1,4 @@
 import { newsletters } from '@/data/newsletters/index'
-import NewsletterSignup from '@/app/components/NewsletterSignup'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
@@ -33,56 +32,49 @@ export default async function NewsletterIssuePage({ params }) {
   const issueNumber = newsletters.length - issueIndex
 
   return (
-    <main className="max-w-3xl mx-auto px-4 py-12">
-      {/* Back link */}
-      <a
-        href="/newsletter"
-        className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-blue-600 transition mb-8"
-      >
+    <main style={{ maxWidth: 720, margin: '0 auto', padding: '48px 24px' }}>
+      <a href="/newsletter" style={{ fontSize: 14, color: '#6b7280', textDecoration: 'none', display: 'inline-block', marginBottom: 32 }}>
         ← All issues
       </a>
 
-      {/* Header */}
-      <div className="mb-8">
-        <div className="flex items-center gap-3 mb-4">
-          <span className="inline-block text-xs font-semibold bg-blue-100 text-blue-700 rounded-full px-2.5 py-0.5">
+      <div style={{ marginBottom: 32 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16, flexWrap: 'wrap' }}>
+          <span style={{ fontSize: 11, fontWeight: 700, background: '#eff6ff', color: '#1d4ed8', borderRadius: 20, padding: '3px 10px' }}>
             Issue #{issueNumber}
           </span>
-          <span className="text-gray-400 text-sm">{issue.date}</span>
-          {issue.readTime && (
-            <span className="text-gray-400 text-sm">{issue.readTime}</span>
-          )}
+          <span style={{ fontSize: 13, color: '#9ca3af' }}>{issue.date}</span>
+          {issue.readTime && <span style={{ fontSize: 13, color: '#9ca3af' }}>{issue.readTime}</span>}
         </div>
-        <h1 className="text-3xl font-bold leading-tight">{issue.title}</h1>
+        <h1 style={{ fontSize: 28, fontWeight: 800, lineHeight: 1.3, color: '#111827', margin: '0 0 12px 0' }}>{issue.title}</h1>
         {meta?.preview && (
-          <p className="text-gray-600 mt-3 text-lg">{meta.preview}</p>
+          <p style={{ fontSize: 16, color: '#6b7280', lineHeight: 1.6, margin: 0 }}>{meta.preview}</p>
         )}
       </div>
 
-      <hr className="border-gray-200 mb-8" />
+      <hr style={{ border: 'none', borderTop: '1px solid #e5e7eb', marginBottom: 32 }} />
 
-      {/* Content */}
       <article
-        className="prose prose-gray max-w-none text-gray-800 leading-relaxed space-y-4"
-        style={{ lineHeight: '1.8' }}
+        style={{ fontSize: 16, lineHeight: 1.8, color: '#374151' }}
         dangerouslySetInnerHTML={{ __html: issue.content }}
       />
 
-      <hr className="border-gray-200 my-12" />
+      <hr style={{ border: 'none', borderTop: '1px solid #e5e7eb', margin: '48px 0 32px' }} />
 
-      {/* Bottom signup */}
-      <div>
-        <p className="text-gray-500 text-sm mb-4 text-center">
-          Enjoyed this issue? Get the next one in your inbox.
-        </p>
-        <NewsletterSignup variant="inline" />
+      <div style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 12, padding: '24px 28px', textAlign: 'center' }}>
+        <div style={{ fontWeight: 700, fontSize: 16, marginBottom: 6 }}>Get the next issue in your inbox</div>
+        <p style={{ color: '#6b7280', fontSize: 14, marginBottom: 16 }}>Weekly build-in-public updates from an AI-operated startup.</p>
+        <a
+          href="https://abbilabs.beehiiv.com/subscribe"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: 'inline-block', background: '#2563eb', color: '#fff', fontWeight: 700, fontSize: 14, padding: '10px 24px', borderRadius: 8, textDecoration: 'none' }}
+        >
+          Subscribe free →
+        </a>
       </div>
 
-      {/* Back link bottom */}
-      <div className="mt-8 text-center">
-        <a href="/newsletter" className="text-sm text-gray-500 hover:text-blue-600 transition">
-          ← Back to all issues
-        </a>
+      <div style={{ marginTop: 32, textAlign: 'center' }}>
+        <a href="/newsletter" style={{ fontSize: 13, color: '#6b7280', textDecoration: 'none' }}>← Back to all issues</a>
       </div>
     </main>
   )
