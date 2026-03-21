@@ -1,7 +1,7 @@
 {
   "version": "2.1",
   "startedAt": "2026-03-20T23:38:46.467Z",
-  "lastUpdatedAt": "2026-03-20T23:51:19.903Z",
+  "lastUpdatedAt": "2026-03-21T00:04:04.205Z",
   "capital": 5000,
   "rotations": [],
   "strategyA": {
@@ -53,14 +53,14 @@
         "isLending": false,
         "estimatedGas": 0.05,
         "tvl_24h_ago": 1274238,
-        "tvl_24h_updateCycle": 4,
-        "crystallisedEarnings": 0.003863462791600771,
-        "atRiskCapital": 500.0038634627916,
-        "cumulativeReturn": 0.000007726925583201541,
+        "tvl_24h_updateCycle": 5,
+        "crystallisedEarnings": 0.007782663885853088,
+        "atRiskCapital": 500.0077826638859,
+        "cumulativeReturn": 0.000015565327771706177,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.005988367326981195,
+        "yieldIncomeAUD": 0.012063129023072288,
         "gasDeductibleAUD": 0.07750000000000001,
         "audSnapshots": [
           {
@@ -82,6 +82,11 @@
             "timestamp": "2026-03-20T23:51:19.903Z",
             "yieldAUD": 0.002092932248961143,
             "totalYieldAUD": 0.005988367326981195
+          },
+          {
+            "timestamp": "2026-03-21T00:04:04.205Z",
+            "yieldAUD": 0.0060747616960910925,
+            "totalYieldAUD": 0.012063129023072288
           }
         ]
       },
@@ -129,16 +134,22 @@
         "isLending": false,
         "estimatedGas": 0.05,
         "tvl_24h_ago": 2128248,
-        "tvl_24h_updateCycle": 0,
-        "crystallisedEarnings": 0,
-        "atRiskCapital": 500,
-        "cumulativeReturn": 0,
+        "tvl_24h_updateCycle": 1,
+        "crystallisedEarnings": 0.008525777176788433,
+        "atRiskCapital": 500.00852577717677,
+        "cumulativeReturn": 0.000017051554353576867,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0,
+        "yieldIncomeAUD": 0.013214954624022071,
         "gasDeductibleAUD": 0.07750000000000001,
-        "audSnapshots": []
+        "audSnapshots": [
+          {
+            "timestamp": "2026-03-21T00:04:04.205Z",
+            "yieldAUD": 0.013214954624022071,
+            "totalYieldAUD": 0.013214954624022071
+          }
+        ]
       },
       {
         "chain": "Arbitrum",
@@ -184,16 +195,22 @@
         "isLending": false,
         "estimatedGas": 0.1,
         "tvl_24h_ago": 1098269,
-        "tvl_24h_updateCycle": 0,
-        "crystallisedEarnings": 0,
-        "atRiskCapital": 500,
-        "cumulativeReturn": 0,
+        "tvl_24h_updateCycle": 1,
+        "crystallisedEarnings": 0.00803765973733511,
+        "atRiskCapital": 500.00803765973734,
+        "cumulativeReturn": 0.00001607531947467022,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0,
+        "yieldIncomeAUD": 0.01245837259286942,
         "gasDeductibleAUD": 0.15500000000000003,
-        "audSnapshots": []
+        "audSnapshots": [
+          {
+            "timestamp": "2026-03-21T00:04:04.205Z",
+            "yieldAUD": 0.01245837259286942,
+            "totalYieldAUD": 0.01245837259286942
+          }
+        ]
       },
       {
         "chain": "Solana",
@@ -239,16 +256,22 @@
         "isLending": false,
         "estimatedGas": 0.02,
         "tvl_24h_ago": 29470328,
-        "tvl_24h_updateCycle": 0,
-        "crystallisedEarnings": 0,
-        "atRiskCapital": 500,
-        "cumulativeReturn": 0,
+        "tvl_24h_updateCycle": 1,
+        "crystallisedEarnings": 0.007573822991650813,
+        "atRiskCapital": 500.0075738229917,
+        "cumulativeReturn": 0.000015147645983301626,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0,
+        "yieldIncomeAUD": 0.01173942563705876,
         "gasDeductibleAUD": 0.031000000000000003,
-        "audSnapshots": []
+        "audSnapshots": [
+          {
+            "timestamp": "2026-03-21T00:04:04.205Z",
+            "yieldAUD": 0.01173942563705876,
+            "totalYieldAUD": 0.01173942563705876
+          }
+        ]
       },
       {
         "chain": "Base",
@@ -294,20 +317,26 @@
         "isLending": false,
         "estimatedGas": 0.05,
         "tvl_24h_ago": 1686737,
-        "tvl_24h_updateCycle": 0,
-        "crystallisedEarnings": 0,
-        "atRiskCapital": 500,
-        "cumulativeReturn": 0,
+        "tvl_24h_updateCycle": 1,
+        "crystallisedEarnings": 0.007121775778814688,
+        "atRiskCapital": 500.00712177577884,
+        "cumulativeReturn": 0.000014243551557629377,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0,
+        "yieldIncomeAUD": 0.011038752457162767,
         "gasDeductibleAUD": 0.07750000000000001,
-        "audSnapshots": []
+        "audSnapshots": [
+          {
+            "timestamp": "2026-03-21T00:04:04.205Z",
+            "yieldAUD": 0.011038752457162767,
+            "totalYieldAUD": 0.011038752457162767
+          }
+        ]
       }
     ],
-    "virtualBalance": 2500.003989749868,
-    "totalEarned": 0.003989749867593288,
+    "virtualBalance": 2500.0391679866466,
+    "totalEarned": 0.03916798664643465,
     "totalRotations": 0,
     "snapshots": [
       {
@@ -329,6 +358,10 @@
       {
         "ts": "2026-03-20T23:51:19.903Z",
         "balance": 2500.003989749868
+      },
+      {
+        "ts": "2026-03-21T00:04:04.205Z",
+        "balance": 2500.0391679866466
       }
     ]
   },
@@ -380,14 +413,14 @@
         "isLending": true,
         "estimatedGas": 0.02,
         "tvl_24h_ago": 28246480,
-        "tvl_24h_updateCycle": 4,
+        "tvl_24h_updateCycle": 5,
         "crystallisedEarnings": 0,
         "atRiskCapital": 500,
         "cumulativeReturn": 0,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.000945307140384957,
+        "yieldIncomeAUD": 0.0019042474326068622,
         "gasDeductibleAUD": 0.031000000000000003,
         "audSnapshots": [
           {
@@ -409,6 +442,11 @@
             "timestamp": "2026-03-20T23:51:19.903Z",
             "yieldAUD": 0.00033038373895310125,
             "totalYieldAUD": 0.000945307140384957
+          },
+          {
+            "timestamp": "2026-03-21T00:04:04.205Z",
+            "yieldAUD": 0.0009589402922219053,
+            "totalYieldAUD": 0.0019042474326068622
           }
         ]
       },
@@ -458,14 +496,14 @@
         "isLending": true,
         "estimatedGas": 0.1,
         "tvl_24h_ago": 37605382,
-        "tvl_24h_updateCycle": 4,
+        "tvl_24h_updateCycle": 5,
         "crystallisedEarnings": 0,
         "atRiskCapital": 500,
         "cumulativeReturn": 0,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.0009128268001648908,
+        "yieldIncomeAUD": 0.001838818323027651,
         "gasDeductibleAUD": 0.15500000000000003,
         "audSnapshots": [
           {
@@ -487,6 +525,11 @@
             "timestamp": "2026-03-20T23:51:19.903Z",
             "yieldAUD": 0.0003190318980688736,
             "totalYieldAUD": 0.0009128268001648908
+          },
+          {
+            "timestamp": "2026-03-21T00:04:04.205Z",
+            "yieldAUD": 0.0009259915228627601,
+            "totalYieldAUD": 0.001838818323027651
           }
         ]
       },
@@ -536,14 +579,14 @@
         "isLending": true,
         "estimatedGas": 30,
         "tvl_24h_ago": 141280558,
-        "tvl_24h_updateCycle": 4,
+        "tvl_24h_updateCycle": 5,
         "crystallisedEarnings": 0,
         "atRiskCapital": 500,
         "cumulativeReturn": 0,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.0007795133526763065,
+        "yieldIncomeAUD": 0.0015702687910641808,
         "gasDeductibleAUD": 46.5,
         "audSnapshots": [
           {
@@ -565,6 +608,11 @@
             "timestamp": "2026-03-20T23:51:19.903Z",
             "yieldAUD": 0.0002724390042332572,
             "totalYieldAUD": 0.0007795133526763065
+          },
+          {
+            "timestamp": "2026-03-21T00:04:04.205Z",
+            "yieldAUD": 0.0007907554383878743,
+            "totalYieldAUD": 0.0015702687910641808
           }
         ]
       },
@@ -613,14 +661,14 @@
         "isLending": true,
         "estimatedGas": 30,
         "tvl_24h_ago": 619518062,
-        "tvl_24h_updateCycle": 4,
+        "tvl_24h_updateCycle": 5,
         "crystallisedEarnings": 0,
         "atRiskCapital": 500,
         "cumulativeReturn": 0,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.0007531172900735669,
+        "yieldIncomeAUD": 0.0015170959837354139,
         "gasDeductibleAUD": 46.5,
         "audSnapshots": [
           {
@@ -642,6 +690,11 @@
             "timestamp": "2026-03-20T23:51:19.903Z",
             "yieldAUD": 0.0002632136112538052,
             "totalYieldAUD": 0.0007531172900735669
+          },
+          {
+            "timestamp": "2026-03-21T00:04:04.205Z",
+            "yieldAUD": 0.000763978693661847,
+            "totalYieldAUD": 0.0015170959837354139
           }
         ]
       },
@@ -694,14 +747,14 @@
         "isLending": false,
         "estimatedGas": 0.05,
         "tvl_24h_ago": 1274238,
-        "tvl_24h_updateCycle": 4,
+        "tvl_24h_updateCycle": 5,
         "crystallisedEarnings": 0,
         "atRiskCapital": 500,
         "cumulativeReturn": 0,
         "costBasisAUD": 775,
         "proceedsAUD": 0,
         "cgtGain": 0,
-        "yieldIncomeAUD": 0.0059883511855555556,
+        "yieldIncomeAUD": 0.012063065942777779,
         "gasDeductibleAUD": 0.07750000000000001,
         "audSnapshots": [
           {
@@ -723,12 +776,17 @@
             "timestamp": "2026-03-20T23:51:19.903Z",
             "yieldAUD": 0.0020929217291666665,
             "totalYieldAUD": 0.0059883511855555556
+          },
+          {
+            "timestamp": "2026-03-21T00:04:04.205Z",
+            "yieldAUD": 0.0060747147572222234,
+            "totalYieldAUD": 0.012063065942777779
           }
         ]
       }
     ],
-    "virtualBalance": 2500.0060510424332,
-    "totalEarned": 0.006051042431519533,
+    "virtualBalance": 2500.0121893525647,
+    "totalEarned": 0.012189352563362506,
     "totalRotations": 0,
     "snapshots": [
       {
@@ -750,17 +808,21 @@
       {
         "ts": "2026-03-20T23:51:19.903Z",
         "balance": 2500.0060510424332
+      },
+      {
+        "ts": "2026-03-21T00:04:04.205Z",
+        "balance": 2500.0121893525647
       }
     ]
   },
-  "cycles": 5,
+  "cycles": 6,
   "history": [],
   "circuitBreaker": {
     "active": false,
     "triggeredAt": null,
-    "peakValue24h": 5000.006575681185,
+    "peakValue24h": 5000.010040792302,
     "stableCount": 0,
-    "cyclesSinceReset": 4
+    "cyclesSinceReset": 5
   },
   "profitVault": {
     "strategyA": {
@@ -768,7 +830,7 @@
       "pool": null
     },
     "strategyB": {
-      "balance": 0.006051042431519533,
+      "balance": 0.012189352563362506,
       "pool": null
     }
   },
@@ -779,13 +841,13 @@
       "totalCGT_AUD": 0,
       "totalYieldIncome_AUD": 0,
       "totalGasDeductible_AUD": 0,
-      "afterTaxReturn_AUD": 0.006184112294769596
+      "afterTaxReturn_AUD": 0.06071037930197371
     },
     "strategyB": {
       "totalCGT_AUD": 0,
       "totalYieldIncome_AUD": 0,
       "totalGasDeductible_AUD": 0,
-      "afterTaxReturn_AUD": 0.009379115768855277
+      "afterTaxReturn_AUD": 0.018893496473211886
     }
   },
   "apyAlerts": []
