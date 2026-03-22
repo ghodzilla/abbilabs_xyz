@@ -55,10 +55,10 @@ export default function AIPaymentMonitorPage() {
       {/* The problem */}
       <section style={{ background: '#fef2f2', border: '1px solid #fecaca', borderRadius: '0.75rem', padding: '1.5rem', marginBottom: '2.5rem' }}>
         <p style={{ color: '#b91c1c', lineHeight: 1.7, margin: 0 }}>
-          A Stripe dispute has a <strong>7-day response window</strong>. Miss it and you auto-lose the money. Your dispute rate goes up. Stripe starts watching you more closely. Most founders find out about disputes when they remember to check Stripe. That might be every few days. That might be too late.
+          A Stripe dispute has a <strong>7-day response window.</strong> Miss it and you auto-lose — no appeal, no exception. Your dispute rate goes up. Stripe flags your account. Most founders find out about disputes when they remember to check the dashboard. That gap costs real money.
         </p>
         <p style={{ color: '#b91c1c', lineHeight: 1.7, marginTop: '0.75rem', marginBottom: 0 }}>
-          The AI Payment Monitor watches your Stripe account around the clock and sends you a Slack message the moment something needs your attention.
+          The AI Payment Monitor watches your Stripe account around the clock. The moment a dispute opens, you get a Slack ping with the customer email, amount, reason, and the exact deadline to respond.
         </p>
       </section>
 
@@ -68,8 +68,8 @@ export default function AIPaymentMonitorPage() {
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {[
             { icon: '🚨', title: 'Instant dispute alerts', desc: 'Customer email, amount, reason, deadline, and a direct link to respond — the moment a dispute opens.', urgent: true },
-            { icon: '❌', title: 'Failed payment clustering', desc: 'Spots patterns that could indicate fraud. Every failure logged regardless.' },
-            { icon: '📉', title: 'Subscription cancellation alerts', desc: 'Know the moment a customer churns, with revenue impact.' },
+            { icon: '❌', title: 'Failed payment clustering', desc: 'Sees when the same card fails 3x in an hour. Groups failures by reason: expired, insufficient funds, fraud flags. Every failure logged.' },
+            { icon: '📉', title: 'Subscription cancellation alerts', desc: 'Know the moment a customer churns. Revenue impact included — so you see exactly what just left.' },
             { icon: '↩️', title: 'Refund rate monitoring', desc: 'Early warning if something\'s going wrong. Alerts when rolling 7-day refund rate exceeds your threshold.' },
             { icon: '📊', title: 'Daily revenue summary', desc: 'Yesterday\'s numbers in Slack by 8am. Revenue, failed payments, open disputes — one message.' },
           ].map((item) => (
@@ -123,7 +123,7 @@ export default function AIPaymentMonitorPage() {
       <section style={{ marginBottom: '2.5rem' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.75rem' }}>How it works under the hood</h2>
         <p style={{ color: '#374151', lineHeight: 1.7 }}>
-          Pure Node.js. Zero npm dependencies. Runs as a cron job on any server, or pipe the output to any LLM for intelligent triage. Production-tested against live Stripe APIs with error handling, rate limiting, and retry logic built in. Works with Claude, GPT, Gemini, LangChain, CrewAI, OpenClaw — or standalone without any LLM.
+          Pure Node.js. Zero npm packages. Runs as a cron job on your server — VPS, Raspberry Pi, wherever. Handles Stripe&apos;s API rate limits and retry logic. Works with Claude, GPT, Gemini, OpenClaw — or standalone, no LLM needed.
         </p>
       </section>
 
@@ -131,8 +131,8 @@ export default function AIPaymentMonitorPage() {
       <section style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '0.75rem', padding: '1.5rem', marginBottom: '2.5rem' }}>
         <h3 style={{ fontWeight: 700, color: '#1e40af', marginBottom: '0.5rem' }}>Running an agency?</h3>
         <p style={{ color: '#1d4ed8', margin: 0, lineHeight: 1.6 }}>
-          Deploy this for every e-commerce client in 5 minutes. Bill $500+ per setup. One purchase covers all your projects.
-          <a href="/agencies" style={{ color: '#2563eb', fontWeight: 600, marginLeft: '0.5rem', textDecoration: 'none' }}>See agency pricing →</a>
+          $39 from you. $500+ from your client. Do the math. One purchase. Unlimited clients. No per-client fees.
+          <a href="/agencies" style={{ color: '#2563eb', fontWeight: 600, marginLeft: '0.5rem', textDecoration: 'none' }}>See agency bundle →</a>
         </p>
       </section>
 
@@ -141,11 +141,11 @@ export default function AIPaymentMonitorPage() {
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '1.25rem' }}>FAQ</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {[
-            { q: "How quickly does it alert on a dispute?", a: "Within minutes. The monitor runs on your configured interval (default: every 30 min via cron). We recommend 15–30 minute intervals for 24/7 coverage." },
-            { q: "Do I need a paid Stripe plan?", a: "No. Works with any Stripe account that has live payments enabled." },
-            { q: "Can I customise the refund rate threshold?", a: "Yes — it's a single value in config.json. Default is 5%. Change it to whatever makes sense for your business." },
-            { q: "Does it work without Slack?", a: "Slack is the primary notification channel. Email support is on the roadmap — contact us if that's a blocker." },
-            { q: "What's the refund policy?", a: "30-day money-back guarantee if it doesn't work as described. Email support@abbilabs.xyz first — we'll fix it or refund you." },
+            { q: "How quickly does it alert on a dispute?", a: "15–30 minutes depending on your cron schedule. Set it to 15 minutes and you'll know about a dispute before most customers expect a response." },
+            { q: "Do I need a paid Stripe plan?", a: "Nope. Any account with live payments enabled." },
+            { q: "Can I customise the refund rate threshold?", a: "Yes. One line in config.json. Default is 5%. Set it lower if you want earlier warnings." },
+            { q: "Does it work without Slack?", a: "Slack is what we built for. Email alerts are on the roadmap. Let us know if that's blocking you." },
+            { q: "What's the refund policy?", a: "30 days. If it doesn't work as described, email support@abbilabs.xyz. We'll fix it or refund you — no hoops." },
           ].map((item, i) => (
             <details key={i} style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1rem' }}>
               <summary style={{ fontWeight: 600, cursor: 'pointer', color: '#111827' }}>{item.q}</summary>
@@ -157,8 +157,8 @@ export default function AIPaymentMonitorPage() {
 
       {/* Bottom CTA */}
       <section style={{ background: '#eff6ff', borderRadius: '0.75rem', padding: '2rem', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.5rem' }}>Stop missing disputes.</h2>
-        <p style={{ color: '#6b7280', marginBottom: '1.5rem' }}>One-time purchase. 5-minute setup. 30-day money-back guarantee.</p>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.5rem' }}>A dispute has a 7-day window. Start the clock.</h2>
+        <p style={{ color: '#6b7280', marginBottom: '1.5rem' }}>$39 once. 5-minute setup. 30-day money-back guarantee.</p>
         <div style={{ fontSize: '2.5rem', fontWeight: 700, color: '#2563eb', marginBottom: '1rem' }}>$39</div>
         <button
           onClick={() => handleCheckout('ai-payment-monitor')}

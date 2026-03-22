@@ -10,26 +10,26 @@ export default function AgenciesPage() {
       {/* Hero */}
       <section style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
         <h1 style={{ fontSize: '2.75rem', fontWeight: 700, color: '#111827', lineHeight: 1.2, marginBottom: '1rem', letterSpacing: '-0.02em' }}>
-          Buy once. Deploy for every client. Bill premium.
+          You pay $39–$99. You bill $500–$8,000. Per client.
         </h1>
         <p style={{ fontSize: '1.2rem', color: '#6b7280', lineHeight: 1.6, maxWidth: '36rem', margin: '0 auto 1.5rem' }}>
-          If you run a dev shop, automation agency, or freelance practice, these templates are your secret weapon. Each one is a production-ready AI agent setup you can customise per client and deploy in 15 minutes.
+          Three AI agent templates. One purchase each. Deploy for every client you have. One purchase. Unlimited clients. No per-seat fees.
         </p>
         <a
           href="mailto:support@abbilabs.xyz?subject=Agency Bundle Pricing"
           style={{ background: '#2563eb', color: '#fff', padding: '0.875rem 2rem', borderRadius: '0.5rem', fontWeight: 700, textDecoration: 'none', fontSize: '1rem', display: 'inline-block' }}
         >
-          Email us for agency bundle pricing
+          Get the Agency Bundle — $179
         </a>
       </section>
 
       {/* How it works */}
       <section style={{ marginBottom: '3.5rem' }}>
         <p style={{ color: '#374151', lineHeight: 1.7, marginBottom: '1rem', fontSize: '1rem' }}>
-          Each template is a production-ready AI agent setup. You customise it per client — their API keys, their scoring rules, their Slack channels — and deploy in 15 minutes. The code is clean, well-documented, and built to be extended.
+          Swap in their API keys. Adjust the config file. Deploy. 15 minutes per client. The code is clean, documented, and built to be customised without touching the logic.
         </p>
         <p style={{ color: '#374151', lineHeight: 1.7, fontSize: '1rem' }}>
-          <strong>Your clients get an AI agent. You get a high-margin deliverable.</strong> One purchase covers all your projects. No per-seat fees. No per-client fees.
+          <strong>Your clients get a working AI agent. You get a high-margin deliverable.</strong> One purchase. Unlimited clients. No per-seat fees. No per-client fees.
         </p>
       </section>
 
@@ -44,7 +44,7 @@ export default function AgenciesPage() {
                 <span style={{ fontSize: '1.5rem' }}>💳</span>
                 <h3 style={{ fontWeight: 700, color: '#111827', margin: 0 }}>AI Payment Monitor</h3>
               </div>
-              <p style={{ color: '#6b7280', fontSize: '0.9rem', margin: 0 }}>Deploy for e-commerce clients. Stripe dispute alerts in Slack. 5-minute setup per client.</p>
+              <p style={{ color: '#6b7280', fontSize: '0.9rem', margin: 0 }}>Your e-commerce client misses one $500 dispute — that&apos;s more than your whole cost. Stripe dispute alerts in Slack. 5-minute setup.</p>
             </div>
             <div style={{ textAlign: 'right', flexShrink: 0 }}>
               <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>You pay</div>
@@ -63,7 +63,7 @@ export default function AgenciesPage() {
                   <span style={{ background: '#2563eb', color: '#fff', fontSize: '0.7rem', padding: '0.1rem 0.5rem', borderRadius: '9999px', fontWeight: 600 }}>Most Popular</span>
                 </div>
               </div>
-              <p style={{ color: '#374151', fontSize: '0.9rem', margin: 0 }}>CRM automation for SaaS clients. Lead scoring, stale deal alerts, daily pipeline reports. 15-minute setup. Customise scoring rules per client without touching code.</p>
+              <p style={{ color: '#374151', fontSize: '0.9rem', margin: 0 }}>Your SaaS client is paying $800/month for HubSpot Marketing Hub Pro just to get lead scoring. You give them the same outcome for $79. Scoring rules per client, no code changes.</p>
             </div>
             <div style={{ textAlign: 'right', flexShrink: 0 }}>
               <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>You pay</div>
@@ -79,7 +79,7 @@ export default function AgenciesPage() {
                 <span style={{ fontSize: '1.5rem' }}>🎧</span>
                 <h3 style={{ fontWeight: 700, color: '#111827', margin: 0 }}>AI Support Agent</h3>
               </div>
-              <p style={{ color: '#6b7280', fontSize: '0.9rem', margin: 0 }}>Support automation for any client using email or Intercom. Connects to their knowledge base, auto-resolves 70% of tickets, escalates the rest with full context.</p>
+              <p style={{ color: '#6b7280', fontSize: '0.9rem', margin: 0 }}>Auto-resolves 70% of their support tickets. The other 30% land in Slack with full context and a drafted reply. Deploy in under an hour, customise the knowledge base per client.</p>
             </div>
             <div style={{ textAlign: 'right', flexShrink: 0 }}>
               <div style={{ fontSize: '0.8rem', color: '#6b7280' }}>You pay</div>
@@ -90,7 +90,7 @@ export default function AgenciesPage() {
           </div>
 
         </div>
-        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginTop: '1rem', textAlign: 'center' }}>25x–100x return on a single purchase. One purchase covers all your projects.</p>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginTop: '1rem', textAlign: 'center' }}>Worst-case: 12x return on your first deployment. One purchase covers every client after that.</p>
       </section>
 
       {/* What's included */}
@@ -98,10 +98,10 @@ export default function AgenciesPage() {
         <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: '#111827', marginBottom: '1.25rem' }}>What&apos;s included in every template</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1rem' }}>
           {[
-            { icon: '💻', title: 'Full source code', desc: 'Pure Node.js, zero dependencies, well-documented. Easy to extend per client.' },
-            { icon: '📝', title: 'AGENT.md system prompts', desc: 'Pre-built agent instructions for any LLM. Load into Claude, GPT, Gemini — anything.' },
-            { icon: '⚙️', title: 'Config files', desc: 'Customise per client without touching code. One config file per deployment.' },
-            { icon: '📚', title: 'Setup guides', desc: 'Hand to your client or use for onboarding. Step-by-step, no gaps.' },
+            { icon: '💻', title: 'Full source code', desc: 'Pure Node.js, zero dependencies, documented. Easy to extend for any client.' },
+            { icon: '📝', title: 'AGENT.md system prompts', desc: 'Agent instructions for any LLM. Load into Claude, GPT, Gemini — or run without one.' },
+            { icon: '⚙️', title: 'Config files', desc: 'One config file per deployment. Customise per client without touching any code.' },
+            { icon: '📚', title: 'Setup guides', desc: 'Hand it to your client or walk through it yourself. Step-by-step, under 15 minutes.' },
           ].map((item) => (
             <div key={item.title} style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1.25rem' }}>
               <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{item.icon}</div>
@@ -114,8 +114,8 @@ export default function AgenciesPage() {
 
       {/* Agency Bundle CTA */}
       <section style={{ background: '#111827', borderRadius: '0.75rem', padding: '2.5rem', textAlign: 'center', marginBottom: '3.5rem' }}>
-        <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem' }}>Agency Bundle</h2>
-        <p style={{ color: '#9ca3af', marginBottom: '1.5rem' }}>All 3 templates for $179 — save $38</p>
+        <h2 style={{ fontSize: '1.75rem', fontWeight: 700, color: '#fff', marginBottom: '0.5rem' }}>Get all three. $179.</h2>
+        <p style={{ color: '#9ca3af', marginBottom: '1.5rem' }}>All 3 templates. $38 off. Deploy for every client you ever take on.</p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginBottom: '1.5rem', flexWrap: 'wrap', fontSize: '0.875rem' }}>
           <div style={{ color: '#e2e8f0' }}>✓ AI Payment Monitor <span style={{ color: '#9ca3af' }}>($39)</span></div>
           <div style={{ color: '#e2e8f0' }}>✓ AI Sales Agent <span style={{ color: '#9ca3af' }}>($79)</span></div>
@@ -126,9 +126,9 @@ export default function AgenciesPage() {
           href="mailto:support@abbilabs.xyz?subject=Agency Bundle Pricing"
           style={{ background: '#2563eb', color: '#fff', padding: '1rem 2.5rem', borderRadius: '0.5rem', fontWeight: 700, textDecoration: 'none', fontSize: '1rem', display: 'inline-block' }}
         >
-          Email support@abbilabs.xyz for agency bundle pricing
+          Email support@abbilabs.xyz — we&apos;ll send you the link
         </a>
-        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginTop: '1rem' }}>Need white-label or custom deployments? Email us and we&apos;ll sort it out.</p>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginTop: '1rem' }}>Need white-label or custom deployments? Tell us what you need.</p>
       </section>
 
       {/* Individual links */}

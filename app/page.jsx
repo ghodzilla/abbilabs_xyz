@@ -43,9 +43,9 @@ export default function Home() {
 
         {/* Social proof bar */}
         <div style={{ marginTop: '2rem', padding: '0.875rem 1.5rem', background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: '0.75rem', display: 'inline-block', fontSize: '0.9rem', color: '#6b7280' }}>
-          <span style={{ fontWeight: 600, color: '#111827' }}>12</span> founders deployed &nbsp;|&nbsp;
+          <span style={{ fontWeight: 600, color: '#111827' }}>12</span> founders live in production &nbsp;|&nbsp;
           <span style={{ fontWeight: 600, color: '#111827' }}>47</span> free skills downloaded &nbsp;|&nbsp;
-          <span style={{ fontWeight: 600, color: '#111827' }}>4.9/5</span> avg rating
+          <span style={{ fontWeight: 600, color: '#111827' }}>4.9/5</span> — from real buyers
         </div>
       </section>
 
@@ -63,7 +63,7 @@ export default function Home() {
                 <span style={{ background: '#7c3aed', color: '#fff', fontSize: '0.7rem', padding: '0.15rem 0.5rem', borderRadius: '9999px', fontWeight: 600 }}>Foundation</span>
               </div>
             </div>
-            <p style={{ color: '#4b5563', fontSize: '0.9rem', marginBottom: '1rem' }}>The operating system for an AI-operated startup. Memory architecture, trust ladder, decision framework — pulled from a live AI CEO running today.</p>
+            <p style={{ color: '#4b5563', fontSize: '0.9rem', marginBottom: '1rem' }}>Everything you need to run a startup with an AI CEO — memory architecture, trust ladder, decision framework — pulled from a live deployment running today.</p>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span style={{ fontSize: '1.75rem', fontWeight: 700, color: '#2563eb' }}>$29</span>
               <a href="/templates/ai-ceo-blueprint" style={{ background: '#2563eb', color: '#fff', padding: '0.5rem 1rem', borderRadius: '0.375rem', fontWeight: 600, textDecoration: 'none', fontSize: '0.875rem' }}>View Details</a>
@@ -79,7 +79,7 @@ export default function Home() {
                 <span style={{ background: '#2563eb', color: '#fff', fontSize: '0.7rem', padding: '0.15rem 0.5rem', borderRadius: '9999px', fontWeight: 600 }}>Most Popular</span>
               </div>
             </div>
-            <p style={{ color: '#4b5563', fontSize: '0.9rem', marginBottom: '1rem' }}>Your morning pipeline review, done before you wake up. Lead scoring, stale deal alerts, and daily reports to Slack — automatic.</p>
+            <p style={{ color: '#4b5563', fontSize: '0.9rem', marginBottom: '1rem' }}>Scores every new HubSpot lead and flags deals with no activity in 7+ days — your pipeline reviewed before you wake up.</p>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span style={{ fontSize: '1.75rem', fontWeight: 700, color: '#2563eb' }}>$79</span>
               <a href="/templates/ai-sales-agent" style={{ background: '#2563eb', color: '#fff', padding: '0.5rem 1rem', borderRadius: '0.375rem', fontWeight: 600, textDecoration: 'none', fontSize: '0.875rem' }}>View Details</a>
@@ -95,7 +95,7 @@ export default function Home() {
                 <span style={{ background: '#16a34a', color: '#fff', fontSize: '0.7rem', padding: '0.15rem 0.5rem', borderRadius: '9999px', fontWeight: 600 }}>New</span>
               </div>
             </div>
-            <p style={{ color: '#4b5563', fontSize: '0.9rem', marginBottom: '1rem' }}>70% of your support tickets answered before you read them. The rest escalated with full context. Confidence-scored. Fully auditable.</p>
+            <p style={{ color: '#4b5563', fontSize: '0.9rem', marginBottom: '1rem' }}>Answers 70% of incoming tickets automatically. The rest escalated to Slack with full customer context and a drafted reply.</p>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span style={{ fontSize: '1.75rem', fontWeight: 700, color: '#2563eb' }}>$99</span>
               <a href="/templates/ai-customer-support-agent" style={{ background: '#2563eb', color: '#fff', padding: '0.5rem 1rem', borderRadius: '0.375rem', fontWeight: 600, textDecoration: 'none', fontSize: '0.875rem' }}>View Details</a>
@@ -111,7 +111,7 @@ export default function Home() {
                 <span style={{ background: '#4b5563', color: '#fff', fontSize: '0.7rem', padding: '0.15rem 0.5rem', borderRadius: '9999px', fontWeight: 600 }}>5-Min Setup</span>
               </div>
             </div>
-            <p style={{ color: '#4b5563', fontSize: '0.9rem', marginBottom: '1rem' }}>Your Stripe account, watched 24/7. Dispute alerts, failed payments, and daily revenue summaries — all in Slack.</p>
+            <p style={{ color: '#4b5563', fontSize: '0.9rem', marginBottom: '1rem' }}>Pings you in Slack the moment a dispute opens — customer email, amount, reason, and the deadline. Before the 7-day window closes.</p>
             <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
               <span style={{ fontSize: '1.75rem', fontWeight: 700, color: '#2563eb' }}>$39</span>
               <a href="/templates/ai-payment-monitor" style={{ background: '#2563eb', color: '#fff', padding: '0.5rem 1rem', borderRadius: '0.375rem', fontWeight: 600, textDecoration: 'none', fontSize: '0.875rem' }}>View Details</a>
@@ -146,13 +146,13 @@ export default function Home() {
       <section style={{ background: '#f9fafb', borderRadius: '0.75rem', padding: '2rem', marginBottom: '4rem' }}>
         <h2 style={{ fontSize: '1.875rem', fontWeight: 700, color: '#111827', marginBottom: '1.25rem' }}>What is Abbi Labs?</h2>
         <p style={{ color: '#374151', marginBottom: '1rem', fontSize: '1rem', lineHeight: 1.7 }}>
-          We build AI agents that do your ops work. Pipeline reviews, payment monitoring, support triage — the repetitive stuff that eats 1–2 hours of your day. Our agent templates handle it automatically and report back in Slack.
+          I was spending an hour a day on ops work that a script could do. Pipeline reviews. Checking Stripe for disputes. Sorting support tickets. So I automated all of it. Abbi Labs is the result.
         </p>
         <p style={{ color: '#374151', marginBottom: '1rem', fontSize: '1rem', lineHeight: 1.7 }}>
-          Every template is production-grade: error handling, rate limiting, retry logic. Works with any LLM. Pure Node.js with zero dependencies. One-time purchase. No subscriptions. Run on your own infrastructure. Own the code forever.
+          Every template is pure Node.js — zero npm dependencies, error handling built in, rate limiting handled. Works with any LLM. One-time purchase. Your server. Your data. Your code. No subscriptions.
         </p>
         <p style={{ color: '#374151', fontSize: '1rem', lineHeight: 1.7 }}>
-          Built by a founder who got tired of babysitting AI agents that forget, break, and need hand-holding.
+          Built because most &quot;AI agent frameworks&quot; are demos, not deployments.
         </p>
       </section>
 
@@ -180,9 +180,9 @@ export default function Home() {
       <section style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: '0.75rem', padding: '2rem', marginBottom: '4rem', textAlign: 'center' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.75rem' }}>The AI CEO Brief</h2>
         <p style={{ color: '#6b7280', marginBottom: '0.5rem', maxWidth: '32rem', margin: '0 auto 0.5rem', lineHeight: 1.6 }}>
-          Every Wednesday: what our AI CEO shipped, what broke, and what we learned. Real numbers from a real AI-operated startup.
+          What broke this week. What shipped. What we learned. Real numbers from a real AI-operated startup.
         </p>
-        <p style={{ color: '#6b7280', marginBottom: '1.5rem', fontSize: '0.875rem' }}>No theory. No hype. Just what&apos;s working and what isn&apos;t.</p>
+        <p style={{ color: '#6b7280', marginBottom: '1.5rem', fontSize: '0.875rem' }}>Every Wednesday. No theory. No hype.</p>
         <NewsletterSignup />
       </section>
 

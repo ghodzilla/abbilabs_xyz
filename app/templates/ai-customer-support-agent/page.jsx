@@ -56,10 +56,10 @@ export default function AICustomerSupportAgentPage() {
       {/* The problem */}
       <section style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: '0.75rem', padding: '1.5rem', marginBottom: '2.5rem' }}>
         <p style={{ color: '#374151', lineHeight: 1.7, margin: 0 }}>
-          Most support tickets are the same 20 questions. Your knowledge base already has the answers. But your customers don&apos;t read it, and you end up copy-pasting the same responses every day.
+          Your inbox has 47 unread tickets. You already know what 33 of them say. Same 20 questions, different customers. Your team is copy-pasting the same answers every day. That&apos;s the whole problem.
         </p>
         <p style={{ color: '#374151', lineHeight: 1.7, marginTop: '0.75rem', marginBottom: 0 }}>
-          The AI Customer Support Agent reads incoming tickets, checks your knowledge base, and responds automatically to the ones it can handle. For everything else, it escalates to your team in Slack with the customer context, ticket history, and a suggested response. <strong>Your team handles the hard 30%. The agent handles the repetitive 70%.</strong>
+          The AI Customer Support Agent reads incoming tickets, checks your knowledge base, and responds. For the hard 30%, it escalates to Slack with customer history, ticket context, and a suggested reply already written. <strong>Your team handles the exceptions. The agent handles the repetition.</strong>
         </p>
       </section>
 
@@ -68,11 +68,11 @@ export default function AICustomerSupportAgentPage() {
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '1rem' }}>What it does</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {[
-            { icon: '✅', title: 'Auto-response', desc: 'Matches tickets to knowledge base articles and responds with accurate, natural answers.' },
-            { icon: '🧠', title: 'Smart triage', desc: 'Categorises tickets by topic, urgency, and sentiment. Four-category system: auto-resolve, needs context, escalate, urgent.' },
-            { icon: '🚨', title: 'Slack escalation', desc: 'Sends unresolved tickets to Slack with full context: customer info, plan, sentiment, ticket history, and a suggested reply.' },
-            { icon: '🎯', title: 'Confidence scoring', desc: 'Only responds when it\'s confident in the answer. Threshold is configurable — low confidence means auto-escalate, not auto-guess.' },
-            { icon: '📊', title: 'Conversation logging', desc: 'Every interaction tracked for review and improvement. Daily reports on ticket volume, resolution rate, and sentiment.' },
+            { icon: '✅', title: 'Auto-response', desc: 'Reads the ticket. Searches your knowledge base. Sends an accurate reply — without you touching it. Gets it right 85%+ of the time.' },
+            { icon: '🧠', title: 'Smart triage', desc: 'Sorts every ticket into 4 buckets: auto-resolve, needs context, escalate, or urgent. Zero manual sorting required.' },
+            { icon: '🚨', title: 'Slack escalation', desc: 'When confidence drops below your threshold, it sends the full file to Slack: customer plan, ticket history, and a suggested reply drafted for you.' },
+            { icon: '🎯', title: 'Confidence scoring', desc: 'Only fires when it\'s sure. Default threshold is 70%. Anything below that → escalated to a human. It never guesses.' },
+            { icon: '📊', title: 'Conversation logging', desc: 'Every ticket logged — resolved or not. Weekly report: volume, resolution rate, and sentiment breakdown.' },
           ].map((item) => (
             <div key={item.title} style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1rem', display: 'flex', gap: '1rem' }}>
               <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{item.icon}</span>
@@ -121,9 +121,9 @@ export default function AICustomerSupportAgentPage() {
 
       {/* The math */}
       <section style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '0.75rem', padding: '1.5rem', marginBottom: '2.5rem' }}>
-        <h3 style={{ fontWeight: 700, color: '#166534', marginBottom: '0.75rem' }}>The math</h3>
+        <h3 style={{ fontWeight: 700, color: '#166534', marginBottom: '0.75rem' }}>$99. Paid back in 2 days.</h3>
         <p style={{ color: '#15803d', lineHeight: 1.7, margin: 0 }}>
-          If you handle 100 tickets/week and spend 5 minutes per ticket, that&apos;s 8+ hours. At 70% auto-resolution, you get 6 hours back. Every week. That&apos;s $99 paid back in the first 2 days.
+          100 tickets/week × 5 minutes each = 8+ hours. At 70% auto-resolution, you get 6 hours back. Every week. Forever. That&apos;s $99 paid back before Friday of your first week.
         </p>
       </section>
 
@@ -194,7 +194,7 @@ export default function AICustomerSupportAgentPage() {
       <section style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '0.75rem', padding: '1.5rem', marginBottom: '2.5rem' }}>
         <h3 style={{ fontWeight: 700, color: '#1e40af', marginBottom: '0.5rem' }}>Running an agency?</h3>
         <p style={{ color: '#1d4ed8', margin: 0, lineHeight: 1.6 }}>
-          Deploy this for clients in under an hour. Customise the knowledge base per client. Bill $3,000–$8,000 for support automation. One $99 purchase covers all your projects.
+          Deploy for every client. Bill $3,000–$8,000 per setup. One purchase. Unlimited clients. No per-seat fees.
           <a href="/agencies" style={{ color: '#2563eb', fontWeight: 600, marginLeft: '0.5rem', textDecoration: 'none' }}>See agency bundle →</a>
         </p>
       </section>
@@ -204,12 +204,12 @@ export default function AICustomerSupportAgentPage() {
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '1.25rem' }}>FAQ</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {[
-            { q: "Does it work with just email (no Intercom)?", a: "Yes. The email adapter (IMAP/SMTP) works with Gmail, Outlook, or any email provider. Intercom is optional." },
-            { q: "What LLM does it use?", a: "Claude by default, but you can swap to GPT-4, Gemini, or any LLM by changing one line in config.json." },
-            { q: "How does the knowledge base work?", a: "Drop markdown files into the KB folder — each file is a FAQ article. The agent searches these before responding. Or connect a Notion database." },
-            { q: "What if it gets a question wrong?", a: "The confidence threshold (default 70%) prevents uncertain responses. Low confidence = auto-escalate to human. The agent never guesses." },
-            { q: "Does it handle non-English tickets?", a: "Yes. It auto-detects the customer's language and responds in kind. Tested with Spanish, French, German, and more." },
-            { q: "What's the refund policy?", a: "30-day money-back guarantee if it doesn't work as described. Email support@abbilabs.xyz first — we'll fix it or refund you." },
+            { q: "Does it work with just email (no Intercom)?", a: "Yes. Gmail, Outlook, any provider with IMAP. Intercom is completely optional." },
+            { q: "What LLM does it use?", a: "Claude by default. Change one line in config.json to GPT-4, Gemini, or anything else." },
+            { q: "How does the knowledge base work?", a: "Drop .md files into the /kb folder. One file = one topic. Edit them anytime — no re-deploy needed. Or connect a Notion database instead." },
+            { q: "What if it gets a question wrong?", a: "It won't fire if it's not sure. Anything below 70% confidence gets escalated to a human. You control the threshold in config.json — lower it for more caution." },
+            { q: "Does it handle non-English tickets?", a: "Yes. Auto-detects the language, responds in kind. Tested with Spanish, French, and German." },
+            { q: "What's the refund policy?", a: "30 days. Email support@abbilabs.xyz. We fix it or refund it — no hoops." },
           ].map((item, i) => (
             <details key={i} style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1rem' }}>
               <summary style={{ fontWeight: 600, cursor: 'pointer', color: '#111827' }}>{item.q}</summary>
@@ -221,8 +221,8 @@ export default function AICustomerSupportAgentPage() {
 
       {/* Bottom CTA */}
       <section style={{ background: '#eff6ff', borderRadius: '0.75rem', padding: '2rem', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.5rem' }}>Stop answering the same questions manually.</h2>
-        <p style={{ color: '#6b7280', marginBottom: '1.5rem' }}>One-time purchase. Own it forever. 30-day money-back guarantee.</p>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.5rem' }}>Your team shouldn&apos;t spend 8 hours/week copy-pasting answers.</h2>
+        <p style={{ color: '#6b7280', marginBottom: '1.5rem' }}>$99 once. Paid back before the end of week one. 30-day money-back guarantee.</p>
         <div style={{ fontSize: '2.5rem', fontWeight: 700, color: '#2563eb', marginBottom: '1rem' }}>$99</div>
         <button
           onClick={() => handleCheckout('ai-customer-support-agent')}

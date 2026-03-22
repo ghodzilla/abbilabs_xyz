@@ -67,12 +67,12 @@ export default function AISalesAgentPage() {
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '1rem' }}>What it does</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
           {[
-            { icon: '🎯', title: 'Lead scoring engine', desc: 'Customisable rules: company size, deal value, engagement signals. Change the config anytime without touching code.' },
-            { icon: '🔥', title: 'Hot lead Slack alerts', desc: 'Instant ping when a lead scores above your threshold — before they go cold.' },
-            { icon: '⚠️', title: 'Stale deal detection', desc: 'Flags deals with no activity in 7/14/30 days (you choose). The silence is the signal.' },
-            { icon: '📊', title: 'Daily pipeline report', desc: 'Sent to Slack every morning: hot leads, stale deals, total pipeline value, deals closing this week.' },
-            { icon: '📈', title: 'Weekly performance summary', desc: 'Closed/won, closed/lost, conversion rate trends — every Monday.' },
-            { icon: '📝', title: 'Google Sheets logging', desc: 'Every score and alert archived automatically for reporting and review.' },
+            { icon: '🎯', title: 'Lead scoring engine', desc: 'Scores every new lead on job title, company size, and engagement. Weights live in config.json — change them without touching code.' },
+            { icon: '🔥', title: 'Hot lead Slack alerts', desc: 'Instant ping when a lead scores above your threshold. Includes name, company, score, and which rules fired.' },
+            { icon: '⚠️', title: 'Stale deal detection', desc: 'Flags deals with no activity in 7/14/30 days (you choose). The silence is the signal — stale deals never get updated on their own.' },
+            { icon: '📊', title: 'Daily pipeline report', desc: 'Sent to Slack every morning: hot leads, stale deals, total pipeline value, deals closing this week. Before you wake up.' },
+            { icon: '📈', title: 'Weekly performance summary', desc: 'Closed/won, closed/lost, conversion rate — every Monday in Slack, before your first meeting.' },
+            { icon: '📝', title: 'Google Sheets logging', desc: 'Every score and alert archived automatically. Pull the sheet for a client review or a board meeting at any time.' },
           ].map((item) => (
             <div key={item.title} style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1rem' }}>
               <div style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{item.icon}</div>
@@ -238,12 +238,12 @@ export default function AISalesAgentPage() {
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '1rem' }}>Works with any AI framework</h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '0.75rem' }}>
           {[
-            ['OpenClaw', 'Drop into skills directory. Done.'],
-            ['Claude API', 'Load AGENT.md as system prompt'],
-            ['GPT API', 'Load AGENT.md as system message'],
-            ['LangChain', 'Scripts as tools, WORKFLOWS as chain'],
-            ['CrewAI', 'AGENT.md → agent, WORKFLOWS → tasks'],
-            ['Any other', 'Scripts are standalone Node.js'],
+            ['OpenClaw', 'Drop it in the skills directory. Run. Done.'],
+            ['Claude API', 'Load AGENT.md as your system prompt. Paste. Go.'],
+            ['GPT API', 'Load AGENT.md as the system message. Same process.'],
+            ['LangChain', 'Scripts become tools. WORKFLOWS.md becomes your chain definition.'],
+            ['CrewAI', 'AGENT.md → agent config. WORKFLOWS.md → task definitions.'],
+            ['Any other', 'Scripts are standalone Node.js. No framework required.'],
           ].map(([fw, how]) => (
             <div key={fw} style={{ border: '1px solid #e5e7eb', borderRadius: '0.375rem', padding: '0.75rem' }}>
               <div style={{ fontWeight: 700, fontSize: '0.875rem', color: '#111827' }}>{fw}</div>
@@ -267,11 +267,11 @@ export default function AISalesAgentPage() {
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '1.25rem' }}>FAQ</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {[
-            { q: "Does it work with a free HubSpot account?", a: "Yes. Works with HubSpot's free CRM tier — just needs an API key, available on all plans." },
-            { q: "Can I customise the lead scoring rules?", a: "Yes. All rules are in config.json — change job title weights, company size, industry, engagement multipliers without touching code." },
-            { q: "Does it work with LLMs other than Claude?", a: "Yes. Framework-agnostic — works with GPT-4, Gemini, Llama, or any LLM. You can also run it as a standalone cron job with no LLM." },
-            { q: "What if I don't use Google Sheets?", a: "Google Sheets is optional for logging. The lead scoring and Slack alerts work without it." },
-            { q: "What's the refund policy?", a: "30-day money-back guarantee if it doesn't work as described. Email support@abbilabs.xyz first — we'll fix it or refund you." },
+            { q: "Does it work with a free HubSpot account?", a: "Yes. Free HubSpot tier works fine. Just needs an API key — available on all plans, including free." },
+            { q: "Can I customise the lead scoring rules?", a: "Yes. All in config.json. Job title weights, company size, industry, engagement multipliers. No code." },
+            { q: "Does it work with LLMs other than Claude?", a: "Yes. GPT-4, Gemini, Llama, whatever. You can also run it as a cron job with zero LLM — pure automation." },
+            { q: "What if I don't use Google Sheets?", a: "Optional. Lead scoring and Slack alerts work without it. Sheets is just for logging if you want a paper trail." },
+            { q: "What's the refund policy?", a: "30 days. Email us first — we'll fix it. If we can't, full refund." },
           ].map((item, i) => (
             <details key={i} style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1rem' }}>
               <summary style={{ fontWeight: 600, cursor: 'pointer', color: '#111827' }}>{item.q}</summary>
@@ -283,8 +283,8 @@ export default function AISalesAgentPage() {
 
       {/* Bottom CTA */}
       <section style={{ background: '#eff6ff', borderRadius: '0.75rem', padding: '2rem', textAlign: 'center' }}>
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.5rem' }}>Ready to automate your sales pipeline?</h2>
-        <p style={{ color: '#6b7280', marginBottom: '1.5rem' }}>One-time purchase. Own it forever. 30-day money-back guarantee.</p>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.5rem' }}>HubSpot charges $9,600/year for lead scoring. You pay $79.</h2>
+        <p style={{ color: '#6b7280', marginBottom: '1.5rem' }}>Once. Own it forever. Works on their free CRM tier. 30-day money-back guarantee.</p>
         <div style={{ fontSize: '2.5rem', fontWeight: 700, color: '#2563eb', marginBottom: '1rem' }}>$79</div>
         <button
           onClick={() => handleCheckout('ai-sales-agent')}
