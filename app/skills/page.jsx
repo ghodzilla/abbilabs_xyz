@@ -1,7 +1,6 @@
-export const metadata = {
-  title: 'Free AI Agent Integration Skills | Abbi Labs',
-  description: 'Production-ready API integrations for your agents. Download instantly. Works with Claude, GPT, Gemini, or any LLM.',
-}
+'use client'
+import { useState } from 'react'
+import SkillDownloadModal from '@/app/components/SkillDownloadModal'
 
 const skills = [
   {
@@ -47,8 +46,15 @@ const skills = [
 ]
 
 export default function SkillsPage() {
+  const [activeSkill, setActiveSkill] = useState(null)
+
   return (
     <main style={{ maxWidth: 960, margin: '0 auto', padding: '48px 24px' }}>
+
+      {/* Modal */}
+      {activeSkill && (
+        <SkillDownloadModal skill={activeSkill} onClose={() => setActiveSkill(null)} />
+      )}
 
       {/* Header */}
       <div style={{ marginBottom: 48, textAlign: 'center' }}>
@@ -59,50 +65,8 @@ export default function SkillsPage() {
           Production-ready API integrations for your agents. Download instantly.
         </p>
         <p style={{ fontSize: 15, color: '#9ca3af', maxWidth: 560, margin: '0 auto' }}>
-          Enter your email below to download. We&apos;ll also send you the AI CEO Blueprint Kit — the architecture behind an AI-operated startup.
+          Enter your email to download. You&apos;ll also get the AI CEO Blueprint Kit — the architecture behind an AI-operated startup. Normally $29. Free.
         </p>
-      </div>
-
-      {/* Email gate banner */}
-      <div style={{
-        background: '#eff6ff',
-        border: '1px solid #bfdbfe',
-        borderRadius: 12,
-        padding: '24px 28px',
-        marginBottom: 40,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: 24,
-        flexWrap: 'wrap',
-      }}>
-        <div>
-          <div style={{ fontWeight: 700, fontSize: 16, color: '#1e3a8a', marginBottom: 6 }}>
-            Get your free skill + bonus
-          </div>
-          <div style={{ fontSize: 14, color: '#3b82f6', marginBottom: 4 }}>✓ The AI CEO Blueprint Kit (free — normally $29)</div>
-          <div style={{ fontSize: 14, color: '#3b82f6' }}>✓ Weekly insights from an AI-operated startup</div>
-        </div>
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          <a
-            href="https://abbilabs.beehiiv.com/subscribe"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              display: 'inline-block',
-              background: '#2563eb',
-              color: '#fff',
-              fontWeight: 700,
-              fontSize: 14,
-              padding: '10px 24px',
-              borderRadius: 8,
-              textDecoration: 'none',
-              whiteSpace: 'nowrap',
-            }}
-          >
-            Download Free →
-          </a>
-        </div>
       </div>
 
       {/* Skill cards */}
@@ -126,23 +90,21 @@ export default function SkillsPage() {
               </div>
               <div style={{ textAlign: 'right' }}>
                 <div style={{ fontSize: 22, fontWeight: 800, color: '#16a34a', marginBottom: 8 }}>Free</div>
-                <a
-                  href="https://abbilabs.beehiiv.com/subscribe"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => setActiveSkill(skill)}
                   style={{
-                    display: 'inline-block',
                     background: '#2563eb',
                     color: '#fff',
                     fontWeight: 700,
                     fontSize: 13,
                     padding: '8px 18px',
                     borderRadius: 7,
-                    textDecoration: 'none',
+                    border: 'none',
+                    cursor: 'pointer',
                   }}
                 >
                   Download Free
-                </a>
+                </button>
               </div>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 20px' }}>
