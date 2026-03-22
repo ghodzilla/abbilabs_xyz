@@ -38,8 +38,10 @@
     .dot.yellow { background: #febc2e; }
     .dot.green  { background: #28c840; }
     .titlebar-label { margin-left: 8px; color: #8b949e; font-size: 12px; }
-    .btn {
+    .btn-restart {
       margin-left: auto;
+      background: #30363d;
+      color: #e6edf3;
       border: none;
       border-radius: 6px;
       padding: 5px 16px;
@@ -47,13 +49,11 @@
       cursor: pointer;
       font-family: inherit;
       font-weight: 600;
+      display: none;
     }
-    .btn-play    { background: #238636; color: #fff; }
-    .btn-play:hover { background: #2ea043; }
-    .btn-restart { background: #30363d; color: #e6edf3; display: none; }
     .btn-restart:hover { background: #3d444e; }
 
-    /* Start screen */
+    /* ── Start screen */
     #start-screen {
       display: flex;
       flex-direction: column;
@@ -62,28 +62,85 @@
       min-height: calc(100vh - 48px);
       padding: 40px 28px;
       text-align: center;
-      gap: 24px;
+      gap: 20px;
     }
-    #start-screen h1 { color: #e6edf3; font-size: 1.5rem; font-weight: 700; }
-    #start-screen p  { color: #8b949e; font-size: 0.875rem; line-height: 1.8; max-width: 480px; }
+    #start-screen h1 { color: #e6edf3; font-size: 1.4rem; font-weight: 700; font-family: inherit; }
+    #start-screen p  { color: #8b949e; font-size: 0.875rem; line-height: 1.8; max-width: 480px; font-family: inherit; }
     .play-big {
-      background: #238636;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 14px 40px;
-      font-size: 1rem;
-      cursor: pointer;
-      font-family: inherit;
-      font-weight: 700;
-      letter-spacing: 0.02em;
+      background: #238636; color: #fff; border: none; border-radius: 10px;
+      padding: 14px 40px; font-size: 1rem; cursor: pointer;
+      font-family: inherit; font-weight: 700;
     }
     .play-big:hover { background: #2ea043; }
-    .duration-hint { color: #6e7681; font-size: 0.8rem; }
+    .hint { color: #6e7681; font-size: 0.78rem; }
 
-    /* Terminal */
-    .terminal {
-      padding: 24px 28px 48px;
+    /* ── Title card (shown during voiceover Part 1) */
+    #title-card {
+      display: none;
+      padding: 48px 28px 32px;
+    }
+    .title-hero {
+      border: 1px solid #30363d;
+      border-radius: 12px;
+      padding: 40px 36px;
+      text-align: center;
+    }
+    .title-badge {
+      display: inline-block;
+      background: #0d4429;
+      color: #3fb950;
+      border: 1px solid #238636;
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 0.75rem;
+      margin-bottom: 20px;
+    }
+    .title-hero h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #e6edf3;
+      margin-bottom: 12px;
+      font-family: inherit;
+    }
+    .title-hero p {
+      color: #8b949e;
+      font-size: 0.875rem;
+      line-height: 1.8;
+      max-width: 480px;
+      margin: 0 auto 28px;
+      font-family: inherit;
+    }
+    .title-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+    .stat-box {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 8px;
+      padding: 16px 12px;
+      text-align: center;
+    }
+    .stat-num { font-size: 1.3rem; font-weight: 700; color: #3fb950; }
+    .stat-lbl { font-size: 0.75rem; color: #6e7681; margin-top: 4px; }
+    .connecting {
+      margin-top: 28px;
+      color: #8b949e;
+      font-size: 0.8rem;
+    }
+    .dots span {
+      animation: dotblink 1.2s infinite;
+      opacity: 0;
+    }
+    .dots span:nth-child(2) { animation-delay: 0.4s; }
+    .dots span:nth-child(3) { animation-delay: 0.8s; }
+    @keyframes dotblink { 0%,80%,100%{opacity:0} 40%{opacity:1} }
+
+    /* ── Terminal */
+    #terminal {
+      padding: 24px 28px 120px;
       display: none;
     }
     .line { display: block; white-space: pre-wrap; word-break: break-word; }
@@ -96,17 +153,60 @@
     .line.gray   { color: #6e7681; }
     .line.bold   { font-weight: 700; }
     .cursor {
-      display: inline-block;
-      width: 8px;
-      height: 1em;
+      display: inline-block; width: 8px; height: 1em;
       background: #e6edf3;
       animation: blink 1s step-end infinite;
-      vertical-align: text-bottom;
-      margin-left: 2px;
+      vertical-align: text-bottom; margin-left: 2px;
     }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-    /* Audio controls */
+    /* ── CTA card */
+    #cta-card {
+      display: none;
+      margin: 8px 28px 48px;
+      border: 2px solid #238636;
+      border-radius: 12px;
+      padding: 32px 36px;
+      text-align: center;
+      background: #0d2010;
+    }
+    #cta-card h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #3fb950;
+      margin-bottom: 10px;
+      font-family: inherit;
+    }
+    #cta-card p {
+      color: #8b949e;
+      font-size: 0.875rem;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      font-family: inherit;
+    }
+    .cta-price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #e6edf3;
+      margin-bottom: 6px;
+    }
+    .cta-sub { color: #6e7681; font-size: 0.8rem; margin-bottom: 28px; }
+    .cta-btn {
+      display: inline-block;
+      background: #238636;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 12px 32px;
+      font-weight: 700;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+    .cta-btn:hover { background: #2ea043; }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
+    .fadein { animation: fadeIn 0.6s ease forwards; }
+
+    /* ── Audio bar */
     .audio-bar {
       display: none;
       align-items: center;
@@ -122,10 +222,10 @@
       max-width: 820px;
     }
     .audio-label { color: #8b949e; font-size: 11px; flex-shrink: 0; }
-    .audio-progress { flex: 1; height: 4px; background: #30363d; border-radius: 2px; }
+    .audio-progress { flex: 1; height: 4px; background: #30363d; border-radius: 2px; cursor: pointer; }
     .audio-fill { height: 100%; background: #238636; border-radius: 2px; width: 0%; transition: width 0.5s linear; }
     .audio-time { color: #6e7681; font-size: 11px; flex-shrink: 0; }
-    .mute-btn { background: none; border: none; color: #8b949e; cursor: pointer; font-size: 14px; flex-shrink: 0; }
+    .mute-btn { background: none; border: none; color: #8b949e; cursor: pointer; font-size: 14px; }
   </style>
 </head>
 <body>
@@ -134,125 +234,158 @@
     <div class="dot red"></div>
     <div class="dot yellow"></div>
     <div class="dot green"></div>
-    <span class="titlebar-label">ai-sales-agent — live demo</span>
-    <button class="btn btn-restart" id="restartBtn" onclick="restart()">↺ Restart</button>
+    <span class="titlebar-label">ai-sales-agent — demo</span>
+    <button class="btn-restart" id="restartBtn" onclick="restart()">↺ Restart</button>
   </div>
 
   <!-- Start screen -->
   <div id="start-screen">
     <h1>AI Sales Agent — Live Demo</h1>
-    <p>Watch the agent connect to HubSpot, score your leads, catch stale deals, and fire Slack alerts — all in under 3 minutes.</p>
+    <p>Watch the agent score leads, catch stale deals, and fire Slack alerts — automatically, every 30 minutes.</p>
     <button class="play-big" onclick="startDemo()">▶ Play Demo</button>
-    <span class="duration-hint">~2.5 min with voiceover · unmute for audio</span>
+    <span class="hint">~2.5 min with voiceover · click 🔊 to mute</span>
+  </div>
+
+  <!-- Title card (shown during Part 1 voiceover — 30s) -->
+  <div id="title-card">
+    <div class="title-hero">
+      <div class="title-badge">✓ Live demo — real HubSpot data</div>
+      <h1>AI Sales Agent</h1>
+      <p>Your pipeline, watched automatically. Hot leads flagged. Stale deals caught. Daily report in Slack by 8am.</p>
+      <div class="title-stats">
+        <div class="stat-box">
+          <div class="stat-num">30 min</div>
+          <div class="stat-lbl">saved every day</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">$79</div>
+          <div class="stat-lbl">one-time, no subscription</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num">15 min</div>
+          <div class="stat-lbl">to set up</div>
+        </div>
+      </div>
+      <div class="connecting">
+        Connecting to HubSpot CRM<span class="dots"><span>.</span><span>.</span><span>.</span></span>
+      </div>
+    </div>
   </div>
 
   <!-- Terminal output -->
-  <div class="terminal" id="terminal"></div>
+  <div id="terminal"></div>
+
+  <!-- CTA card (shown at end) -->
+  <div id="cta-card">
+    <h2>Ready to stop reviewing your pipeline manually?</h2>
+    <p>Setup takes 15 minutes. Add your HubSpot API key, Slack webhook, and run the script. That's it.</p>
+    <div class="cta-price">$79</div>
+    <div class="cta-sub">One-time payment · Full source code · No subscription · No lock-in</div>
+    <a class="cta-btn" href="https://abbilabs.xyz/templates/ai-sales-agent" target="_blank">Buy Now — $79 →</a>
+  </div>
 </div>
 
-<!-- Audio bar at bottom -->
+<!-- Audio bar -->
 <div class="audio-bar" id="audioBar">
-  <span class="audio-label">🔊 Voiceover</span>
-  <div class="audio-progress"><div class="audio-fill" id="audioFill"></div></div>
-  <span class="audio-time" id="audioTime">0:00</span>
+  <span class="audio-label">🎙 Voiceover</span>
+  <div class="audio-progress" id="audioProgress">
+    <div class="audio-fill" id="audioFill"></div>
+  </div>
+  <span class="audio-time" id="audioTime">0:00 / 0:00</span>
   <button class="mute-btn" id="muteBtn" onclick="toggleMute()">🔊</button>
 </div>
 
 <audio id="audio" src="/downloads/sales-agent-voiceover.mp3" preload="auto"></audio>
 
 <script>
-// ─── Voiceover is ~150 seconds total
-// ─── Terminal starts after 30s (Part 1 = HubSpot screen narration)
-// ─── Delays below are tuned to match the voiceover timing
-
+// Delays tuned to ~90 second terminal window (starts at 30s, runs to ~120s)
 const LINES = [
-  // ── Startup (shows while Part 1 voiceover plays — 30s gap built in via initial delay)
   { text: '', delay: 0 },
   { text: '╔══════════════════════════════════════════════════════════════╗', cls: 'blue bold', delay: 0 },
   { text: '║          AI SALES AGENT — LIVE DEMO                         ║', cls: 'blue bold', delay: 0 },
-  { text: '║          Connecting to HubSpot CRM...                       ║', cls: 'blue', delay: 0 },
-  { text: '╚══════════════════════════════════════════════════════════════╝', cls: 'blue bold', delay: 1500 },
+  { text: '║          Connected to HubSpot CRM ✓                         ║', cls: 'green', delay: 0 },
+  { text: '╚══════════════════════════════════════════════════════════════╝', cls: 'blue bold', delay: 1800 },
   { text: '', delay: 0 },
 
-  // ── STEP 1 — ~5s
+  // STEP 1
   { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 0 },
   { text: '  STEP 1 — Pulling contacts from HubSpot CRM', cls: 'white bold', delay: 0 },
-  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 500 },
-  { text: 'Fetching recent contacts...', cls: 'dim', delay: 1600 },
-  { text: '✓ 6 contacts retrieved', cls: 'green', delay: 400 },
+  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 600 },
+  { text: 'Fetching recent contacts...', cls: 'dim', delay: 2000 },
+  { text: '✓ 6 contacts retrieved', cls: 'green', delay: 500 },
   { text: '', delay: 0 },
-  { text: '  • Sarah Chen — VP Engineering at DataCorp', cls: 'white', delay: 250 },
-  { text: '  • James Okonkwo — Director of Sales at GrowthBase', cls: 'white', delay: 250 },
-  { text: '  • Lisa Park — Head of Engineering at competitor.io', cls: 'white', delay: 250 },
-  { text: '  • Bob Walsh — VP Sales at BigCorp', cls: 'white', delay: 250 },
-  { text: '  • Priya Nair — CEO at SeedStartup', cls: 'white', delay: 250 },
-  { text: '  • Tom Bradley — Marketing Manager at RetailCo', cls: 'white', delay: 500 },
+  { text: '  • Sarah Chen — VP Engineering at DataCorp', cls: 'white', delay: 400 },
+  { text: '  • James Okonkwo — Director of Sales at GrowthBase', cls: 'white', delay: 400 },
+  { text: '  • Lisa Park — Head of Engineering at competitor.io', cls: 'white', delay: 400 },
+  { text: '  • Bob Walsh — VP Sales at BigCorp', cls: 'white', delay: 400 },
+  { text: '  • Priya Nair — CEO at SeedStartup', cls: 'white', delay: 400 },
+  { text: '  • Tom Bradley — Marketing Manager at RetailCo', cls: 'white', delay: 600 },
   { text: '', delay: 0 },
 
-  // ── STEP 2 — ~20s
+  // STEP 2
   { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 0 },
   { text: '  STEP 2 — Scoring contacts', cls: 'white bold', delay: 0 },
-  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 400 },
-  { text: 'Applying rules: job title, company size, industry, engagement, decay...', cls: 'dim', delay: 1000 },
+  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 600 },
+  { text: 'Applying rules: job title, company size, industry, engagement, decay...', cls: 'dim', delay: 1500 },
   { text: '', delay: 0 },
-  { text: '  🔥 HOT   Sarah Chen — Score: 92/100', cls: 'green bold', delay: 600 },
-  { text: '           VP Engineering +30, 500+ employees +30, tech industry +15, pricing page +17', cls: 'dim', delay: 200 },
-  { text: '', delay: 0 },
-  { text: '  🌡  WARM  James Okonkwo — Score: 58/100  (decay: 74→58, 3 weeks quiet)', cls: 'yellow', delay: 600 },
-  { text: '           Director +20, 50–200 employees +20, SaaS +15, 3 email opens +3', cls: 'dim', delay: 200 },
-  { text: '', delay: 0 },
-  { text: '  ❄️  COLD  Lisa Park — Score: 0/100  (competitor domain)', cls: 'dim', delay: 600 },
-  { text: '           competitor.io -100, Head of Eng +25, tech +15', cls: 'dim', delay: 200 },
-  { text: '', delay: 0 },
-  { text: '  🧊 COLD  Bob Walsh — Score: 45/100  (went cold — email bounced)', cls: 'blue', delay: 600 },
-  { text: '           VP Sales +30, 500+ employees +30, email bounced -30, Finance +15', cls: 'dim', delay: 200 },
-  { text: '', delay: 0 },
-  { text: '  🌡  WARM  Priya Nair — Score: 65/100', cls: 'yellow', delay: 600 },
-  { text: '           CEO +30, early-stage +10, SaaS +15, 2 demo requests +10', cls: 'dim', delay: 200 },
-  { text: '', delay: 0 },
-  { text: '  ❄️  COLD  Tom Bradley — Score: 20/100', cls: 'dim', delay: 600 },
-  { text: '           Manager +10, retail -5, low engagement +0', cls: 'dim', delay: 800 },
+  { text: '  🔥 HOT   Sarah Chen — Score: 92/100', cls: 'green bold', delay: 1200 },
+  { text: '           VP Engineering +30, 500+ employees +30, tech industry +15, pricing page +17', cls: 'dim', delay: 400 },
+  { text: '', delay: 400 },
+  { text: '  🌡  WARM  James Okonkwo — Score: 58/100  (decay: 74→58, 3 weeks quiet)', cls: 'yellow', delay: 1200 },
+  { text: '           Director +20, 50–200 employees +20, SaaS +15, 3 email opens +3', cls: 'dim', delay: 400 },
+  { text: '', delay: 400 },
+  { text: '  ❄️  COLD  Lisa Park — Score: 0/100  (competitor domain)', cls: 'dim', delay: 1200 },
+  { text: '           competitor.io -100, Head of Eng +25, tech +15', cls: 'dim', delay: 400 },
+  { text: '', delay: 400 },
+  { text: '  🧊 COLD  Bob Walsh — Score: 45/100  (went cold — email bounced)', cls: 'blue', delay: 1200 },
+  { text: '           VP Sales +30, 500+ employees +30, email bounced -30, Finance +15', cls: 'dim', delay: 400 },
+  { text: '', delay: 400 },
+  { text: '  🌡  WARM  Priya Nair — Score: 65/100', cls: 'yellow', delay: 1200 },
+  { text: '           CEO +30, early-stage +10, SaaS +15, 2 demo requests +10', cls: 'dim', delay: 400 },
+  { text: '', delay: 400 },
+  { text: '  ❄️  COLD  Tom Bradley — Score: 20/100', cls: 'dim', delay: 1200 },
+  { text: '           Manager +10, retail -5, low engagement +0', cls: 'dim', delay: 1000 },
   { text: '', delay: 0 },
 
-  // ── STEP 3 — Slack ~15s
+  // STEP 3
   { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 0 },
   { text: '  STEP 3 — Sending Slack alerts', cls: 'white bold', delay: 0 },
-  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 400 },
-  { text: 'Sarah Chen crossed the hot threshold (85+). Firing Slack alert...', cls: 'dim', delay: 1200 },
+  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 600 },
+  { text: 'Sarah Chen crossed the hot threshold (85+). Firing Slack alert...', cls: 'dim', delay: 1800 },
   { text: '', delay: 0 },
-  { text: '┌─────────────────────────────────────────────────────────────┐', cls: 'green', delay: 0 },
+  { text: '┌─────────────────────────────────────────────────────────────┐', cls: 'green', delay: 300 },
   { text: '│  🔥 Hot lead: Sarah Chen — VP Engineering at DataCorp       │', cls: 'green bold', delay: 0 },
   { text: '│     Score: 92/100                                           │', cls: 'green', delay: 0 },
   { text: '│     (VP Engineering +30, 500+ employees +30,                │', cls: 'dim', delay: 0 },
   { text: '│      tech industry +15, pricing page visit +17)             │', cls: 'dim', delay: 0 },
   { text: '│     → View in HubSpot                                       │', cls: 'blue', delay: 0 },
-  { text: '└─────────────────────────────────────────────────────────────┘', cls: 'green', delay: 400 },
-  { text: '  ✓ Alert sent to #sales-alerts', cls: 'green', delay: 800 },
+  { text: '└─────────────────────────────────────────────────────────────┘', cls: 'green', delay: 600 },
+  { text: '  ✓ Alert sent to #sales-alerts', cls: 'green', delay: 1200 },
   { text: '', delay: 0 },
-  { text: '┌─────────────────────────────────────────────────────────────┐', cls: 'blue', delay: 0 },
+  { text: '┌─────────────────────────────────────────────────────────────┐', cls: 'blue', delay: 300 },
   { text: '│  🧊 Lead went cold: Bob Walsh — VP Sales at BigCorp         │', cls: 'blue bold', delay: 0 },
   { text: '│     Score: 45/100 — dropped by negative signals             │', cls: 'blue', delay: 0 },
   { text: '│     (email bounced -30 — was scoring 75 without it)         │', cls: 'dim', delay: 0 },
-  { text: '└─────────────────────────────────────────────────────────────┘', cls: 'blue', delay: 400 },
-  { text: '  ✓ Alert sent to #sales-alerts', cls: 'green', delay: 800 },
+  { text: '└─────────────────────────────────────────────────────────────┘', cls: 'blue', delay: 600 },
+  { text: '  ✓ Alert sent to #sales-alerts', cls: 'green', delay: 1000 },
   { text: '', delay: 0 },
 
-  // ── STEP 4 — Stale deals ~20s
+  // STEP 4
   { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 0 },
   { text: '  STEP 4 — Stale deal detection', cls: 'white bold', delay: 0 },
-  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 400 },
-  { text: 'Scanning open pipeline for deals with no activity...', cls: 'dim', delay: 1200 },
+  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 600 },
+  { text: 'Scanning open pipeline for deals with no activity...', cls: 'dim', delay: 1800 },
   { text: '', delay: 0 },
-  { text: '  ⚠️  MegaCorp - Full Suite — $50,000 — Decision stage', cls: 'red', delay: 400 },
-  { text: '      Last activity: 14d ago — FLAGGED', cls: 'red', delay: 0 },
-  { text: '  ⚠️  Acme Corp - Enterprise Plan — $24,000 — Proposal sent', cls: 'red', delay: 400 },
-  { text: '      Last activity: 9d ago — FLAGGED', cls: 'red', delay: 0 },
-  { text: '  ⚠️  FastMover Ltd - Hot Lead — $12,000 — Contract sent', cls: 'red', delay: 400 },
-  { text: '      Last activity: 7d ago — FLAGGED', cls: 'red', delay: 0 },
-  { text: '  ✓  GlobalTech - Team License — $8,000 — Discovery call', cls: 'dim', delay: 400 },
-  { text: '      Last activity: 2d ago — OK', cls: 'dim', delay: 0 },
-  { text: '  ✓  StartupXYZ - Starter — $3,000 — Qualified', cls: 'dim', delay: 400 },
-  { text: '      Last activity: 1d ago — OK', cls: 'dim', delay: 600 },
+  { text: '  ⚠️  MegaCorp - Full Suite — $50,000 — Decision stage', cls: 'red', delay: 600 },
+  { text: '      Last activity: 14d ago — FLAGGED', cls: 'red', delay: 200 },
+  { text: '  ⚠️  Acme Corp - Enterprise Plan — $24,000 — Proposal sent', cls: 'red', delay: 600 },
+  { text: '      Last activity: 9d ago — FLAGGED', cls: 'red', delay: 200 },
+  { text: '  ⚠️  FastMover Ltd - Hot Lead — $12,000 — Contract sent', cls: 'red', delay: 600 },
+  { text: '      Last activity: 7d ago — FLAGGED', cls: 'red', delay: 200 },
+  { text: '  ✓  GlobalTech - Team License — $8,000 — Discovery call', cls: 'dim', delay: 600 },
+  { text: '      Last activity: 2d ago — OK', cls: 'dim', delay: 200 },
+  { text: '  ✓  StartupXYZ - Starter — $3,000 — Qualified', cls: 'dim', delay: 600 },
+  { text: '      Last activity: 1d ago — OK', cls: 'dim', delay: 800 },
   { text: '', delay: 0 },
   { text: '┌─────────────────────────────────────────────────────────────┐', cls: 'blue', delay: 0 },
   { text: '│  📊 Daily Pipeline Report — sent to #sales-alerts @ 8am    │', cls: 'blue bold', delay: 0 },
@@ -260,24 +393,21 @@ const LINES = [
   { text: '│     At risk: $86,000                                        │', cls: 'red', delay: 0 },
   { text: '│     Hot leads today: 1 (Sarah Chen — VP Eng, DataCorp)     │', cls: 'green', delay: 0 },
   { text: '│     Warm leads to nurture: 2                                │', cls: 'yellow', delay: 0 },
-  { text: '└─────────────────────────────────────────────────────────────┘', cls: 'blue', delay: 1000 },
+  { text: '└─────────────────────────────────────────────────────────────┘', cls: 'blue', delay: 1200 },
   { text: '', delay: 0 },
 
-  // ── COMPLETE + CTA
+  // COMPLETE
   { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 0 },
   { text: '  DEMO COMPLETE', cls: 'green bold', delay: 0 },
-  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 400 },
-  { text: '  ✓ 6 contacts scored — hot leads flagged, cold leads filtered', cls: 'green', delay: 250 },
-  { text: '  ✓ Score decay applied — stale leads ranked down automatically', cls: 'green', delay: 250 },
-  { text: '  ✓ Negative signals caught — bounced email, competitor domain', cls: 'green', delay: 250 },
-  { text: '  ✓ 3 stale deals flagged — $86,000 pipeline at risk surfaced', cls: 'green', delay: 250 },
-  { text: '  ✓ Slack alerts sent — team notified before the work day starts', cls: 'green', delay: 600 },
+  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 600 },
+  { text: '  ✓ 6 contacts scored — hot leads flagged, cold leads filtered', cls: 'green', delay: 400 },
+  { text: '  ✓ Score decay applied — stale leads ranked down automatically', cls: 'green', delay: 400 },
+  { text: '  ✓ Negative signals caught — bounced email, competitor domain', cls: 'green', delay: 400 },
+  { text: '  ✓ 3 stale deals flagged — $86,000 pipeline at risk surfaced', cls: 'green', delay: 400 },
+  { text: '  ✓ Slack alerts sent — team notified before the work day starts', cls: 'green', delay: 800 },
   { text: '', delay: 0 },
-  { text: '  This runs every 30 minutes. No manual pipeline review. Ever.', cls: 'white', delay: 500 },
-  { text: '  Setup: 15 minutes. Cost: $79 once. No subscription.', cls: 'white bold', delay: 500 },
-  { text: '', delay: 0 },
-  { text: '  → abbilabs.xyz/templates/ai-sales-agent', cls: 'blue bold', delay: 0 },
-  { text: '', delay: 0 },
+  { text: '  This runs every 30 minutes. No manual pipeline review. Ever.', cls: 'white', delay: 600 },
+  { text: '', delay: 1000 },
 ];
 
 let animTimer = null;
@@ -287,15 +417,14 @@ function pad(n) { return String(Math.floor(n)).padStart(2, '0'); }
 function fmtTime(s) { return pad(s / 60) + ':' + pad(s % 60); }
 
 function toggleMute() {
-  const audio = document.getElementById('audio');
   muted = !muted;
-  audio.muted = muted;
+  document.getElementById('audio').muted = muted;
   document.getElementById('muteBtn').textContent = muted ? '🔇' : '🔊';
 }
 
 function startDemo() {
   document.getElementById('start-screen').style.display = 'none';
-  document.getElementById('terminal').style.display = 'block';
+  document.getElementById('title-card').style.display = 'block';
   document.getElementById('audioBar').style.display = 'flex';
   document.getElementById('restartBtn').style.display = 'block';
 
@@ -304,29 +433,37 @@ function startDemo() {
   audio.play().catch(() => {});
 
   audio.addEventListener('timeupdate', function() {
-    const pct = (audio.currentTime / audio.duration * 100) || 0;
+    const pct = (audio.currentTime / (audio.duration || 1)) * 100;
     document.getElementById('audioFill').style.width = pct + '%';
-    document.getElementById('audioTime').textContent = fmtTime(audio.currentTime) + ' / ' + fmtTime(audio.duration || 0);
+    document.getElementById('audioTime').textContent =
+      fmtTime(audio.currentTime) + ' / ' + fmtTime(audio.duration || 0);
   });
 
-  // Terminal starts after 30s (Part 1 voiceover = showing HubSpot)
-  animTimer = setTimeout(() => runAnimation(), 30000);
+  // After 30s: hide title card, show terminal, start animation
+  animTimer = setTimeout(() => {
+    document.getElementById('title-card').style.display = 'none';
+    document.getElementById('terminal').style.display = 'block';
+    runAnimation();
+  }, 30000);
 }
 
 function runAnimation() {
   const term = document.getElementById('terminal');
   term.innerHTML = '';
-  const total = LINES.length;
   let i = 0;
 
   function next() {
-    if (i >= total) {
+    if (i >= LINES.length) {
+      // Remove cursor, show CTA
       const cur = document.getElementById('cursor');
       if (cur) cur.remove();
+      const cta = document.getElementById('cta-card');
+      cta.style.display = 'block';
+      cta.classList.add('fadein');
+      cta.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return;
     }
     const { text, cls, delay } = LINES[i];
-
     const cur = document.getElementById('cursor');
     if (cur) cur.remove();
 
@@ -353,12 +490,16 @@ function restart() {
   const audio = document.getElementById('audio');
   audio.pause();
   audio.currentTime = 0;
-  document.getElementById('terminal').innerHTML = '';
-  document.getElementById('audioFill').style.width = '0%';
-  document.getElementById('audioTime').textContent = '0:00';
 
-  audio.play().catch(() => {});
-  animTimer = setTimeout(() => runAnimation(), 30000);
+  document.getElementById('title-card').style.display = 'none';
+  document.getElementById('terminal').style.display = 'none';
+  document.getElementById('terminal').innerHTML = '';
+  document.getElementById('cta-card').style.display = 'none';
+  document.getElementById('audioFill').style.width = '0%';
+  document.getElementById('audioTime').textContent = '0:00 / 0:00';
+  document.getElementById('start-screen').style.display = 'flex';
+  document.getElementById('audioBar').style.display = 'none';
+  document.getElementById('restartBtn').style.display = 'none';
 }
 </script>
 </body>
