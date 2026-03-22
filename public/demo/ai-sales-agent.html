@@ -526,20 +526,54 @@ function startDemo() {
   const audio = document.getElementById('audio');
   audio.currentTime = 0;
   audio.play().catch(() => {});
+  
+  let configStarted = false, terminalStarted = false, slackStarted = false, ctaStarted = false;
+  
   audio.addEventListener('timeupdate', function() {
-    const pct = (audio.currentTime / (audio.duration || 1)) * 100;
+    const t = audio.currentTime;
+    const pct = (t / (audio.duration || 1)) * 100;
     document.getElementById('audioFill').style.width = pct + '%';
-    document.getElementById('audioTime').textContent = fmtTime(audio.currentTime) + ' / ' + fmtTime(audio.duration || 0);
+    document.getElementById('audioTime').textContent = fmtTime(t) + ' / ' + fmtTime(audio.duration || 0);
+
+    // Scene transitions tied to audio timestamps (cue points)
+    // These timings match where the narration naturally transitions
+    
+    if (t >= 27 && !configStarted) {
+      configStarted = true;
+      hideAll();
+      showConfig();
+    }
+    
+    if (t >= 39 && !terminalStarted) {
+      terminalStarted = true;
+      hideAll();
+      document.getElementById('scr-terminal').style.display = 'block';
+      runTerminal();
+    }
+    
+    if (t >= 65 && !slackStarted) {
+      slackStarted = true;
+      hideAll();
+      document.getElementById('scr-slack').style.display = 'block';
+      document.getElementById('scr-slack').classList.add('visible');
+      // Slack message animations
+      setTimeout(() => { document.getElementById('slack-new-1').classList.add('visible'); }, 800);
+      setTimeout(() => { document.getElementById('slack-new-2').classList.add('visible'); }, 1600);
+      setTimeout(() => { document.getElementById('slack-new-3').classList.add('visible'); }, 3600);
+    }
+    
+    if (t >= 74 && !ctaStarted) {
+      ctaStarted = true;
+      hideAll();
+      document.getElementById('buyBar').style.display = 'none';
+      const cta = document.getElementById('scr-cta');
+      cta.style.display = 'block';
+      setTimeout(() => cta.classList.add('visible'), 50);
+    }
   });
 
   // Show buy bar after 20s
   addTimer(() => { document.getElementById('buyBar').style.display = 'flex'; }, 20000);
-
-  // 30s: HubSpot → Config preview
-  addTimer(() => {
-    hideAll();
-    showConfig();
-  }, 30000);
 }
 
 /* ── Config scene ── */
@@ -554,11 +588,7 @@ function showConfig() {
 
   function nextLine() {
     if (i >= CONFIG_LINES.length) {
-      addTimer(() => {
-        hideAll();
-        document.getElementById('scr-terminal').style.display = 'block';
-        runTerminal();
-      }, 4000);
+      // Scene transition now handled by audio.currentTime listener
       return;
     }
     const line = CONFIG_LINES[i];
@@ -600,7 +630,7 @@ function runTerminal() {
     if (i >= TERMINAL_LINES.length) {
       const cur = document.getElementById('cursor');
       if (cur) cur.remove();
-      addTimer(showSlack, 800);
+      // Scene transition now handled by audio.currentTime listener
       return;
     }
     const { text, cls, delay } = TERMINAL_LINES[i];
@@ -634,8 +664,7 @@ function showSlack() {
     addTimer(() => appendSlackMsg(msg), cumDelay);
   });
 
-  // After all Slack messages, show CTA
-  addTimer(showCTA, cumDelay + 4000);
+  // CTA transition now handled by audio.currentTime listener
 }
 
 function appendSlackMsg(msg) {
