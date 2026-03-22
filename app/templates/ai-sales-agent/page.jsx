@@ -47,7 +47,7 @@ export default function AISalesAgentPage() {
             >
               Buy Now — $79
             </button>
-            <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.5rem' }}>30-day money-back guarantee</p>
+            <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.5rem' }}>Try it 30 days. If it doesn&apos;t save you 2 hours/week, I&apos;ll refund you instantly — no forms, no questions.</p>
           </div>
         </div>
       </div>
@@ -160,6 +160,130 @@ export default function AISalesAgentPage() {
             <div style={{ color: '#3fb950', marginTop: '4px' }}>   → Sent to Slack every morning at 8am</div>
           </div>
         </div>
+      </section>
+
+      {/* Code preview */}
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.25rem' }}>The actual code</h2>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>This is the lead scoring engine — the real file, not a screenshot. Pure Node.js, zero dependencies, fully commented.</p>
+        <div style={{ background: '#0d1117', borderRadius: '0.75rem', padding: '1.25rem 1.5rem', fontFamily: '"Fira Code", "Cascadia Code", "Courier New", monospace', fontSize: '0.75rem', lineHeight: 1.8, overflowX: 'auto', maxHeight: '480px', overflow: 'auto' }}>
+          <pre style={{ margin: 0, color: '#e6edf3', whiteSpace: 'pre' }}>{`#!/usr/bin/env node
+// AI Sales Agent — Lead Scoring Engine v2
+// Scores HubSpot contacts against configurable rules
+// v2: score breakdown formatting, time-based decay, negative signals
+//
+// Usage:
+//   node lead-scorer.cjs score --contact CONTACT_ID
+//   node lead-scorer.cjs score-all --since TIMESTAMP
+
+'use strict';
+const fs = require('fs');
+const https = require('https');
+const path = require('path');
+
+const config = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'config.json'), 'utf8'));
+const HUBSPOT_TOKEN = process.env.HUBSPOT_ACCESS_TOKEN;
+if (!HUBSPOT_TOKEN) { console.error('Error: HUBSPOT_ACCESS_TOKEN not set'); process.exit(1); }
+
+function hubspotGet(endpoint) {
+  return new Promise((resolve, reject) => {
+    https.get(\`https://api.hubapi.com\${endpoint}\`,
+      { headers: { 'Authorization': \`Bearer \${HUBSPOT_TOKEN}\` } }, res => {
+      let d = ''; res.on('data', c => d += c);
+      res.on('end', () => res.statusCode >= 400
+        ? reject(new Error(\`\${res.statusCode}: \${d}\`)) : resolve(JSON.parse(d)));
+    }).on('error', reject);
+  });
+}
+
+// ─── Breakdown Formatter ─────────────────────────────────────────────────
+// Formats top scoring factors for Slack alerts.
+// Example: "VP Engineering +30, 500+ employees +30, tech industry +15"
+function formatBreakdown(breakdown, maxFactors) {
+  if (!breakdown || breakdown.length === 0) return '';
+  return breakdown.slice()
+    .sort((a, b) => Math.abs(b.points) - Math.abs(a.points))
+    .slice(0, maxFactors || 5)
+    .map(b => {
+      const sign = b.points >= 0 ? '+' : '';
+      const label = (typeof b.value === 'string' && b.value && b.value.length < 40
+        && b.value !== 'true') ? b.value : b.rule;
+      return \`\${label} \${sign}\${b.points}\`;
+    }).join(', ');
+}
+
+// ─── Core Scoring Engine ─────────────────────────────────────────────────
+function scoreContact(properties) {
+  const rules = config.scoring.rules;
+  let total = 0;
+  const breakdown = [];
+
+  for (const rule of rules) {
+    const value = properties[rule.field] || '';
+    if (rule.contains) {
+      const match = rule.contains.some(t => value.toLowerCase().includes(t.toLowerCase()));
+      if (match) { total += rule.points; breakdown.push({ rule: rule.field, value, points: rule.points }); }
+    }
+    if (rule.not_empty && value) {
+      total += rule.points; breakdown.push({ rule: rule.field, value, points: rule.points });
+    }
+    if (rule.range) {
+      const num = parseInt(value, 10);
+      if (!isNaN(num)) {
+        const min = rule.range.min || 0; const max = rule.range.max || Infinity;
+        if (num >= min && num <= max) {
+          total += rule.points;
+          const label = max === Infinity ? \`\${min}+ employees\` : \`\${min}–\${max} employees\`;
+          breakdown.push({ rule: rule.field, value: label, points: rule.points });
+        }
+      }
+    }
+  }
+
+  // ── Negative signals ──────────────────────────────────────────────────
+  const neg = config.negative_signals || {};
+  const emailDomain = ((properties.email || '').split('@')[1] || '').toLowerCase();
+  if (emailDomain && (neg.competitor_domains || []).some(d => emailDomain.includes(d.toLowerCase()))) {
+    const p = typeof neg.competitor_domain === 'number' ? neg.competitor_domain : -100;
+    total += p; breakdown.push({ rule: 'competitor domain', value: emailDomain, points: p });
+  }
+  const isBounced = properties.hs_email_bounce === 'true' || properties.hs_email_is_ineligible === 'true';
+  if (isBounced) {
+    const p = typeof neg.email_bounced === 'number' ? neg.email_bounced : -30;
+    total += p; breakdown.push({ rule: 'email bounced', value: 'bounced', points: p });
+  }
+
+  const rawScore = Math.max(0, Math.min(total, 100));
+  const classification = rawScore >= config.scoring.hot_threshold ? 'HOT'
+    : rawScore >= config.scoring.warm_threshold ? 'WARM' : 'COLD';
+  return { score: rawScore, classification, breakdown };
+}
+
+// ─── Score Decay ─────────────────────────────────────────────────────────
+// Decays scores for leads that haven't engaged recently.
+// A 90-point lead from 3 months ago shouldn't still be HOT.
+function applyDecay(score, classification, breakdown, lastActivityDate) {
+  const d = config.decay || {};
+  if (d.enabled === false || !lastActivityDate) return { score, classification, breakdown };
+  const weeks = (Date.now() - new Date(lastActivityDate).getTime()) / (7*24*60*60*1000);
+  if (weeks < 1) return { score, classification, breakdown };
+  const rate = (d.decay_rate_per_week || 5) / 100;
+  const floor = typeof d.decay_floor === 'number' ? d.decay_floor : 20;
+  const decayed = Math.max(floor, Math.round(score * Math.max(0, 1 - rate * weeks)));
+  if (decayed < score) {
+    const newBreakdown = [...breakdown,
+      { rule: 'score decay', value: \`\${Math.round(weeks)}w inactive\`, points: decayed - score }];
+    const newClass = decayed >= config.scoring.hot_threshold ? 'HOT'
+      : decayed >= config.scoring.warm_threshold ? 'WARM' : 'COLD';
+    return { score: decayed, classification: newClass, breakdown: newBreakdown };
+  }
+  return { score, classification, breakdown };
+}
+
+// Full source code included in the download.
+// config.json controls all scoring rules — no code changes needed.`}</pre>
+        </div>
+        <p style={{ color: '#6b7280', fontSize: '0.8rem', marginTop: '0.75rem' }}>The full file (plus stale deal detection, pipeline report, Slack alerts, and Google Sheets logging) is in the download. This is the core scoring engine — 200 lines does all the work.</p>
       </section>
 
       {/* Setup */}
@@ -373,7 +497,12 @@ export default function AISalesAgentPage() {
         >
           Buy Now — $79
         </button>
-        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginTop: '1rem' }}>Instant download · Full source code included</p>
+        <div style={{ marginTop: '1.25rem', background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '0.5rem', padding: '0.875rem 1.25rem', maxWidth: '460px', margin: '1.25rem auto 0' }}>
+          <p style={{ color: '#15803d', fontSize: '0.875rem', margin: 0, lineHeight: 1.6 }}>
+            <strong>30-day guarantee, no fine print:</strong> Try it for 30 days. If it doesn&apos;t save you at least 2 hours a week on pipeline management, email me and I&apos;ll refund you immediately — no questions, no forms, no hassle.
+          </p>
+        </div>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginTop: '0.75rem' }}>Instant download · Full source code included</p>
       </section>
 
     </main>
