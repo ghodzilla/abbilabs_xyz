@@ -1,16 +1,28 @@
 'use client';
 import { useSearchParams } from 'next/navigation';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 
 const PRODUCT_NAMES = {
   'ai-sales-agent': 'AI Sales Agent Template',
   'ai-payment-monitor': 'AI Payment Monitor Template',
+  'ai-customer-support-agent': 'AI Customer Support Agent Template',
+  'ai-ceo-blueprint': 'AI CEO Blueprint Kit',
 };
 
 function SuccessContent() {
   const searchParams = useSearchParams();
   const sessionId = searchParams.get('session_id');
   const product = searchParams.get('product');
+
+  // Fire welcome email + Beehiiv signup immediately on page load
+  useEffect(() => {
+    if (!sessionId || !product) return;
+    fetch('/api/purchase-complete', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ session_id: sessionId, product }),
+    }).catch(() => {}); // fire and forget
+  }, [sessionId, product]);
   const productName = PRODUCT_NAMES[product] || 'Your Template';
 
   return (
