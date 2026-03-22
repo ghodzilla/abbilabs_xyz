@@ -39,6 +39,7 @@ export async function POST(request) {
       'line_items[0][price]': productConfig.priceId,
       'line_items[0][quantity]': '1',
       'mode': 'payment',
+      'allow_promotion_codes': 'true',
       'success_url': `${baseUrl}/success?session_id={CHECKOUT_SESSION_ID}&product=${product}`,
       'cancel_url': `${baseUrl}/templates/${product}`,
       'metadata[product]': product,
