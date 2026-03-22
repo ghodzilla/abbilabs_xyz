@@ -224,6 +224,71 @@ export default function AISalesAgentPage() {
         </div>
       </section>
 
+      {/* Test mode */}
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.25rem' }}>Try it before you connect HubSpot</h2>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>Run <code style={{ background: '#f3f4f6', padding: '2px 6px', borderRadius: '4px', fontSize: '0.8rem' }}>node scripts/lead-scorer.cjs --test</code> with sample data — no API key needed. See exactly what fires before touching your real data.</p>
+        <div style={{ background: '#0d1117', borderRadius: '0.75rem', padding: '1.25rem 1.5rem', fontFamily: '"Fira Code", "Cascadia Code", "Courier New", monospace', fontSize: '0.8rem', lineHeight: 1.8, overflowX: 'auto' }}>
+          <div style={{ color: '#8b949e', marginBottom: '8px' }}>$ node scripts/lead-scorer.cjs --test</div>
+          <div style={{ color: '#6e7681', marginBottom: '8px' }}>Running in TEST MODE (sample data — no HubSpot connection needed)</div>
+          <div style={{ color: '#6e7681', marginBottom: '12px' }}>─────────────────────────────────────────────────────────────────</div>
+          <div><span style={{ color: '#f85149' }}>🔥 HOT</span><span style={{ color: '#e6edf3' }}>    Sarah Chen — Score: 92/100</span></div>
+          <div style={{ color: '#8b949e', paddingLeft: '40px' }}>VP Engineering +30, 500+ employees +30, tech industry +15, pricing page +17</div>
+          <div style={{ color: '#58a6ff', paddingLeft: '40px' }}>→ Score written to HubSpot: abbi_lead_score=92, abbi_lead_classification=HOT</div>
+          <div style={{ marginTop: '8px' }}><span style={{ color: '#e3b341' }}>🌡  WARM</span><span style={{ color: '#e6edf3' }}>   James Okonkwo — Score: 58/100</span><span style={{ color: '#8b949e' }}> (decay: 74→58, 3 weeks inactive)</span></div>
+          <div style={{ color: '#8b949e', paddingLeft: '40px' }}>Director +20, 50–200 employees +20, SaaS +15, email opens +3</div>
+          <div style={{ marginTop: '8px' }}><span style={{ color: '#8b949e' }}>❄️  COLD</span><span style={{ color: '#e6edf3' }}>   Lisa Park — Score: 0/100</span></div>
+          <div style={{ color: '#8b949e', paddingLeft: '40px' }}>competitor.com -100, Director +30, 50–200 employees +20, SaaS +15</div>
+          <div style={{ marginTop: '8px' }}><span style={{ color: '#79c0ff' }}>🧊 WENT COLD</span><span style={{ color: '#e6edf3' }}>: Bob Walsh — VP Sales at BigCorp</span></div>
+          <div style={{ color: '#8b949e', paddingLeft: '40px' }}>Score: 45/100 (email bounced -30) — would have scored 75/100</div>
+        </div>
+      </section>
+
+      {/* Deal priority scorer */}
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.25rem' }}>Deal priority scorer</h2>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>Scores open <em>deals</em> (not contacts) by inactivity, value, engagement, and stage urgency. Outputs CRITICAL / WARNING / WATCH with context — and auto-creates HubSpot tasks.</p>
+        <div style={{ background: '#0d1117', borderRadius: '0.75rem', padding: '1.25rem 1.5rem', fontFamily: '"Fira Code", "Cascadia Code", "Courier New", monospace', fontSize: '0.8rem', lineHeight: 1.8, overflowX: 'auto' }}>
+          <div style={{ color: '#8b949e', marginBottom: '8px' }}>$ node scripts/deal-scorer.cjs score-all</div>
+          <div><span style={{ color: '#f85149' }}>🚨 CRITICAL</span><span style={{ color: '#e6edf3' }}>  MegaCorp - Full Suite      $50,000  Decision stage</span></div>
+          <div style={{ color: '#8b949e', paddingLeft: '48px' }}>Inactivity: 14d · No engagement · High value</div>
+          <div style={{ color: '#58a6ff', paddingLeft: '48px' }}>→ HubSpot task created: &quot;Urgent follow-up required&quot;</div>
+          <div style={{ marginTop: '4px' }}><span style={{ color: '#e3b341' }}>⚠️  WARNING</span><span style={{ color: '#e6edf3' }}>   Acme Corp - Enterprise Plan $24,000  Proposal sent</span></div>
+          <div style={{ color: '#8b949e', paddingLeft: '48px' }}>Inactivity: 9d · Last note 9 days ago</div>
+          <div style={{ marginTop: '4px' }}><span style={{ color: '#8b949e' }}>👁  WATCH</span><span style={{ color: '#e6edf3' }}>     FastMover Ltd              $12,000  Contract sent</span></div>
+          <div style={{ color: '#8b949e', paddingLeft: '48px' }}>Inactivity: 7d · Approaching threshold</div>
+          <div style={{ marginTop: '16px', borderTop: '1px solid #21262d', paddingTop: '12px' }}>
+            <div style={{ color: '#8b949e', marginBottom: '4px' }}>Pipeline velocity (week-over-week):</div>
+            <div style={{ color: '#e6edf3' }}>{'  Appointment → Qualified:  '}<span style={{ color: '#3fb950' }}>{'3.2d  ↓ 0.8d  ✅'}</span></div>
+            <div style={{ color: '#e6edf3' }}>{'  Qualified → Proposal:     '}<span style={{ color: '#e3b341' }}>{'8.1d  ↑ 2.3d  ⚠️'}</span></div>
+            <div style={{ color: '#e6edf3' }}>{'  Proposal → Decision:     '}<span style={{ color: '#3fb950' }}>{'12.4d  → 0.1d  ✅'}</span></div>
+          </div>
+        </div>
+        <div style={{ background: '#fffbeb', border: '1px solid #fcd34d', borderRadius: '0.5rem', padding: '0.75rem 1rem', marginTop: '0.75rem', fontSize: '0.875rem' }}>
+          <strong style={{ color: '#92400e' }}>Pipeline velocity tracking</strong>
+          <span style={{ color: '#78350f' }}> — week-over-week stage trend arrows. This is what sales ops teams pay Clari and InsightSquared monthly for. It&apos;s in your weekly report.</span>
+        </div>
+      </section>
+
+      {/* Vertical configs */}
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.25rem' }}>Pre-built scoring models for your industry</h2>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>Don&apos;t start from a blank config. Three vertical-specific models included — swap in 10 seconds.</p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+          {[
+            { label: 'B2B SaaS', desc: 'Higher weights for VP+, 50–500 employees, tech/finance/SaaS. Email open multiplier. 80-point hot threshold.', color: '#dbeafe', text: '#1d4ed8' },
+            { label: 'Agency', desc: 'Weighted for CMO/Marketing Director, mid-size companies, professional services. 70-point threshold — surface more leads.', color: '#dcfce7', text: '#15803d' },
+            { label: 'Consulting', desc: 'C-suite and VP-only hot leads. Conservative 85-point threshold — only the most qualified get escalated.', color: '#f3e8ff', text: '#7e22ce' },
+          ].map((v) => (
+            <div key={v.label} style={{ background: v.color, borderRadius: '0.5rem', padding: '1rem' }}>
+              <div style={{ fontWeight: 700, color: v.text, fontSize: '0.95rem', marginBottom: '0.5rem' }}>{v.label}</div>
+              <p style={{ color: v.text, fontSize: '0.8rem', margin: 0, lineHeight: 1.5, opacity: 0.85 }}>{v.desc}</p>
+            </div>
+          ))}
+        </div>
+        <p style={{ color: '#6b7280', fontSize: '0.8rem', marginTop: '0.75rem' }}>All three in <code style={{ background: '#f3f4f6', padding: '2px 4px', borderRadius: '3px' }}>examples/scoring-rules.json</code> — copy, paste, adjust.</p>
+      </section>
+
       {/* Code preview */}
       <section style={{ marginBottom: '2.5rem' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.25rem' }}>The actual code</h2>
