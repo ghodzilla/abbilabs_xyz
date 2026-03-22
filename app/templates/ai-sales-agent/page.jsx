@@ -83,16 +83,68 @@ export default function AISalesAgentPage() {
         </div>
       </section>
 
-      {/* Daily report preview */}
+      {/* Live demo output — Step 2: Lead scoring */}
       <section style={{ marginBottom: '2.5rem' }}>
-        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '1rem' }}>Here&apos;s what the daily report looks like in Slack</h2>
-        <div style={{ background: '#111827', borderRadius: '0.75rem', padding: '1.5rem', fontFamily: 'monospace', fontSize: '0.875rem', color: '#60a5fa' }}>
-          <div>📊 Daily Pipeline Report — March 22</div>
-          <div style={{ marginTop: '0.5rem', color: '#86efac' }}>Hot leads: 3 new (score 85+)</div>
-          <div style={{ color: '#fbbf24' }}>Stale deals: 2 flagged (no activity 7d+)</div>
-          <div style={{ color: '#e2e8f0' }}>Revenue pipeline: $142,800</div>
-          <div style={{ color: '#e2e8f0' }}>Deals closing this week: 4 ($38,200)</div>
-          <div style={{ color: '#60a5fa', marginTop: '0.5rem' }}>→ View full report in Google Sheets</div>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.25rem' }}>Live output — lead scoring</h2>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>This is what runs every 30 minutes against your HubSpot contacts.</p>
+        <div style={{ background: '#0d1117', borderRadius: '0.75rem', padding: '1.25rem 1.5rem', fontFamily: '"Fira Code", "Cascadia Code", "Courier New", monospace', fontSize: '0.8rem', lineHeight: 1.8, overflowX: 'auto' }}>
+          <div style={{ color: '#8b949e', marginBottom: '8px' }}>$ node lead-scorer.cjs score-all</div>
+          <div style={{ color: '#6e7681' }}>─────────────────────────────────────────────────────</div>
+          <div style={{ color: '#e6edf3' }}>Applying rules: job title, company size, industry, signals, decay...</div>
+          <div style={{ marginTop: '8px' }}>
+            <span style={{ color: '#f85149' }}>🔥 HOT</span>
+            <span style={{ color: '#e6edf3' }}>  Sarah Chen — Score: </span>
+            <span style={{ color: '#3fb950' }}>92/100</span>
+          </div>
+          <div style={{ color: '#8b949e', paddingLeft: '40px' }}>VP Engineering +30, 500+ employees +30, tech industry +15, pricing page +17</div>
+          <div style={{ marginTop: '4px' }}>
+            <span style={{ color: '#e3b341' }}>🌡  WARM</span>
+            <span style={{ color: '#e6edf3' }}>  James Okonkwo — Score: </span>
+            <span style={{ color: '#e3b341' }}>58/100</span>
+            <span style={{ color: '#8b949e' }}> (decay: 74→58, 3 weeks inactive)</span>
+          </div>
+          <div style={{ color: '#8b949e', paddingLeft: '40px' }}>Director +20, 50–200 employees +20, SaaS +15, 3 email opens +3</div>
+          <div style={{ marginTop: '4px' }}>
+            <span style={{ color: '#8b949e' }}>❄️  COLD</span>
+            <span style={{ color: '#e6edf3' }}>  Lisa Park — Score: </span>
+            <span style={{ color: '#8b949e' }}>0/100</span>
+          </div>
+          <div style={{ color: '#8b949e', paddingLeft: '40px' }}>competitor.com -100, Director +30, 50–200 employees +20, SaaS +15</div>
+          <div style={{ marginTop: '8px', color: '#58a6ff' }}>🧊 Lead went cold: Bob Walsh — VP Sales at BigCorp</div>
+          <div style={{ color: '#8b949e', paddingLeft: '40px' }}>Score: 45/100 (dropped by: email bounced -30)</div>
+        </div>
+      </section>
+
+      {/* Live demo output — Step 3: Slack alert */}
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.25rem' }}>Live output — Slack hot lead alert</h2>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>Fires instantly when a lead scores above your threshold. Your rep knows exactly why.</p>
+        <div style={{ background: '#0d1117', borderRadius: '0.75rem', padding: '1.25rem 1.5rem', fontFamily: '"Fira Code", "Cascadia Code", "Courier New", monospace', fontSize: '0.8rem', lineHeight: 1.8 }}>
+          <div style={{ color: '#3fb950' }}>🔥 Hot lead: Sarah Chen — VP Engineering at DataCorp</div>
+          <div style={{ color: '#e6edf3' }}>Score: 92/100</div>
+          <div style={{ color: '#8b949e' }}>(VP Engineering +30, 500+ employees +30, tech industry +15, pricing page +17)</div>
+          <div style={{ marginTop: '8px', color: '#e6edf3' }}>→ <span style={{ color: '#58a6ff', textDecoration: 'underline' }}>View in HubSpot</span></div>
+        </div>
+      </section>
+
+      {/* Live demo output — Step 4: Stale deals */}
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.25rem' }}>Live output — stale deal detection</h2>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>Real output from a live HubSpot account. 7 deals. $114,900 sitting quiet.</p>
+        <div style={{ background: '#0d1117', borderRadius: '0.75rem', padding: '1.25rem 1.5rem', fontFamily: '"Fira Code", "Cascadia Code", "Courier New", monospace', fontSize: '0.8rem', lineHeight: 1.8 }}>
+          <div style={{ color: '#8b949e', marginBottom: '8px' }}>$ node follow-up-checker.cjs check</div>
+          <div style={{ color: '#f85149' }}>⚠️  MegaCorp - Full Suite — $50,000 — Decision stage</div>
+          <div style={{ color: '#8b949e', paddingLeft: '20px' }}>Last activity: 14d ago — FLAGGED</div>
+          <div style={{ color: '#f85149', marginTop: '4px' }}>⚠️  Acme Corp - Enterprise Plan — $24,000 — Proposal</div>
+          <div style={{ color: '#8b949e', paddingLeft: '20px' }}>Last activity: 9d ago — FLAGGED</div>
+          <div style={{ color: '#f85149', marginTop: '4px' }}>⚠️  FastMover Ltd - Hot Lead — $12,000 — Contract Sent</div>
+          <div style={{ color: '#8b949e', paddingLeft: '20px' }}>Last activity: 7d ago — FLAGGED</div>
+          <div style={{ marginTop: '12px', borderTop: '1px solid #21262d', paddingTop: '12px' }}>
+            <div style={{ color: '#58a6ff' }}>📊 Daily Pipeline Report</div>
+            <div style={{ color: '#e6edf3' }}>   Stale deals: <span style={{ color: '#f85149' }}>7 flagged</span> (7+ days no activity)</div>
+            <div style={{ color: '#e6edf3' }}>   At risk: <span style={{ color: '#f85149' }}>$114,900</span></div>
+            <div style={{ color: '#3fb950', marginTop: '4px' }}>   → Sent to Slack every morning at 8am</div>
+          </div>
         </div>
       </section>
 
