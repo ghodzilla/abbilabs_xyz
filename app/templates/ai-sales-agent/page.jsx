@@ -195,27 +195,42 @@ export default function AISalesAgentPage() {
         </div>
       </section>
 
+      {/* HubSpot Breeze AI callout */}
+      <section style={{ marginBottom: '1.5rem' }}>
+        <div style={{ background: '#fffbeb', border: '1px solid #fcd34d', borderRadius: '0.75rem', padding: '1.25rem 1.5rem' }}>
+          <div style={{ fontWeight: 700, color: '#92400e', marginBottom: '0.5rem', fontSize: '0.95rem' }}>⚠️ What about HubSpot Breeze AI?</div>
+          <p style={{ color: '#374151', fontSize: '0.875rem', lineHeight: 1.7, margin: 0 }}>
+            HubSpot now has Breeze AI — their built-in agent suite with lead scoring, prompt libraries, and data enrichment. It&apos;s impressive. But it&apos;s a black box locked inside a $800/month subscription. You can&apos;t see the scoring logic. You can&apos;t change the rules. You can&apos;t export the code and run it yourself.
+          </p>
+          <p style={{ color: '#374151', fontSize: '0.875rem', lineHeight: 1.7, margin: '0.75rem 0 0' }}>
+            The AI Sales Agent is the opposite. You see every line of the scoring engine. You change the rules in a JSON file. Every alert tells you <em>exactly why</em> a lead scored high — not just "HubSpot thinks this is a good lead." You own it forever for $79. No subscription. No lock-in.
+          </p>
+        </div>
+      </section>
+
       {/* HubSpot native comparison */}
       <section style={{ marginBottom: '2.5rem' }}>
         <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.5rem' }}>vs HubSpot native lead scoring</h2>
-        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>HubSpot's own lead scoring requires Marketing Hub Professional or Enterprise. Here's the math.</p>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>HubSpot&apos;s own lead scoring requires Marketing Hub Professional or Enterprise. Here&apos;s the math.</p>
         <div style={{ border: '1px solid #e5e7eb', borderRadius: '0.75rem', overflow: 'hidden' }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', background: '#f9fafb', borderBottom: '1px solid #e5e7eb' }}>
             <div style={{ padding: '0.75rem 1rem', fontWeight: 700, fontSize: '0.8rem', color: '#6b7280', textTransform: 'uppercase' }}></div>
-            <div style={{ padding: '0.75rem 1rem', fontWeight: 700, fontSize: '0.8rem', color: '#dc2626', borderLeft: '1px solid #e5e7eb' }}>HubSpot Marketing Hub Pro</div>
+            <div style={{ padding: '0.75rem 1rem', fontWeight: 700, fontSize: '0.8rem', color: '#dc2626', borderLeft: '1px solid #e5e7eb' }}>HubSpot (Breeze AI / Marketing Hub Pro)</div>
             <div style={{ padding: '0.75rem 1rem', fontWeight: 700, fontSize: '0.8rem', color: '#16a34a', borderLeft: '1px solid #e5e7eb' }}>AI Sales Agent</div>
           </div>
           {[
             ['Price', '$800/mo ($9,600/yr minimum)', '$79 one-time'],
             ['Lead scoring', '✅ Included', '✅ Included'],
+            ['Scoring logic visible', '❌ Black box', '✅ Full source code'],
             ['Works on free HubSpot', '❌ Requires Pro/Enterprise', '✅ Works on free CRM'],
-            ['Custom scoring rules', '✅ UI-based', '✅ JSON config'],
+            ['Custom scoring rules', '✅ UI-based, no export', '✅ JSON config you own'],
+            ['Score explanation in alerts', '❌ Not provided', '✅ "VP Engineering +30, tech +15..."'],
             ['Slack alerts', '❌ Not included', '✅ Built in'],
             ['Stale deal detection', '❌ Not included', '✅ Built in'],
             ['Daily pipeline report', '❌ Not included', '✅ Built in'],
-            ['You own the code', '❌ SaaS lock-in', '✅ Full source code'],
+            ['You own the code', '❌ SaaS lock-in', '✅ Full source, forever'],
           ].map(([feature, hubspot, ours], i) => (
-            <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: i < 7 ? '1px solid #e5e7eb' : 'none' }}>
+            <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: i < 9 ? '1px solid #e5e7eb' : 'none' }}>
               <div style={{ padding: '0.75rem 1rem', fontSize: '0.875rem', color: '#374151', fontWeight: 500 }}>{feature}</div>
               <div style={{ padding: '0.75rem 1rem', fontSize: '0.875rem', color: hubspot.startsWith('✅') ? '#374151' : '#dc2626', borderLeft: '1px solid #e5e7eb' }}>{hubspot}</div>
               <div style={{ padding: '0.75rem 1rem', fontSize: '0.875rem', color: '#16a34a', fontWeight: 600, borderLeft: '1px solid #e5e7eb' }}>{ours}</div>
@@ -224,7 +239,7 @@ export default function AISalesAgentPage() {
         </div>
         <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '0.5rem', padding: '0.875rem 1rem', marginTop: '0.75rem' }}>
           <strong style={{ color: '#15803d' }}>$79 once vs $9,600/year minimum.</strong>
-          <span style={{ color: '#374151', fontSize: '0.875rem' }}> Same outcome. Fraction of the cost. You own it forever.</span>
+          <span style={{ color: '#374151', fontSize: '0.875rem' }}> Transparent scoring. Full source code. No black box. You own it forever.</span>
         </div>
       </section>
 
