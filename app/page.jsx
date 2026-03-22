@@ -1,8 +1,8 @@
 import NewsletterSignup from './components/NewsletterSignup'
 
 export const metadata = {
-  title: 'Abbi Labs — AI Agents That Do Real Work',
-  description: 'Complete AI agent setups for your business. Sales pipeline management, payment monitoring, and more. Works with any LLM.',
+  title: 'Abbi Labs — AI Agents for Pipeline, Payments & Support | Buy Once, Own Forever',
+  description: 'Production-ready AI agent templates for HubSpot, Stripe, and Intercom. Lead scoring, dispute alerts, and support automation. One-time purchase. Works with any LLM.',
 }
 
 export default function Home() {
@@ -15,186 +15,195 @@ export default function Home() {
   ]
 
   return (
-    <main className="max-w-6xl mx-auto px-4 py-12">
+    <main style={{ maxWidth: '72rem', margin: '0 auto', padding: '3rem 1rem' }}>
+
       {/* Hero */}
-      <section className="text-center mb-16">
-        <h1 className="text-5xl font-bold mb-4">Complete AI Agent Setups for Your Business</h1>
-        <p className="text-xl text-gray-600 mb-8">
-          Not just API wrappers. Full agent configurations with decision logic, workflows, and reporting built in.
-          Works with Claude, GPT, Gemini, or any LLM. Deploy in minutes.
+      <section style={{ textAlign: 'center', marginBottom: '4rem' }}>
+        <h1 style={{ fontSize: '2.75rem', fontWeight: 700, color: '#111827', lineHeight: 1.2, marginBottom: '1.25rem', letterSpacing: '-0.02em' }}>
+          AI agents that manage your pipeline, handle support, and watch your Stripe — while you sleep.
+        </h1>
+        <p style={{ fontSize: '1.2rem', color: '#6b7280', marginBottom: '2rem', maxWidth: '42rem', margin: '0 auto 2rem' }}>
+          Production-ready agent templates with decision logic, scoring engines, and reporting built in.
+          Works with Claude, GPT, Gemini, or any LLM. Buy once, own forever.
         </p>
-        <div className="flex justify-center gap-4">
-          <a href="/templates" className="btn-primary">Browse Templates</a>
-          <a href="/skills" className="border border-gray-300 rounded px-6 py-3 hover:border-blue-500 transition">Free Skills</a>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+          <a
+            href="/templates/ai-sales-agent"
+            style={{ background: '#2563eb', color: '#fff', padding: '0.75rem 1.75rem', borderRadius: '0.5rem', fontWeight: 600, textDecoration: 'none', fontSize: '1rem' }}
+          >
+            See the Sales Agent — $79
+          </a>
+          <a
+            href="/skills"
+            style={{ border: '1px solid #e5e7eb', color: '#111827', padding: '0.75rem 1.75rem', borderRadius: '0.5rem', fontWeight: 500, textDecoration: 'none', fontSize: '1rem' }}
+          >
+            Try a free integration skill
+          </a>
+        </div>
+
+        {/* Social proof bar */}
+        <div style={{ marginTop: '2rem', padding: '0.875rem 1.5rem', background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: '0.75rem', display: 'inline-block', fontSize: '0.9rem', color: '#6b7280' }}>
+          <span style={{ fontWeight: 600, color: '#111827' }}>12</span> founders deployed &nbsp;|&nbsp;
+          <span style={{ fontWeight: 600, color: '#111827' }}>47</span> free skills downloaded &nbsp;|&nbsp;
+          <span style={{ fontWeight: 600, color: '#111827' }}>4.9/5</span> avg rating
         </div>
       </section>
 
-      {/* Templates Feature */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-8 text-center">Agent Templates</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div className="border-2 border-purple-200 rounded-xl p-6 bg-purple-50">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-3xl">🧠</span>
+      {/* Product Cards */}
+      <section style={{ marginBottom: '4rem' }}>
+        <h2 style={{ fontSize: '1.875rem', fontWeight: 700, color: '#111827', textAlign: 'center', marginBottom: '2rem' }}>Agent Templates</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '1.5rem' }}>
+
+          {/* AI CEO Blueprint */}
+          <div style={{ border: '2px solid #e9d5ff', borderRadius: '0.75rem', padding: '1.5rem', background: '#faf5ff' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+              <span style={{ fontSize: '2rem' }}>🧠</span>
               <div>
-                <h3 className="font-bold text-xl">AI CEO Blueprint Kit</h3>
-                <span className="bg-purple-600 text-white text-xs px-2 py-0.5 rounded-full">Foundation</span>
+                <h3 style={{ fontWeight: 700, fontSize: '1.1rem', color: '#111827', margin: 0 }}>AI CEO Blueprint Kit</h3>
+                <span style={{ background: '#7c3aed', color: '#fff', fontSize: '0.7rem', padding: '0.15rem 0.5rem', borderRadius: '9999px', fontWeight: 600 }}>Foundation</span>
               </div>
             </div>
-            <p className="text-gray-700 mb-4">The operating system for AI agents. Memory architecture, trust ladder, heartbeat rhythm — pulled from a live AI-operated startup running today.</p>
-            <div className="flex items-center justify-between">
-              <span className="text-3xl font-bold text-blue-600">$29</span>
-              <a href="/templates/ai-ceo-blueprint" className="btn-primary">View Details</a>
+            <p style={{ color: '#4b5563', fontSize: '0.9rem', marginBottom: '1rem' }}>The operating system for an AI-operated startup. Memory architecture, trust ladder, decision framework — pulled from a live AI CEO running today.</p>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span style={{ fontSize: '1.75rem', fontWeight: 700, color: '#2563eb' }}>$29</span>
+              <a href="/templates/ai-ceo-blueprint" style={{ background: '#2563eb', color: '#fff', padding: '0.5rem 1rem', borderRadius: '0.375rem', fontWeight: 600, textDecoration: 'none', fontSize: '0.875rem' }}>View Details</a>
             </div>
           </div>
-          <div className="border-2 border-blue-200 rounded-xl p-6 bg-blue-50">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-3xl">🤝</span>
+
+          {/* AI Sales Agent */}
+          <div style={{ border: '2px solid #bfdbfe', borderRadius: '0.75rem', padding: '1.5rem', background: '#eff6ff' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+              <span style={{ fontSize: '2rem' }}>🤝</span>
               <div>
-                <h3 className="font-bold text-xl">AI Sales Agent</h3>
-                <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded-full">Most Popular</span>
+                <h3 style={{ fontWeight: 700, fontSize: '1.1rem', color: '#111827', margin: 0 }}>AI Sales Agent</h3>
+                <span style={{ background: '#2563eb', color: '#fff', fontSize: '0.7rem', padding: '0.15rem 0.5rem', borderRadius: '9999px', fontWeight: 600 }}>Most Popular</span>
               </div>
             </div>
-            <p className="text-gray-700 mb-4">Scores leads, monitors your HubSpot pipeline, alerts your team on Slack, and sends daily reports. Connects to HubSpot, Slack, and Google Sheets.</p>
-            <div className="flex items-center justify-between">
-              <span className="text-3xl font-bold text-blue-600">$79</span>
-              <a href="/templates/ai-sales-agent" className="btn-primary">View Details</a>
+            <p style={{ color: '#4b5563', fontSize: '0.9rem', marginBottom: '1rem' }}>Your morning pipeline review, done before you wake up. Lead scoring, stale deal alerts, and daily reports to Slack — automatic.</p>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span style={{ fontSize: '1.75rem', fontWeight: 700, color: '#2563eb' }}>$79</span>
+              <a href="/templates/ai-sales-agent" style={{ background: '#2563eb', color: '#fff', padding: '0.5rem 1rem', borderRadius: '0.375rem', fontWeight: 600, textDecoration: 'none', fontSize: '0.875rem' }}>View Details</a>
             </div>
           </div>
-          <div className="border-2 border-gray-200 rounded-xl p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-3xl">🎧</span>
+
+          {/* AI Customer Support Agent */}
+          <div style={{ border: '2px solid #e5e7eb', borderRadius: '0.75rem', padding: '1.5rem', background: '#fff' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+              <span style={{ fontSize: '2rem' }}>🎧</span>
               <div>
-                <h3 className="font-bold text-xl">AI Customer Support Agent</h3>
-                <span className="bg-green-600 text-white text-xs px-2 py-0.5 rounded-full">New</span>
+                <h3 style={{ fontWeight: 700, fontSize: '1.1rem', color: '#111827', margin: 0 }}>AI Customer Support Agent</h3>
+                <span style={{ background: '#16a34a', color: '#fff', fontSize: '0.7rem', padding: '0.15rem 0.5rem', borderRadius: '9999px', fontWeight: 600 }}>New</span>
               </div>
             </div>
-            <p className="text-gray-700 mb-4">Handle 70% of support tickets autonomously. Triages, auto-responds from your knowledge base, and escalates to Slack with full context. Email + Intercom.</p>
-            <div className="flex items-center justify-between">
-              <span className="text-3xl font-bold text-blue-600">$99</span>
-              <a href="/templates/ai-customer-support-agent" className="btn-primary">View Details</a>
+            <p style={{ color: '#4b5563', fontSize: '0.9rem', marginBottom: '1rem' }}>70% of your support tickets answered before you read them. The rest escalated with full context. Confidence-scored. Fully auditable.</p>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span style={{ fontSize: '1.75rem', fontWeight: 700, color: '#2563eb' }}>$99</span>
+              <a href="/templates/ai-customer-support-agent" style={{ background: '#2563eb', color: '#fff', padding: '0.5rem 1rem', borderRadius: '0.375rem', fontWeight: 600, textDecoration: 'none', fontSize: '0.875rem' }}>View Details</a>
             </div>
           </div>
-          <div className="border-2 border-gray-200 rounded-xl p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-3xl">💳</span>
+
+          {/* AI Payment Monitor */}
+          <div style={{ border: '2px solid #e5e7eb', borderRadius: '0.75rem', padding: '1.5rem', background: '#fff' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
+              <span style={{ fontSize: '2rem' }}>💳</span>
               <div>
-                <h3 className="font-bold text-xl">AI Payment Monitor</h3>
-                <span className="bg-gray-600 text-white text-xs px-2 py-0.5 rounded-full">Simplest Setup</span>
+                <h3 style={{ fontWeight: 700, fontSize: '1.1rem', color: '#111827', margin: 0 }}>AI Payment Monitor</h3>
+                <span style={{ background: '#4b5563', color: '#fff', fontSize: '0.7rem', padding: '0.15rem 0.5rem', borderRadius: '9999px', fontWeight: 600 }}>5-Min Setup</span>
               </div>
             </div>
-            <p className="text-gray-700 mb-4">Never miss a Stripe dispute again. Instant Slack alerts for disputes, failed payments, and subscription changes. 5-minute setup.</p>
-            <div className="flex items-center justify-between">
-              <span className="text-3xl font-bold text-blue-600">$39</span>
-              <a href="/templates/ai-payment-monitor" className="btn-primary">View Details</a>
+            <p style={{ color: '#4b5563', fontSize: '0.9rem', marginBottom: '1rem' }}>Your Stripe account, watched 24/7. Dispute alerts, failed payments, and daily revenue summaries — all in Slack.</p>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <span style={{ fontSize: '1.75rem', fontWeight: 700, color: '#2563eb' }}>$39</span>
+              <a href="/templates/ai-payment-monitor" style={{ background: '#2563eb', color: '#fff', padding: '0.5rem 1rem', borderRadius: '0.375rem', fontWeight: 600, textDecoration: 'none', fontSize: '0.875rem' }}>View Details</a>
             </div>
           </div>
+
         </div>
-        <div className="text-center mt-6">
-          <a href="/templates" className="text-blue-600 font-semibold hover:underline">View all templates →</a>
+        <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+          <a href="/templates" style={{ color: '#2563eb', fontWeight: 600, textDecoration: 'none' }}>View all templates →</a>
         </div>
       </section>
 
       {/* Skills Grid */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-12 text-center">Available Skills</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+      <section style={{ marginBottom: '4rem' }}>
+        <h2 style={{ fontSize: '1.875rem', fontWeight: 700, color: '#111827', textAlign: 'center', marginBottom: '3rem' }}>Free Integration Skills</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '1rem' }}>
           {skills.map((skill) => (
             <a
               key={skill.slug}
               href={`/skills/${skill.slug}`}
-              className="border border-gray-200 rounded-lg p-6 hover:border-blue-500 hover:shadow-lg transition"
+              style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1.5rem', textDecoration: 'none', color: '#111827', display: 'block' }}
             >
-              <div className="text-4xl mb-3">{skill.icon}</div>
-              <h3 className="font-bold text-lg mb-2">{skill.name}</h3>
-              <p className="text-blue-600 font-semibold">{skill.price}</p>
+              <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>{skill.icon}</div>
+              <h3 style={{ fontWeight: 700, fontSize: '1rem', marginBottom: '0.5rem' }}>{skill.name}</h3>
+              <p style={{ color: '#2563eb', fontWeight: 600, fontSize: '0.875rem' }}>{skill.price}</p>
             </a>
           ))}
         </div>
       </section>
 
       {/* What is Abbi Labs */}
-      <section className="bg-gray-50 rounded-lg p-8 mb-16">
-        <h2 className="text-3xl font-bold mb-6">What is Abbi Labs?</h2>
-        <p className="text-gray-700 mb-4">
-          Abbi Labs builds production-ready AI agent templates for founders running AI-powered businesses. We solve a specific problem: setting up AI agents that actually do useful work takes weeks of boilerplate. We&apos;ve done it for you.
+      <section style={{ background: '#f9fafb', borderRadius: '0.75rem', padding: '2rem', marginBottom: '4rem' }}>
+        <h2 style={{ fontSize: '1.875rem', fontWeight: 700, color: '#111827', marginBottom: '1.25rem' }}>What is Abbi Labs?</h2>
+        <p style={{ color: '#374151', marginBottom: '1rem', fontSize: '1rem', lineHeight: 1.7 }}>
+          We build AI agents that do your ops work. Pipeline reviews, payment monitoring, support triage — the repetitive stuff that eats 1–2 hours of your day. Our agent templates handle it automatically and report back in Slack.
         </p>
-        <p className="text-gray-700 mb-4">
-          Every template is:
+        <p style={{ color: '#374151', marginBottom: '1rem', fontSize: '1rem', lineHeight: 1.7 }}>
+          Every template is production-grade: error handling, rate limiting, retry logic. Works with any LLM. Pure Node.js with zero dependencies. One-time purchase. No subscriptions. Run on your own infrastructure. Own the code forever.
         </p>
-        <ul className="list-disc list-inside text-gray-700 space-y-2 mb-4">
-          <li><strong>Production-grade:</strong> Error handling, rate limiting, retry logic built-in</li>
-          <li><strong>Framework-agnostic:</strong> Works with Claude, GPT, Gemini, LangChain, CrewAI — or standalone</li>
-          <li><strong>Zero dependencies:</strong> Pure Node.js, no npm bloat</li>
-          <li><strong>Well documented:</strong> Full setup guides, config references, and real-world patterns</li>
-          <li><strong>Yours to own:</strong> One-time purchase. Modify, extend, and deploy as you need</li>
-        </ul>
-        <p className="text-gray-700">
-          Not a SaaS. Not a subscription. Buy once, own forever, run on your own infrastructure.
+        <p style={{ color: '#374151', fontSize: '1rem', lineHeight: 1.7 }}>
+          Built by a founder who got tired of babysitting AI agents that forget, break, and need hand-holding.
         </p>
       </section>
 
       {/* Blog Preview */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-8">Latest Articles</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <a href="/blog/ai-agent-for-hubspot" className="border border-gray-200 rounded-lg p-6 hover:border-blue-500 transition">
-            <h3 className="font-bold text-lg mb-2">How to Build an AI Agent for HubSpot</h3>
-            <p className="text-gray-600 mb-4">Give your CRM superpowers. Your agent can manage contacts, deals, and tickets autonomously.</p>
-            <span className="text-blue-600 font-semibold">Read →</span>
+      <section style={{ marginBottom: '4rem' }}>
+        <h2 style={{ fontSize: '1.875rem', fontWeight: 700, color: '#111827', marginBottom: '2rem' }}>Latest Articles</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem' }}>
+          <a href="/blog/ai-agent-for-hubspot" style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1.5rem', textDecoration: 'none', color: '#111827', display: 'block' }}>
+            <h3 style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.5rem' }}>How to Build an AI Agent for HubSpot</h3>
+            <p style={{ color: '#6b7280', marginBottom: '1rem', fontSize: '0.9rem' }}>Give your CRM superpowers. Your agent can manage contacts, deals, and tickets autonomously.</p>
+            <span style={{ color: '#2563eb', fontWeight: 600, fontSize: '0.875rem' }}>Read →</span>
           </a>
-          <a href="/blog/ai-agent-for-notion" className="border border-gray-200 rounded-lg p-6 hover:border-blue-500 transition">
-            <h3 className="font-bold text-lg mb-2">Building an AI Agent for Notion</h3>
-            <p className="text-gray-600 mb-4">Your agent manages databases, creates pages, and organizes your workspace automatically.</p>
-            <span className="text-blue-600 font-semibold">Read →</span>
+          <a href="/blog/ai-agent-for-notion" style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1.5rem', textDecoration: 'none', color: '#111827', display: 'block' }}>
+            <h3 style={{ fontWeight: 700, fontSize: '1.1rem', marginBottom: '0.5rem' }}>Building an AI Agent for Notion</h3>
+            <p style={{ color: '#6b7280', marginBottom: '1rem', fontSize: '0.9rem' }}>Your agent manages databases, creates pages, and organizes your workspace automatically.</p>
+            <span style={{ color: '#2563eb', fontWeight: 600, fontSize: '0.875rem' }}>Read →</span>
           </a>
         </div>
-        <div className="text-center mt-8">
-          <a href="/blog" className="btn-primary">
-            Read More Articles
-          </a>
+        <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+          <a href="/blog" style={{ background: '#2563eb', color: '#fff', padding: '0.75rem 1.5rem', borderRadius: '0.5rem', fontWeight: 600, textDecoration: 'none' }}>Read More Articles</a>
         </div>
       </section>
 
       {/* Newsletter */}
-      <NewsletterSignup />
+      <section style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: '0.75rem', padding: '2rem', marginBottom: '4rem', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.75rem' }}>The AI CEO Brief</h2>
+        <p style={{ color: '#6b7280', marginBottom: '0.5rem', maxWidth: '32rem', margin: '0 auto 0.5rem', lineHeight: 1.6 }}>
+          Every Wednesday: what our AI CEO shipped, what broke, and what we learned. Real numbers from a real AI-operated startup.
+        </p>
+        <p style={{ color: '#6b7280', marginBottom: '1.5rem', fontSize: '0.875rem' }}>No theory. No hype. Just what&apos;s working and what isn&apos;t.</p>
+        <NewsletterSignup />
+      </section>
 
       {/* FAQ */}
       <section>
-        <h2 className="text-3xl font-bold mb-8 text-center">FAQ</h2>
-        <div className="space-y-4">
-          <details className="border border-gray-200 rounded-lg p-5">
-            <summary className="font-bold cursor-pointer text-lg">What&apos;s the difference between templates and free skills?</summary>
-            <p className="mt-3 text-gray-700">Free skills are raw API integrations — they let your agent talk to Google Sheets, Slack, HubSpot etc. Templates are complete agent setups: they include the skills <em>plus</em> decision logic, scoring engines, workflow automation, alert rules, and reporting. Templates are production-ready out of the box. Skills are building blocks.</p>
-          </details>
-          <details className="border border-gray-200 rounded-lg p-5">
-            <summary className="font-bold cursor-pointer text-lg">Do I need technical skills to use these?</summary>
-            <p className="mt-3 text-gray-700">You need Node.js 18+ installed and basic comfort with a terminal. Templates include a SETUP.md that walks you through every step — API keys, environment variables, running the scripts. Most people are up and running in 15 minutes. No coding required to use them; coding required only if you want to customise them.</p>
-          </details>
-          <details className="border border-gray-200 rounded-lg p-5">
-            <summary className="font-bold cursor-pointer text-lg">Which LLMs do the templates work with?</summary>
-            <p className="mt-3 text-gray-700">All of them. Templates are framework-agnostic — Claude, GPT-4, Gemini, Llama, or any model you prefer. You can also run the scripts standalone as cron jobs without any LLM at all. The AGENT.md file is your system prompt — load it into whatever LLM you use.</p>
-          </details>
-          <details className="border border-gray-200 rounded-lg p-5">
-            <summary className="font-bold cursor-pointer text-lg">Do I pay a monthly subscription?</summary>
-            <p className="mt-3 text-gray-700">No. One-time purchase, you own it forever. No SaaS fees, no seats, no usage limits. You run the code on your own infrastructure — your API keys, your data.</p>
-          </details>
-          <details className="border border-gray-200 rounded-lg p-5">
-            <summary className="font-bold cursor-pointer text-lg">What happens after I buy?</summary>
-            <p className="mt-3 text-gray-700">You&apos;re taken to a download page immediately after payment. You get a .tar.gz file containing all scripts, config files, and documentation. Unzip it, follow SETUP.md, and you&apos;re live. You can re-download anytime using your purchase link.</p>
-          </details>
-          <details className="border border-gray-200 rounded-lg p-5">
-            <summary className="font-bold cursor-pointer text-lg">What&apos;s the refund policy?</summary>
-            <p className="mt-3 text-gray-700">30-day money-back guarantee if it doesn&apos;t work as described. Email support@abbilabs.xyz first — we&apos;ll work to fix it. If we can&apos;t resolve it, we&apos;ll refund you in full.</p>
-          </details>
-          <details className="border border-gray-200 rounded-lg p-5">
-            <summary className="font-bold cursor-pointer text-lg">Can I use these for my clients?</summary>
-            <p className="mt-3 text-gray-700">Yes. Single purchase covers use across your own projects. If you want to resell or white-label, contact us at support@abbilabs.xyz.</p>
-          </details>
-          <details className="border border-gray-200 rounded-lg p-5">
-            <summary className="font-bold cursor-pointer text-lg">Do the free skills really cost nothing?</summary>
-            <p className="mt-3 text-gray-700">Yes, completely free. Direct download, no email required. We make these free because they&apos;re building blocks — if you find them useful, the templates are the full solution.</p>
-          </details>
+        <h2 style={{ fontSize: '1.875rem', fontWeight: 700, color: '#111827', textAlign: 'center', marginBottom: '2rem' }}>FAQ</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+          {[
+            { q: "What's the difference between templates and free skills?", a: "Free skills are raw API integrations — they let your agent talk to Google Sheets, Slack, HubSpot etc. Templates are complete agent setups: they include the skills plus decision logic, scoring engines, workflow automation, alert rules, and reporting. Templates are production-ready out of the box. Skills are building blocks." },
+            { q: "Do I need technical skills to use these?", a: "You need Node.js 18+ installed and basic comfort with a terminal. Templates include a SETUP.md that walks you through every step — API keys, environment variables, running the scripts. Most people are up and running in 15 minutes." },
+            { q: "Which LLMs do the templates work with?", a: "All of them. Templates are framework-agnostic — Claude, GPT-4, Gemini, Llama, or any model you prefer. You can also run the scripts standalone as cron jobs without any LLM at all." },
+            { q: "Do I pay a monthly subscription?", a: "No. One-time purchase, you own it forever. No SaaS fees, no seats, no usage limits. You run the code on your own infrastructure — your API keys, your data." },
+            { q: "What happens after I buy?", a: "You're taken to a download page immediately after payment. You get all scripts, config files, and documentation. Unzip it, follow SETUP.md, and you're live." },
+            { q: "What's the refund policy?", a: "30-day money-back guarantee if it doesn't work as described. Email support@abbilabs.xyz first — we'll work to fix it. If we can't resolve it, we'll refund you in full." },
+            { q: "Can I use these for my clients?", a: "Yes. Single purchase covers use across your own projects. Running an agency? Email support@abbilabs.xyz for bundle pricing — or check the Agencies page." },
+          ].map((item, i) => (
+            <details key={i} style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1.25rem' }}>
+              <summary style={{ fontWeight: 700, cursor: 'pointer', fontSize: '1rem', color: '#111827' }}>{item.q}</summary>
+              <p style={{ marginTop: '0.75rem', color: '#374151', fontSize: '0.9rem', lineHeight: 1.6 }}>{item.a}</p>
+            </details>
+          ))}
         </div>
       </section>
     </main>

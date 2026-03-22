@@ -4,12 +4,12 @@ import { SpeedInsights } from '@vercel/speed-insights/react'
 import Script from 'next/script'
 
 export const metadata = {
-  title: 'Abbi Labs — AI Agents That Do Real Work',
-  description: 'Production-ready AI agent templates for founders. Automate your sales pipeline, payment monitoring, and more. Works with any LLM.',
+  title: 'Abbi Labs — AI Agents for Pipeline, Payments & Support | Buy Once, Own Forever',
+  description: 'Production-ready AI agent templates for HubSpot, Stripe, and Intercom. Lead scoring, dispute alerts, and support automation. One-time purchase. Works with any LLM.',
   metadataBase: new URL('https://abbilabs.xyz'),
   openGraph: {
-    title: 'Abbi Labs — AI Agents That Do Real Work',
-    description: 'Production-ready AI agent templates for founders. Works with Claude, GPT, Gemini, LangChain, and more.',
+    title: 'Abbi Labs — AI Agents for Pipeline, Payments & Support | Buy Once, Own Forever',
+    description: 'Production-ready AI agent templates for HubSpot, Stripe, and Intercom. Lead scoring, dispute alerts, and support automation. One-time purchase. Works with any LLM.',
     url: 'https://abbilabs.xyz',
     type: 'website',
   },
@@ -19,23 +19,23 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <link href="https://cdn.tailwindcss.com" rel="stylesheet" />
         <link rel="icon" type="image/svg+xml" href="/brand/logo-icon.svg" />
       </head>
-      <body className="bg-white text-gray-900">
-        <nav className="border-b border-gray-200 px-4 py-4">
-          <div className="max-w-6xl mx-auto flex justify-between items-center">
-            <a href="/" className="flex items-center gap-2">
-              <img src="/brand/logo-icon.svg" alt="Abbi Labs" className="w-8 h-8 rounded-lg" />
-              <span className="text-xl font-bold">Abbi Labs</span>
+      <body style={{ background: '#fff', color: '#111827', margin: 0, fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif' }}>
+        <nav style={{ borderBottom: '1px solid #e5e7eb', padding: '1rem' }}>
+          <div style={{ maxWidth: '72rem', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <a href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', color: '#111827' }}>
+              <img src="/brand/logo-icon.svg" alt="Abbi Labs" style={{ width: '2rem', height: '2rem', borderRadius: '0.5rem' }} />
+              <span style={{ fontSize: '1.25rem', fontWeight: 700 }}>Abbi Labs</span>
             </a>
-            <div className="space-x-6">
-              <a href="/" className="hover:underline">Home</a>
-              <a href="/templates" className="hover:underline font-semibold text-blue-600">Templates</a>
-              <a href="/skills" className="hover:underline">Free Skills</a>
-              <a href="/blog" className="hover:underline">Blog</a>
-              <a href="/newsletter" className="hover:underline">Newsletter</a>
-              <a href="/faq" className="hover:underline">FAQ</a>
+            <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+              <a href="/" style={{ textDecoration: 'none', color: '#111827', fontSize: '0.95rem' }}>Home</a>
+              <a href="/templates" style={{ textDecoration: 'none', color: '#2563eb', fontWeight: 600, fontSize: '0.95rem' }}>Templates</a>
+              <a href="/skills" style={{ textDecoration: 'none', color: '#111827', fontSize: '0.95rem' }}>Free Skills</a>
+              <a href="/agencies" style={{ textDecoration: 'none', color: '#111827', fontSize: '0.95rem' }}>Agencies</a>
+              <a href="/blog" style={{ textDecoration: 'none', color: '#111827', fontSize: '0.95rem' }}>Blog</a>
+              <a href="/newsletter" style={{ textDecoration: 'none', color: '#111827', fontSize: '0.95rem' }}>Newsletter</a>
+              <a href="/faq" style={{ textDecoration: 'none', color: '#111827', fontSize: '0.95rem' }}>FAQ</a>
             </div>
           </div>
         </nav>
@@ -52,51 +52,52 @@ export default function RootLayout({ children }) {
             page_path: window.location.pathname,
           });
         `}</Script>
-        <footer className="border-t border-gray-200 mt-12 py-10 text-gray-600 text-sm">
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+        <footer style={{ borderTop: '1px solid #e5e7eb', marginTop: '3rem', padding: '2.5rem 1rem', color: '#6b7280', fontSize: '0.875rem' }}>
+          <div style={{ maxWidth: '72rem', margin: '0 auto' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '2rem', marginBottom: '2rem' }}>
               <div>
-                <div className="flex items-center gap-2 mb-3">
-                <img src="/brand/logo-icon.svg" alt="Abbi Labs" className="w-7 h-7 rounded-md" />
-                <span className="text-lg font-bold text-gray-900">Abbi Labs</span>
-              </div>
-                <p className="text-gray-500 text-xs">AI agents that do real work — built for founders.</p>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                  <img src="/brand/logo-icon.svg" alt="Abbi Labs" style={{ width: '1.75rem', height: '1.75rem', borderRadius: '0.375rem' }} />
+                  <span style={{ fontSize: '1.1rem', fontWeight: 700, color: '#111827' }}>Abbi Labs</span>
+                </div>
+                <p style={{ color: '#6b7280', fontSize: '0.75rem' }}>AI agents for pipeline, payments &amp; support — built for founders.</p>
               </div>
               <div>
-                <div className="font-semibold text-gray-900 mb-3">Products</div>
-                <div className="space-y-2">
-                  <a href="/templates/ai-ceo-blueprint" className="block hover:underline">AI CEO Blueprint Kit</a>
-                  <a href="/templates/ai-sales-agent" className="block hover:underline">AI Sales Agent</a>
-                  <a href="/templates/ai-customer-support-agent" className="block hover:underline">AI Customer Support Agent</a>
-                  <a href="/templates/ai-payment-monitor" className="block hover:underline">AI Payment Monitor</a>
-                  <a href="/skills" className="block hover:underline">Free Skills</a>
+                <div style={{ fontWeight: 600, color: '#111827', marginBottom: '0.75rem' }}>Products</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <a href="/templates/ai-ceo-blueprint" style={{ color: '#6b7280', textDecoration: 'none' }}>AI CEO Blueprint Kit</a>
+                  <a href="/templates/ai-sales-agent" style={{ color: '#6b7280', textDecoration: 'none' }}>AI Sales Agent</a>
+                  <a href="/templates/ai-customer-support-agent" style={{ color: '#6b7280', textDecoration: 'none' }}>AI Support Agent</a>
+                  <a href="/templates/ai-payment-monitor" style={{ color: '#6b7280', textDecoration: 'none' }}>AI Payment Monitor</a>
+                  <a href="/skills" style={{ color: '#6b7280', textDecoration: 'none' }}>Free Skills</a>
                 </div>
               </div>
               <div>
-                <div className="font-semibold text-gray-900 mb-3">Solutions</div>
-                <div className="space-y-2">
-                  <a href="/hubspot-pipeline-automation" className="block hover:underline">HubSpot Automation</a>
-                  <a href="/stripe-dispute-monitor" className="block hover:underline">Stripe Dispute Monitor</a>
-                  <a href="/ai-customer-support-automation" className="block hover:underline">Support Automation</a>
+                <div style={{ fontWeight: 600, color: '#111827', marginBottom: '0.75rem' }}>Solutions</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <a href="/hubspot-pipeline-automation" style={{ color: '#6b7280', textDecoration: 'none' }}>HubSpot Automation</a>
+                  <a href="/stripe-dispute-monitor" style={{ color: '#6b7280', textDecoration: 'none' }}>Stripe Dispute Monitor</a>
+                  <a href="/ai-customer-support-automation" style={{ color: '#6b7280', textDecoration: 'none' }}>Support Automation</a>
+                  <a href="/agencies" style={{ color: '#6b7280', textDecoration: 'none' }}>For Agencies</a>
                 </div>
               </div>
               <div>
-                <div className="font-semibold text-gray-900 mb-3">Company</div>
-                <div className="space-y-2">
-                  <a href="/blog" className="block hover:underline">Blog</a>
-                  <a href="/faq" className="block hover:underline">FAQ</a>
-                  <a href="mailto:support@abbilabs.xyz" className="block hover:underline">Support</a>
+                <div style={{ fontWeight: 600, color: '#111827', marginBottom: '0.75rem' }}>Company</div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                  <a href="/blog" style={{ color: '#6b7280', textDecoration: 'none' }}>Blog</a>
+                  <a href="/faq" style={{ color: '#6b7280', textDecoration: 'none' }}>FAQ</a>
+                  <a href="mailto:support@abbilabs.xyz" style={{ color: '#6b7280', textDecoration: 'none' }}>Support</a>
                 </div>
               </div>
               <div>
-                <div className="font-semibold text-gray-900 mb-3">Newsletter</div>
-                <p className="text-xs text-gray-500 mb-2">The AI CEO Brief — weekly insights from an AI-operated startup.</p>
-                <a href="/newsletter" className="text-blue-600 hover:underline text-xs block mb-1">Read past issues →</a>
-                <a href="https://abbilabs.beehiiv.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline text-xs">Subscribe free →</a>
+                <div style={{ fontWeight: 600, color: '#111827', marginBottom: '0.75rem' }}>Newsletter</div>
+                <p style={{ fontSize: '0.75rem', color: '#6b7280', marginBottom: '0.5rem' }}>The AI CEO Brief — weekly insights from an AI-operated startup.</p>
+                <a href="/newsletter" style={{ color: '#2563eb', textDecoration: 'none', fontSize: '0.75rem', display: 'block', marginBottom: '0.25rem' }}>Read past issues →</a>
+                <a href="https://abbilabs.beehiiv.com" target="_blank" rel="noopener noreferrer" style={{ color: '#2563eb', textDecoration: 'none', fontSize: '0.75rem' }}>Subscribe free →</a>
               </div>
             </div>
-            <div className="border-t border-gray-100 pt-6 text-center text-xs text-gray-400">
-              © 2026 Abbi Labs. All rights reserved. · <a href="mailto:support@abbilabs.xyz" className="hover:underline">support@abbilabs.xyz</a>
+            <div style={{ borderTop: '1px solid #f3f4f6', paddingTop: '1.5rem', textAlign: 'center', fontSize: '0.75rem', color: '#9ca3af' }}>
+              © 2026 Abbi Labs. All rights reserved. · <a href="mailto:support@abbilabs.xyz" style={{ color: '#9ca3af', textDecoration: 'none' }}>support@abbilabs.xyz</a>
             </div>
           </div>
         </footer>

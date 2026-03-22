@@ -1,5 +1,10 @@
 'use client';
 
+export const metadata = {
+  title: 'AI Support Agent — Auto-Resolve 70% of Tickets | $99 One-Time',
+  description: 'AI agent that responds from your knowledge base and escalates with full context. Connects to Email + Intercom. Configurable confidence threshold. No subscription.',
+}
+
 async function handleCheckout(product) {
   const res = await fetch('/api/checkout', {
     method: 'POST',
@@ -12,127 +17,131 @@ async function handleCheckout(product) {
 
 export default function AICustomerSupportAgentPage() {
   return (
-    <main className="max-w-4xl mx-auto px-4 py-12">
+    <main style={{ maxWidth: '56rem', margin: '0 auto', padding: '3rem 1rem' }}>
+
+      {/* Breadcrumb */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: '#6b7280', marginBottom: '1.5rem' }}>
+        <a href="/templates" style={{ color: '#6b7280', textDecoration: 'none' }}>Templates</a>
+        <span>/</span>
+        <span>AI Customer Support Agent</span>
+      </div>
+
       {/* Header */}
-      <div className="mb-10">
-        <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-          <a href="/templates" className="hover:underline">Templates</a> / AI Customer Support Agent
-        </div>
-        <div className="flex items-start justify-between">
-          <div>
-            <h1 className="text-4xl font-bold mb-2">🎧 AI Customer Support Agent</h1>
-            <p className="text-xl text-gray-600">Handle 70% of support tickets autonomously. Escalate the rest with full context.</p>
-            <div className="flex gap-2 mt-3 flex-wrap">
-              <span className="bg-green-100 text-green-700 text-sm px-3 py-1 rounded-full font-medium">✅ Production Tested</span>
-              <span className="bg-blue-100 text-blue-700 text-sm px-3 py-1 rounded-full font-medium">Email + Intercom</span>
-              <span className="bg-purple-100 text-purple-700 text-sm px-3 py-1 rounded-full font-medium">Zero Dependencies</span>
-              <span className="bg-orange-100 text-orange-700 text-sm px-3 py-1 rounded-full font-medium">Multi-Language</span>
+      <div style={{ marginBottom: '2.5rem' }}>
+        <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '2rem', flexWrap: 'wrap' }}>
+          <div style={{ flex: 1, minWidth: '18rem' }}>
+            <h1 style={{ fontSize: '2.5rem', fontWeight: 700, color: '#111827', lineHeight: 1.2, marginBottom: '0.75rem' }}>
+              70% of your support tickets answered before you read them.
+            </h1>
+            <p style={{ fontSize: '1.1rem', color: '#6b7280', lineHeight: 1.6, marginBottom: '1rem' }}>
+              The rest escalated with full context. Confidence-scored. Fully auditable.<br />
+              <strong style={{ color: '#111827' }}>$99 one-time. No subscription.</strong>
+            </p>
+            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+              <span style={{ background: '#dcfce7', color: '#15803d', fontSize: '0.8rem', padding: '0.25rem 0.75rem', borderRadius: '9999px', fontWeight: 600 }}>✅ Production Tested</span>
+              <span style={{ background: '#dbeafe', color: '#1d4ed8', fontSize: '0.8rem', padding: '0.25rem 0.75rem', borderRadius: '9999px', fontWeight: 600 }}>Email + Intercom</span>
+              <span style={{ background: '#f3e8ff', color: '#7e22ce', fontSize: '0.8rem', padding: '0.25rem 0.75rem', borderRadius: '9999px', fontWeight: 600 }}>Zero Dependencies</span>
+              <span style={{ background: '#fff7ed', color: '#c2410c', fontSize: '0.8rem', padding: '0.25rem 0.75rem', borderRadius: '9999px', fontWeight: 600 }}>Multi-Language</span>
             </div>
           </div>
-          <div className="text-right ml-8 flex-shrink-0">
-            <div className="text-5xl font-bold text-blue-600">$99</div>
-            <div className="text-gray-500 mb-3">one-time · own forever</div>
-            <button onClick={() => handleCheckout("ai-customer-support-agent")} className="btn-primary block text-center text-lg px-8 py-3 w-full">Buy Now — $99</button>
-            <p className="text-xs text-gray-500 mt-2">30-day guarantee if it doesn't work as described</p>
+          <div style={{ textAlign: 'right', flexShrink: 0 }}>
+            <div style={{ fontSize: '3rem', fontWeight: 700, color: '#2563eb' }}>$99</div>
+            <div style={{ color: '#6b7280', marginBottom: '0.75rem', fontSize: '0.875rem' }}>one-time · own forever</div>
+            <button
+              onClick={() => handleCheckout('ai-customer-support-agent')}
+              style={{ background: '#2563eb', color: '#fff', border: 'none', padding: '0.875rem 2rem', borderRadius: '0.5rem', fontWeight: 700, fontSize: '1rem', cursor: 'pointer', width: '100%' }}
+            >
+              Buy Now — $99
+            </button>
+            <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.5rem' }}>30-day money-back guarantee</p>
           </div>
         </div>
       </div>
 
-      {/* The Problem */}
-      <section className="mb-10 bg-red-50 rounded-xl p-6">
-        <h2 className="text-xl font-bold mb-3 text-red-800">The problem with support tickets</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-          <div className="text-red-700">
-            <div className="text-3xl font-bold mb-1">70%</div>
-            <p>of support tickets are the same 5 questions asked over and over</p>
-          </div>
-          <div className="text-red-700">
-            <div className="text-3xl font-bold mb-1">$495/mo</div>
-            <p>is what Intercom Fin charges for 500 AI resolutions per month</p>
-          </div>
-          <div className="text-red-700">
-            <div className="text-3xl font-bold mb-1">2 hours</div>
-            <p>per day founders spend answering the same questions manually</p>
-          </div>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold mb-4">How it works</h2>
-        <div className="space-y-4">
-          {[
-            { step: '1', icon: '📨', title: 'Ticket arrives', desc: 'Via email (IMAP) or Intercom — the agent polls for new tickets automatically.' },
-            { step: '2', icon: '🔍', title: 'Search knowledge base', desc: 'Scans your FAQ articles (markdown files or Notion database) for relevant answers.' },
-            { step: '3', icon: '🧠', title: 'AI triage', desc: 'Classifies into: Auto-resolve, Needs Context, Escalate to Human, or Urgent Escalation.' },
-            { step: '4', icon: '✅', title: 'Act', desc: 'Auto-responds from your KB, asks clarifying questions, or escalates to Slack with full context.' },
-          ].map((item) => (
-            <div key={item.step} className="flex gap-4 items-start border border-gray-200 rounded-lg p-4">
-              <div className="text-3xl flex-shrink-0">{item.icon}</div>
-              <div>
-                <h3 className="font-bold">{item.title}</h3>
-                <p className="text-gray-600 text-sm">{item.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* 4-Category Triage */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold mb-4">Intelligent 4-category triage</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {[
-            { emoji: '✅', cat: 'AUTO_RESOLVE', color: 'green', desc: 'FAQ, how-to, status checks — agent responds and closes automatically.', example: '"How do I reset my API key?" → Answered from KB in 3 seconds' },
-            { emoji: '❓', cat: 'NEEDS_CONTEXT', color: 'yellow', desc: 'Vague reports, missing info — agent asks a clarifying question first.', example: '"Something is broken" → "Could you describe what you were trying to do?"' },
-            { emoji: '⚠️', cat: 'ESCALATE_HUMAN', color: 'orange', desc: 'Billing disputes, refunds, angry customers — routes to your team via Slack.', example: '"I was charged twice" → Slack alert with full context and sentiment' },
-            { emoji: '🚨', cat: 'ESCALATE_URGENT', color: 'red', desc: 'Security incidents, data loss, outages — immediate @here alert.', example: '"Unauthorized access detected" → Instant Slack alert to on-call' },
-          ].map((item) => (
-            <div key={item.cat} className={`border-2 border-${item.color}-200 rounded-lg p-4 bg-${item.color}-50`}>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-xl">{item.emoji}</span>
-                <span className="font-bold font-mono text-sm">{item.cat}</span>
-              </div>
-              <p className="text-gray-700 text-sm mb-2">{item.desc}</p>
-              <p className="text-gray-500 text-xs italic">{item.example}</p>
-            </div>
-          ))}
-        </div>
+      {/* The problem */}
+      <section style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: '0.75rem', padding: '1.5rem', marginBottom: '2.5rem' }}>
+        <p style={{ color: '#374151', lineHeight: 1.7, margin: 0 }}>
+          Most support tickets are the same 20 questions. Your knowledge base already has the answers. But your customers don&apos;t read it, and you end up copy-pasting the same responses every day.
+        </p>
+        <p style={{ color: '#374151', lineHeight: 1.7, marginTop: '0.75rem', marginBottom: 0 }}>
+          The AI Customer Support Agent reads incoming tickets, checks your knowledge base, and responds automatically to the ones it can handle. For everything else, it escalates to your team in Slack with the customer context, ticket history, and a suggested response. <strong>Your team handles the hard 30%. The agent handles the repetitive 70%.</strong>
+        </p>
       </section>
 
       {/* What it does */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold mb-4">What your agent does</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '1rem' }}>What it does</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {[
-            { icon: '🎯', title: 'Smart Triage', desc: 'Classifies every ticket by category, confidence, and customer sentiment — never sends uncertain responses' },
-            { icon: '📚', title: 'Knowledge Base Search', desc: 'Searches markdown files or Notion database to source accurate answers — never halluccinates' },
-            { icon: '💬', title: 'Auto-Response', desc: 'Drafts personalised responses using KB articles, in the customer\'s own language' },
-            { icon: '🚨', title: 'Slack Escalation', desc: 'Rich context alerts: customer info, plan, sentiment, triage reasoning, thread history' },
-            { icon: '📊', title: 'Daily Report', desc: 'Ticket volume, auto-resolution rate, sentiment breakdown — every morning in Slack' },
-            { icon: '📈', title: 'Weekly Metrics', desc: 'Trends, daily breakdown, volume changes — identifies patterns before they become problems' },
-            { icon: '🔒', title: 'Security Protection', desc: 'Detects social engineering attempts, never complies with account access requests' },
-            { icon: '🌍', title: 'Multi-Language', desc: 'Responds in the customer\'s language automatically — Spanish, French, German, and more' },
+            { icon: '✅', title: 'Auto-response', desc: 'Matches tickets to knowledge base articles and responds with accurate, natural answers.' },
+            { icon: '🧠', title: 'Smart triage', desc: 'Categorises tickets by topic, urgency, and sentiment. Four-category system: auto-resolve, needs context, escalate, urgent.' },
+            { icon: '🚨', title: 'Slack escalation', desc: 'Sends unresolved tickets to Slack with full context: customer info, plan, sentiment, ticket history, and a suggested reply.' },
+            { icon: '🎯', title: 'Confidence scoring', desc: 'Only responds when it\'s confident in the answer. Threshold is configurable — low confidence means auto-escalate, not auto-guess.' },
+            { icon: '📊', title: 'Conversation logging', desc: 'Every interaction tracked for review and improvement. Daily reports on ticket volume, resolution rate, and sentiment.' },
           ].map((item) => (
-            <div key={item.title} className="border border-gray-200 rounded-lg p-4">
-              <div className="text-2xl mb-2">{item.icon}</div>
-              <h3 className="font-bold mb-1">{item.title}</h3>
-              <p className="text-gray-600 text-sm">{item.desc}</p>
+            <div key={item.title} style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1rem', display: 'flex', gap: '1rem' }}>
+              <span style={{ fontSize: '1.5rem', flexShrink: 0 }}>{item.icon}</span>
+              <div>
+                <h3 style={{ fontWeight: 700, color: '#111827', margin: '0 0 0.25rem', fontSize: '0.95rem' }}>{item.title}</h3>
+                <p style={{ color: '#6b7280', fontSize: '0.875rem', margin: 0 }}>{item.desc}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
+      {/* Escalation preview */}
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '1rem' }}>Here&apos;s what an escalation looks like in Slack</h2>
+        <div style={{ background: '#111827', borderRadius: '0.75rem', padding: '1.5rem', fontFamily: 'monospace', fontSize: '0.875rem' }}>
+          <div style={{ color: '#fbbf24' }}>🎧 TICKET ESCALATED — Confidence: 42% (below threshold)</div>
+          <div style={{ color: '#e2e8f0', marginTop: '0.5rem' }}>Customer: james@acme.co</div>
+          <div style={{ color: '#e2e8f0' }}>Subject: API rate limits on enterprise plan</div>
+          <div style={{ color: '#86efac' }}>Category: Technical | Urgency: Medium</div>
+          <div style={{ color: '#e2e8f0', marginTop: '0.5rem' }}>Context: Enterprise customer, 3 previous tickets, all resolved</div>
+          <div style={{ color: '#93c5fd', marginTop: '0.5rem' }}>Suggested response: &ldquo;Enterprise plans have a 10K/min rate limit. If you&rsquo;re hitting this...&rdquo;</div>
+          <div style={{ color: '#60a5fa', marginTop: '0.5rem' }}>→ Respond in Intercom</div>
+        </div>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginTop: '0.75rem' }}>The agent never guesses. Low confidence = escalate with context, not auto-respond with wrong info.</p>
+      </section>
+
+      {/* Connections */}
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '1rem' }}>Connects to</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.75rem' }}>
+          <div style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1rem' }}>
+            <div style={{ fontWeight: 700, color: '#111827', marginBottom: '0.25rem' }}>Tickets</div>
+            <div style={{ color: '#6b7280', fontSize: '0.875rem' }}>Email (IMAP) + Intercom</div>
+          </div>
+          <div style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1rem' }}>
+            <div style={{ fontWeight: 700, color: '#111827', marginBottom: '0.25rem' }}>Knowledge base</div>
+            <div style={{ color: '#6b7280', fontSize: '0.875rem' }}>Markdown files in /docs (add, edit, remove anytime)</div>
+          </div>
+          <div style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1rem' }}>
+            <div style={{ fontWeight: 700, color: '#111827', marginBottom: '0.25rem' }}>LLM</div>
+            <div style={{ color: '#6b7280', fontSize: '0.875rem' }}>Claude, GPT, Gemini, or any model</div>
+          </div>
+        </div>
+      </section>
+
+      {/* The math */}
+      <section style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '0.75rem', padding: '1.5rem', marginBottom: '2.5rem' }}>
+        <h3 style={{ fontWeight: 700, color: '#166534', marginBottom: '0.75rem' }}>The math</h3>
+        <p style={{ color: '#15803d', lineHeight: 1.7, margin: 0 }}>
+          If you handle 100 tickets/week and spend 5 minutes per ticket, that&apos;s 8+ hours. At 70% auto-resolution, you get 6 hours back. Every week. That&apos;s $99 paid back in the first 2 days.
+        </p>
+      </section>
+
       {/* vs Intercom Fin */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold mb-4">Why not Intercom Fin?</h2>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '1rem' }}>Why not Intercom Fin?</h2>
+        <div style={{ overflowX: 'auto' }}>
+          <table style={{ width: '100%', fontSize: '0.875rem', borderCollapse: 'collapse' }}>
             <thead>
-              <tr className="border-b-2">
-                <th className="text-left py-3 px-4"></th>
-                <th className="text-left py-3 px-4 text-blue-600">This Template</th>
-                <th className="text-left py-3 px-4 text-gray-500">Intercom Fin</th>
+              <tr style={{ borderBottom: '2px solid #e5e7eb' }}>
+                <th style={{ textAlign: 'left', padding: '0.75rem 1rem' }}></th>
+                <th style={{ textAlign: 'left', padding: '0.75rem 1rem', color: '#2563eb' }}>This Template</th>
+                <th style={{ textAlign: 'left', padding: '0.75rem 1rem', color: '#6b7280' }}>Intercom Fin</th>
               </tr>
             </thead>
             <tbody>
@@ -146,27 +155,25 @@ export default function AICustomerSupportAgentPage() {
                 ['Data', 'On your servers', 'On theirs'],
                 ['Email support', '✅ Built-in IMAP/SMTP', '❌ Intercom only'],
               ].map(([label, us, them]) => (
-                <tr key={label} className="border-b">
-                  <td className="py-3 px-4 font-medium">{label}</td>
-                  <td className="py-3 px-4 text-blue-600 font-medium">{us}</td>
-                  <td className="py-3 px-4 text-gray-500">{them}</td>
+                <tr key={label} style={{ borderBottom: '1px solid #e5e7eb' }}>
+                  <td style={{ padding: '0.75rem 1rem', fontWeight: 600, color: '#111827' }}>{label}</td>
+                  <td style={{ padding: '0.75rem 1rem', color: '#2563eb', fontWeight: 500 }}>{us}</td>
+                  <td style={{ padding: '0.75rem 1rem', color: '#6b7280' }}>{them}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-        <p className="text-gray-500 text-sm mt-3">At 500 tickets per month, this template pays for itself in the first 3 hours.</p>
       </section>
 
       {/* What's included */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold mb-4">What&apos;s included</h2>
-        <div className="bg-gray-50 rounded-lg p-6 font-mono text-sm">
-          <div className="text-gray-500 mb-2">ai-customer-support-agent/</div>
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.75rem' }}>What&apos;s included</h2>
+        <div style={{ background: '#f9fafb', borderRadius: '0.75rem', padding: '1.5rem', fontFamily: 'monospace', fontSize: '0.825rem' }}>
+          <div style={{ color: '#6b7280', marginBottom: '0.5rem' }}>ai-customer-support-agent/</div>
           {[
             ['AGENT.md', 'Agent personality, decision rules, security policies'],
             ['SETUP.md', 'Step-by-step setup guide (under 1 hour)'],
-            ['CONFIG.md', 'Every config option explained'],
             ['config.json', 'Triage rules, thresholds, channels — no code changes'],
             ['src/triage.js', '⭐ 4-category triage engine with sentiment detection'],
             ['src/kb-search.js', '⭐ Knowledge base search (Markdown + Notion)'],
@@ -176,129 +183,61 @@ export default function AICustomerSupportAgentPage() {
             ['src/integrations/email.js', 'IMAP/SMTP adapter (Gmail, Outlook, any provider)'],
             ['src/integrations/intercom.js', 'Full Intercom API adapter'],
             ['src/integrations/slack.js', 'Slack webhook integration'],
-            ['src/integrations/notion.js', 'Notion KB reader'],
-            ['src/integrations/sheets.js', 'Google Sheets ticket logger'],
             ['cron/', 'Poll, daily report, weekly report, auto-close'],
             ['examples/kb-articles/', '3 sample KB articles to get started'],
           ].map(([file, desc]) => (
-            <div key={file} className="flex gap-4 py-1 border-b border-gray-200 last:border-0">
-              <span className="text-blue-600 w-64 flex-shrink-0">{file}</span>
-              <span className="text-gray-500">{desc}</span>
+            <div key={file} style={{ display: 'flex', gap: '1rem', padding: '0.3rem 0', borderBottom: '1px solid #e5e7eb' }}>
+              <span style={{ color: '#2563eb', width: '16rem', flexShrink: 0 }}>{file}</span>
+              <span style={{ color: '#6b7280' }}>{desc}</span>
             </div>
           ))}
         </div>
-        <p className="text-gray-600 text-sm mt-3">28 files · 3,000+ lines · Zero npm dependencies · Pure Node.js</p>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginTop: '0.75rem' }}>28 files · 3,000+ lines · Zero npm dependencies · Pure Node.js</p>
       </section>
 
-      {/* Framework compatibility */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold mb-4">Works with any AI framework</h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-          {[
-            ['OpenClaw', 'Drop into skills directory. Done.'],
-            ['Claude API', 'Load AGENT.md as system prompt'],
-            ['GPT API', 'Load AGENT.md as system message'],
-            ['LangChain', 'Scripts as tools, triage as chain'],
-            ['CrewAI', 'AGENT.md → agent, triage → tasks'],
-            ['Standalone', 'Run as cron job — no framework needed'],
-          ].map(([fw, how]) => (
-            <div key={fw} className="border border-gray-200 rounded p-3">
-              <div className="font-bold text-sm">{fw}</div>
-              <div className="text-gray-500 text-xs mt-1">{how}</div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Requirements & Setup */}
-      <section className="mb-10 grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Requirements</h2>
-          <ul className="space-y-2 text-gray-700">
-            <li>✓ Node.js 18+</li>
-            <li>✓ Anthropic or OpenAI API key</li>
-            <li>✓ Email account (Gmail/Outlook) or Intercom</li>
-            <li>✓ Slack workspace (free)</li>
-            <li>✓ Optional: Notion, Google Sheets</li>
-          </ul>
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold mb-4">Setup time</h2>
-          <div className="space-y-3">
-            <div className="flex justify-between items-center">
-              <span className="text-gray-700">Email or Intercom</span>
-              <span className="text-gray-500">~10 min</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-700">Slack webhook</span>
-              <span className="text-gray-500">~5 min</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-700">Knowledge base articles</span>
-              <span className="text-gray-500">~15 min</span>
-            </div>
-            <div className="flex justify-between items-center">
-              <span className="text-gray-700">LLM API key</span>
-              <span className="text-gray-500">~2 min</span>
-            </div>
-            <div className="flex justify-between items-center border-t pt-3 font-bold">
-              <span>Total</span>
-              <span className="text-blue-600">~30 min</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Test Results */}
-      <section className="mb-10 bg-green-50 rounded-xl p-6">
-        <h2 className="text-xl font-bold mb-3 text-green-800">✅ Tested against live APIs</h2>
-        <p className="text-green-700 text-sm mb-4">Every component tested with real credentials — not mock data.</p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm">
-          {[
-            ['Triage Engine', '12/12 correct'],
-            ['Slack Escalation', 'Live posts verified'],
-            ['Intercom API', 'Read, reply, tag'],
-            ['Google Sheets', '4 tickets logged'],
-            ['Notion KB', 'Connected & read'],
-            ['Multi-Language', 'Spanish verified'],
-          ].map(([comp, result]) => (
-            <div key={comp} className="bg-white rounded p-3 border border-green-200">
-              <div className="font-bold text-green-800">{comp}</div>
-              <div className="text-green-600 text-xs">{result}</div>
-            </div>
-          ))}
-        </div>
+      {/* For Agencies */}
+      <section style={{ background: '#eff6ff', border: '1px solid #bfdbfe', borderRadius: '0.75rem', padding: '1.5rem', marginBottom: '2.5rem' }}>
+        <h3 style={{ fontWeight: 700, color: '#1e40af', marginBottom: '0.5rem' }}>Running an agency?</h3>
+        <p style={{ color: '#1d4ed8', margin: 0, lineHeight: 1.6 }}>
+          Deploy this for clients in under an hour. Customise the knowledge base per client. Bill $3,000–$8,000 for support automation. One $99 purchase covers all your projects.
+          <a href="/agencies" style={{ color: '#2563eb', fontWeight: 600, marginLeft: '0.5rem', textDecoration: 'none' }}>See agency bundle →</a>
+        </p>
       </section>
 
       {/* FAQ */}
-      <section className="mb-10">
-        <h2 className="text-2xl font-bold mb-6">FAQ</h2>
-        <div className="space-y-3">
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '1.25rem' }}>FAQ</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
           {[
             { q: "Does it work with just email (no Intercom)?", a: "Yes. The email adapter (IMAP/SMTP) works with Gmail, Outlook, or any email provider. Intercom is optional." },
             { q: "What LLM does it use?", a: "Claude by default, but you can swap to GPT-4, Gemini, or any LLM by changing one line in config.json." },
-            { q: "How does the knowledge base work?", a: "Drop markdown files into the KB folder — each file is a FAQ article with tags. The agent searches these before responding. Or connect a Notion database." },
+            { q: "How does the knowledge base work?", a: "Drop markdown files into the KB folder — each file is a FAQ article. The agent searches these before responding. Or connect a Notion database." },
             { q: "What if it gets a question wrong?", a: "The confidence threshold (default 70%) prevents uncertain responses. Low confidence = auto-escalate to human. The agent never guesses." },
             { q: "Does it handle non-English tickets?", a: "Yes. It auto-detects the customer's language and responds in kind. Tested with Spanish, French, German, and more." },
-            { q: "Can it detect social engineering?", a: "Yes. Requests to access other accounts, reset passwords for others, or share credentials are auto-escalated as security incidents." },
             { q: "What's the refund policy?", a: "30-day money-back guarantee if it doesn't work as described. Email support@abbilabs.xyz first — we'll fix it or refund you." },
           ].map((item, i) => (
-            <details key={i} className="border border-gray-200 rounded-lg p-4">
-              <summary className="font-semibold cursor-pointer">{item.q}</summary>
-              <p className="mt-3 text-gray-700 text-sm">{item.a}</p>
+            <details key={i} style={{ border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '1rem' }}>
+              <summary style={{ fontWeight: 600, cursor: 'pointer', color: '#111827' }}>{item.q}</summary>
+              <p style={{ marginTop: '0.75rem', color: '#374151', fontSize: '0.875rem', lineHeight: 1.6 }}>{item.a}</p>
             </details>
           ))}
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-blue-50 rounded-xl p-8 text-center">
-        <h2 className="text-2xl font-bold mb-2">Stop answering the same questions manually</h2>
-        <p className="text-gray-600 mb-6">One-time purchase. Own it forever. 30-day guarantee if it doesn't work as described.</p>
-        <div className="text-4xl font-bold text-blue-600 mb-4">$99</div>
-        <button onClick={() => handleCheckout("ai-customer-support-agent")} className="btn-primary text-lg px-12 py-4">Buy Now — $99</button>
-        <p className="text-gray-500 text-sm mt-4">Instant download · Full source code · 28 files · 3,000+ lines</p>
+      {/* Bottom CTA */}
+      <section style={{ background: '#eff6ff', borderRadius: '0.75rem', padding: '2rem', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.5rem' }}>Stop answering the same questions manually.</h2>
+        <p style={{ color: '#6b7280', marginBottom: '1.5rem' }}>One-time purchase. Own it forever. 30-day money-back guarantee.</p>
+        <div style={{ fontSize: '2.5rem', fontWeight: 700, color: '#2563eb', marginBottom: '1rem' }}>$99</div>
+        <button
+          onClick={() => handleCheckout('ai-customer-support-agent')}
+          style={{ background: '#2563eb', color: '#fff', border: 'none', padding: '1rem 3rem', borderRadius: '0.5rem', fontWeight: 700, fontSize: '1.1rem', cursor: 'pointer' }}
+        >
+          Buy Now — $99
+        </button>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginTop: '1rem' }}>Instant download · Full source code · 28 files · 3,000+ lines</p>
       </section>
+
     </main>
   )
 }
