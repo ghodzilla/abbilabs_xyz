@@ -535,34 +535,37 @@ function startDemo() {
     document.getElementById('audioFill').style.width = pct + '%';
     document.getElementById('audioTime').textContent = fmtTime(t) + ' / ' + fmtTime(audio.duration || 0);
 
-    // Scene transitions tied to audio timestamps (cue points)
-    // These timings match where the narration naturally transitions
-    
-    if (t >= 27 && !configStarted) {
+    // Scene transitions — exact cue times derived from measured audio section durations:
+    // s1 (HubSpot narration): 0–10.94s
+    // s2 (Config narration):  10.94–19.68s
+    // s3 (Terminal narration): 19.68–43.58s
+    // s4 (Slack narration):   43.58–53.66s
+    // s5 (CTA narration):     53.66–57.05s
+
+    if (t >= 10.9 && !configStarted) {
       configStarted = true;
       hideAll();
       showConfig();
     }
     
-    if (t >= 39 && !terminalStarted) {
+    if (t >= 19.6 && !terminalStarted) {
       terminalStarted = true;
       hideAll();
       document.getElementById('scr-terminal').style.display = 'block';
       runTerminal();
     }
     
-    if (t >= 65 && !slackStarted) {
+    if (t >= 43.5 && !slackStarted) {
       slackStarted = true;
       hideAll();
       document.getElementById('scr-slack').style.display = 'block';
       document.getElementById('scr-slack').classList.add('visible');
-      // Slack message animations
       setTimeout(() => { document.getElementById('slack-new-1').classList.add('visible'); }, 800);
       setTimeout(() => { document.getElementById('slack-new-2').classList.add('visible'); }, 1600);
       setTimeout(() => { document.getElementById('slack-new-3').classList.add('visible'); }, 3600);
     }
     
-    if (t >= 74 && !ctaStarted) {
+    if (t >= 53.6 && !ctaStarted) {
       ctaStarted = true;
       hideAll();
       document.getElementById('buyBar').style.display = 'none';
@@ -616,9 +619,9 @@ function showConfig() {
 
     block.appendChild(div);
     i++;
-    addTimer(nextLine, 120);
+    addTimer(nextLine, 40); // fast: config reveals in ~3s so narration is describing live content
   }
-  addTimer(nextLine, 800);
+  addTimer(nextLine, 200);
 }
 
 /* ── Terminal scene ── */
@@ -646,7 +649,7 @@ function runTerminal() {
     term.appendChild(cursorEl);
     cursorEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     i++;
-    addTimer(next, delay || 30);
+    addTimer(next, Math.round((delay || 30) * 0.75));
   }
   next();
 }
