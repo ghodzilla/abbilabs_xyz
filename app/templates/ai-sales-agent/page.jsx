@@ -52,6 +52,20 @@ export default function AISalesAgentPage() {
         </div>
       </div>
 
+      {/* Demo embed */}
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.25rem' }}>See it in action</h2>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>Watch the agent score leads, flag stale deals, and send the Slack report — live.</p>
+        <div style={{ borderRadius: '0.75rem', overflow: 'hidden', border: '1px solid #e5e7eb', background: '#000' }}>
+          <iframe
+            src="/demo/ai-sales-agent.html"
+            style={{ width: '100%', height: '600px', border: 'none', display: 'block' }}
+            title="AI Sales Agent Demo"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
       {/* The problem */}
       <section style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: '0.75rem', padding: '1.5rem', marginBottom: '2.5rem' }}>
         <p style={{ color: '#374151', lineHeight: 1.7, margin: 0 }}>
