@@ -6,291 +6,283 @@
   <title>AI Sales Agent — Live Demo</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: #0d1117;
-      color: #e6edf3;
-      font-family: 'Fira Code', 'Cascadia Code', 'Courier New', monospace;
-      font-size: 14px;
-      line-height: 1.7;
-      min-height: 100vh;
-    }
-    .window {
-      max-width: 820px;
-      margin: 0 auto;
-      background: #161b22;
-      min-height: 100vh;
-      border-left: 1px solid #30363d;
-      border-right: 1px solid #30363d;
-    }
-    .titlebar {
-      background: #21262d;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid #30363d;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .dot { width: 12px; height: 12px; border-radius: 50%; }
-    .dot.red    { background: #ff5f57; }
-    .dot.yellow { background: #febc2e; }
-    .dot.green  { background: #28c840; }
-    .titlebar-label { margin-left: 8px; color: #8b949e; font-size: 12px; }
-    .btn-restart {
-      margin-left: auto;
-      background: #30363d;
-      color: #e6edf3;
-      border: none;
-      border-radius: 6px;
-      padding: 5px 16px;
-      font-size: 12px;
-      cursor: pointer;
-      font-family: inherit;
-      font-weight: 600;
-      display: none;
-    }
-    .btn-restart:hover { background: #3d444e; }
+    body { background: #0d1117; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; min-height: 100vh; }
+    .window { max-width: 900px; margin: 0 auto; background: #161b22; min-height: 100vh; border-left: 1px solid #30363d; border-right: 1px solid #30363d; }
 
-    /* ── Start screen */
-    #start-screen {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: calc(100vh - 48px);
-      padding: 40px 28px;
-      text-align: center;
-      gap: 20px;
-    }
-    #start-screen h1 { color: #e6edf3; font-size: 1.4rem; font-weight: 700; font-family: inherit; }
-    #start-screen p  { color: #8b949e; font-size: 0.875rem; line-height: 1.8; max-width: 480px; font-family: inherit; }
-    .play-big {
-      background: #238636; color: #fff; border: none; border-radius: 10px;
-      padding: 14px 40px; font-size: 1rem; cursor: pointer;
-      font-family: inherit; font-weight: 700;
-    }
+    /* titlebar */
+    .titlebar { background: #21262d; padding: 10px 16px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid #30363d; position: sticky; top: 0; z-index: 100; }
+    .dot { width: 12px; height: 12px; border-radius: 50%; }
+    .dot.r{background:#ff5f57} .dot.y{background:#febc2e} .dot.g{background:#28c840}
+    .tbar-label { margin-left: 6px; color: #8b949e; font-size: 12px; }
+    .tbar-right { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+    .tbtn { border: none; border-radius: 6px; padding: 4px 14px; font-size: 11px; cursor: pointer; font-family: inherit; font-weight: 600; }
+    .tbtn-restart { background: #30363d; color: #e6edf3; display: none; }
+    .tbtn-restart:hover { background: #3d444e; }
+
+    /* ── SCREEN: Start ── */
+    #scr-start { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: calc(100vh - 44px); padding: 40px 28px; text-align: center; gap: 20px; }
+    #scr-start h1 { color: #e6edf3; font-size: 1.5rem; }
+    #scr-start p { color: #8b949e; font-size: 0.875rem; line-height: 1.8; max-width: 440px; }
+    .play-big { background: #238636; color: #fff; border: none; border-radius: 10px; padding: 14px 44px; font-size: 1rem; cursor: pointer; font-family: inherit; font-weight: 700; }
     .play-big:hover { background: #2ea043; }
     .hint { color: #6e7681; font-size: 0.78rem; }
 
-    /* ── Title card (shown during voiceover Part 1) */
-    #title-card {
-      display: none;
-      padding: 48px 28px 32px;
-    }
-    .title-hero {
-      border: 1px solid #30363d;
-      border-radius: 12px;
-      padding: 40px 36px;
-      text-align: center;
-    }
-    .title-badge {
-      display: inline-block;
-      background: #0d4429;
-      color: #3fb950;
-      border: 1px solid #238636;
-      border-radius: 20px;
-      padding: 4px 14px;
-      font-size: 0.75rem;
-      margin-bottom: 20px;
-    }
-    .title-hero h1 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #e6edf3;
-      margin-bottom: 12px;
-      font-family: inherit;
-    }
-    .title-hero p {
-      color: #8b949e;
-      font-size: 0.875rem;
-      line-height: 1.8;
-      max-width: 480px;
-      margin: 0 auto 28px;
-      font-family: inherit;
-    }
-    .title-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 16px;
-      margin-top: 8px;
-    }
-    .stat-box {
-      background: #0d1117;
-      border: 1px solid #30363d;
-      border-radius: 8px;
-      padding: 16px 12px;
-      text-align: center;
-    }
-    .stat-num { font-size: 1.3rem; font-weight: 700; color: #3fb950; }
-    .stat-lbl { font-size: 0.75rem; color: #6e7681; margin-top: 4px; }
-    .connecting {
-      margin-top: 28px;
-      color: #8b949e;
-      font-size: 0.8rem;
-    }
-    .dots span {
-      animation: dotblink 1.2s infinite;
-      opacity: 0;
-    }
-    .dots span:nth-child(2) { animation-delay: 0.4s; }
-    .dots span:nth-child(3) { animation-delay: 0.8s; }
-    @keyframes dotblink { 0%,80%,100%{opacity:0} 40%{opacity:1} }
+    /* ── SCREEN: HubSpot mockup ── */
+    #scr-hubspot { display: none; height: calc(100vh - 44px); overflow: hidden; }
+    .hs-topbar { background: #fff; height: 52px; display: flex; align-items: center; padding: 0 20px; gap: 20px; border-bottom: 1px solid #e5e7eb; }
+    .hs-logo { background: #ff7a59; color: #fff; font-weight: 800; font-size: 13px; padding: 5px 10px; border-radius: 4px; letter-spacing: 0.5px; }
+    .hs-nav { display: flex; gap: 4px; }
+    .hs-nav-item { padding: 6px 12px; border-radius: 4px; font-size: 12px; color: #516f90; cursor: pointer; }
+    .hs-nav-item.active { background: #f5f8fa; color: #33475b; font-weight: 600; }
+    .hs-body { display: flex; height: calc(100% - 52px); background: #f5f8fa; }
+    .hs-sidebar { width: 52px; background: #2d3e50; display: flex; flex-direction: column; align-items: center; padding: 12px 0; gap: 4px; }
+    .hs-sidebar-icon { width: 36px; height: 36px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 16px; cursor: pointer; color: #99abc2; }
+    .hs-sidebar-icon.active { background: #3a4f64; color: #fff; }
+    .hs-main { flex: 1; padding: 24px; overflow-y: auto; }
+    .hs-page-title { font-size: 1.25rem; font-weight: 700; color: #33475b; margin-bottom: 6px; }
+    .hs-sub { color: #7c98b6; font-size: 12px; margin-bottom: 20px; }
+    .hs-toolbar { display: flex; gap: 10px; margin-bottom: 18px; align-items: center; }
+    .hs-btn { background: #fff; border: 1px solid #cbd6e2; border-radius: 4px; padding: 6px 14px; font-size: 12px; color: #516f90; cursor: pointer; }
+    .hs-btn.primary { background: #ff7a59; border-color: #ff7a59; color: #fff; font-weight: 600; }
+    .hs-search { flex: 1; max-width: 260px; background: #fff; border: 1px solid #cbd6e2; border-radius: 4px; padding: 6px 12px; font-size: 12px; color: #33475b; display: flex; align-items: center; gap: 8px; }
+    .hs-search-icon { color: #99abc2; }
+    /* pipeline board */
+    .hs-pipeline { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .hs-col-header { background: #e9eff5; border-radius: 6px 6px 0 0; padding: 8px 12px; font-size: 11px; font-weight: 700; color: #516f90; text-transform: uppercase; letter-spacing: 0.5px; display: flex; justify-content: space-between; }
+    .hs-col-body { display: flex; flex-direction: column; gap: 8px; padding: 8px; background: #edf1f5; border-radius: 0 0 6px 6px; min-height: 280px; }
+    .hs-card { background: #fff; border-radius: 6px; padding: 12px; border: 1px solid #e5e7eb; cursor: pointer; }
+    .hs-card:hover { border-color: #cbd6e2; box-shadow: 0 2px 8px rgba(0,0,0,0.07); }
+    .hs-card-name { font-weight: 600; color: #33475b; font-size: 12px; margin-bottom: 4px; }
+    .hs-card-amount { color: #ff7a59; font-size: 12px; font-weight: 700; }
+    .hs-card-meta { color: #99abc2; font-size: 11px; margin-top: 4px; display: flex; align-items: center; gap: 6px; }
+    .hs-card-age { display: inline-block; padding: 2px 6px; border-radius: 10px; font-size: 10px; font-weight: 600; }
+    .hs-card-age.stale { background: #fde8e8; color: #c0392b; }
+    .hs-card-age.ok { background: #e8f8f0; color: #27ae60; }
+    .hs-total { font-size: 10px; font-weight: 600; color: #99abc2; }
 
-    /* ── Terminal */
-    #terminal {
-      padding: 24px 28px 120px;
-      display: none;
-    }
+    /* ── SCREEN: Terminal ── */
+    #scr-terminal { display: none; font-family: 'Fira Code','Cascadia Code','Courier New',monospace; font-size: 13px; line-height: 1.75; padding: 24px 28px 120px; color: #e6edf3; }
     .line { display: block; white-space: pre-wrap; word-break: break-word; }
-    .line.dim    { color: #8b949e; }
-    .line.green  { color: #3fb950; }
-    .line.yellow { color: #e3b341; }
-    .line.blue   { color: #58a6ff; }
-    .line.red    { color: #f85149; }
-    .line.white  { color: #e6edf3; }
-    .line.gray   { color: #6e7681; }
-    .line.bold   { font-weight: 700; }
-    .cursor {
-      display: inline-block; width: 8px; height: 1em;
-      background: #e6edf3;
-      animation: blink 1s step-end infinite;
-      vertical-align: text-bottom; margin-left: 2px;
-    }
+    .line.dim { color: #8b949e; } .line.green { color: #3fb950; } .line.yellow { color: #e3b341; }
+    .line.blue { color: #58a6ff; } .line.red { color: #f85149; } .line.white { color: #e6edf3; }
+    .line.gray { color: #6e7681; } .line.bold { font-weight: 700; }
+    .cursor { display: inline-block; width: 8px; height: 1em; background: #e6edf3; animation: blink 1s step-end infinite; vertical-align: text-bottom; margin-left: 2px; }
     @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 
-    /* ── CTA card */
-    #cta-card {
-      display: none;
-      margin: 8px 28px 48px;
-      border: 2px solid #238636;
-      border-radius: 12px;
-      padding: 32px 36px;
-      text-align: center;
-      background: #0d2010;
-    }
-    #cta-card h2 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #3fb950;
-      margin-bottom: 10px;
-      font-family: inherit;
-    }
-    #cta-card p {
-      color: #8b949e;
-      font-size: 0.875rem;
-      line-height: 1.8;
-      margin-bottom: 24px;
-      font-family: inherit;
-    }
-    .cta-price {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #e6edf3;
-      margin-bottom: 6px;
-    }
-    .cta-sub { color: #6e7681; font-size: 0.8rem; margin-bottom: 28px; }
-    .cta-btn {
-      display: inline-block;
-      background: #238636;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 8px;
-      padding: 12px 32px;
-      font-weight: 700;
-      font-family: inherit;
-      font-size: 0.95rem;
-    }
-    .cta-btn:hover { background: #2ea043; }
-    @keyframes fadeIn { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:none} }
-    .fadein { animation: fadeIn 0.6s ease forwards; }
+    /* ── SCREEN: Slack mockup ── */
+    #scr-slack { display: none; height: calc(100vh - 44px); overflow: hidden; opacity: 0; transition: opacity 0.6s ease; }
+    #scr-slack.visible { opacity: 1; }
+    .sl-app { display: flex; height: 100%; background: #1a1d21; }
+    .sl-sidebar { width: 220px; background: #19171d; padding: 12px 0; flex-shrink: 0; }
+    .sl-workspace { padding: 12px 16px; color: #d1d2d3; font-weight: 700; font-size: 14px; border-bottom: 1px solid #2c2c2e; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .sl-ws-dot { width: 28px; height: 28px; border-radius: 6px; background: #611f69; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 12px; font-weight: 800; }
+    .sl-section { padding: 4px 8px; color: #9b9b9b; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin: 8px 0 4px; }
+    .sl-channel { padding: 4px 16px; color: #9b9b9b; font-size: 13px; cursor: pointer; border-radius: 4px; display: flex; align-items: center; gap: 6px; }
+    .sl-channel:hover { background: #2c2c2e; }
+    .sl-channel.active { background: #1264a3; color: #fff; font-weight: 600; }
+    .sl-channel .hash { color: #72767d; font-size: 15px; }
+    .sl-channel.active .hash { color: #fff; }
+    .sl-unread { background: #cd2553; color: #fff; font-size: 10px; font-weight: 700; border-radius: 10px; padding: 1px 6px; margin-left: auto; }
+    .sl-main { flex: 1; display: flex; flex-direction: column; background: #1a1d21; }
+    .sl-header { padding: 12px 20px; border-bottom: 1px solid #2c2c2e; display: flex; align-items: center; gap: 10px; }
+    .sl-header-name { font-weight: 700; color: #d1d2d3; font-size: 15px; }
+    .sl-header-desc { color: #9b9b9b; font-size: 12px; margin-left: 8px; }
+    .sl-messages { flex: 1; overflow-y: auto; padding: 16px 20px; display: flex; flex-direction: column; gap: 0; }
+    .sl-msg { display: flex; gap: 12px; padding: 4px 0; }
+    .sl-msg:hover { background: #1e2024; border-radius: 4px; }
+    .sl-avatar { width: 36px; height: 36px; border-radius: 6px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 16px; margin-top: 2px; }
+    .sl-avatar.bot { background: #2c2c2e; }
+    .sl-msg-body { flex: 1; }
+    .sl-msg-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 2px; }
+    .sl-msg-name { font-weight: 700; color: #d1d2d3; font-size: 13px; }
+    .sl-app-badge { background: #1264a3; color: #fff; font-size: 9px; padding: 1px 5px; border-radius: 3px; font-weight: 700; vertical-align: middle; }
+    .sl-msg-time { color: #72767d; font-size: 11px; }
+    .sl-msg-text { color: #d1d2d3; font-size: 13px; line-height: 1.6; }
+    /* Slack attachments */
+    .sl-attachment { margin-top: 6px; border-left: 4px solid; border-radius: 0 4px 4px 0; padding: 10px 14px; background: #222529; }
+    .sl-attachment.hot { border-color: #e8a838; }
+    .sl-attachment.cold { border-color: #1264a3; }
+    .sl-attachment.report { border-color: #2bac76; }
+    .sl-att-title { font-weight: 700; font-size: 13px; margin-bottom: 4px; }
+    .sl-att-title.hot { color: #e8a838; }
+    .sl-att-title.cold { color: #58a6ff; }
+    .sl-att-title.report { color: #2bac76; }
+    .sl-att-field { font-size: 12px; color: #d1d2d3; line-height: 1.7; }
+    .sl-att-link { color: #1d9bd1; font-size: 12px; margin-top: 4px; display: block; cursor: pointer; }
+    .sl-day-divider { display: flex; align-items: center; gap: 10px; margin: 12px 0; color: #72767d; font-size: 11px; font-weight: 700; }
+    .sl-day-divider::before, .sl-day-divider::after { content: ''; flex: 1; height: 1px; background: #2c2c2e; }
+    /* message fade in */
+    .sl-msg-new { opacity: 0; transform: translateY(6px); transition: opacity 0.4s ease, transform 0.4s ease; }
+    .sl-msg-new.show { opacity: 1; transform: none; }
 
-    /* ── Audio bar */
-    .audio-bar {
-      display: none;
-      align-items: center;
-      gap: 12px;
-      background: #21262d;
-      border-top: 1px solid #30363d;
-      padding: 10px 16px;
-      position: fixed;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
-      max-width: 820px;
-    }
-    .audio-label { color: #8b949e; font-size: 11px; flex-shrink: 0; }
-    .audio-progress { flex: 1; height: 4px; background: #30363d; border-radius: 2px; cursor: pointer; }
+    /* audio bar */
+    .audio-bar { display: none; align-items: center; gap: 12px; background: #21262d; border-top: 1px solid #30363d; padding: 10px 16px; position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 900px; z-index: 200; }
+    .audio-label { color: #8b949e; font-size: 11px; flex-shrink: 0; font-family: monospace; }
+    .audio-progress { flex: 1; height: 4px; background: #30363d; border-radius: 2px; }
     .audio-fill { height: 100%; background: #238636; border-radius: 2px; width: 0%; transition: width 0.5s linear; }
-    .audio-time { color: #6e7681; font-size: 11px; flex-shrink: 0; }
+    .audio-time { color: #6e7681; font-size: 11px; flex-shrink: 0; font-family: monospace; }
     .mute-btn { background: none; border: none; color: #8b949e; cursor: pointer; font-size: 14px; }
   </style>
 </head>
 <body>
 <div class="window">
   <div class="titlebar">
-    <div class="dot red"></div>
-    <div class="dot yellow"></div>
-    <div class="dot green"></div>
-    <span class="titlebar-label">ai-sales-agent — demo</span>
-    <button class="btn-restart" id="restartBtn" onclick="restart()">↺ Restart</button>
+    <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    <span class="tbar-label">ai-sales-agent — demo</span>
+    <div class="tbar-right">
+      <button class="tbtn tbtn-restart" id="restartBtn" onclick="restart()">↺ Restart</button>
+    </div>
   </div>
 
-  <!-- Start screen -->
-  <div id="start-screen">
-    <h1>AI Sales Agent — Live Demo</h1>
-    <p>Watch the agent score leads, catch stale deals, and fire Slack alerts — automatically, every 30 minutes.</p>
+  <!-- START SCREEN -->
+  <div id="scr-start">
+    <h1 style="color:#e6edf3;font-size:1.5rem">AI Sales Agent — Live Demo</h1>
+    <p style="color:#8b949e;font-size:0.875rem;line-height:1.8;max-width:440px">Watch the agent connect to HubSpot, score your leads, catch stale deals, and fire Slack alerts — automatically, every 30 minutes.</p>
     <button class="play-big" onclick="startDemo()">▶ Play Demo</button>
-    <span class="hint">~2.5 min with voiceover · click 🔊 to mute</span>
+    <span class="hint">~2.5 min · voiceover included · click 🔊 to mute</span>
   </div>
 
-  <!-- Title card (shown during Part 1 voiceover — 30s) -->
-  <div id="title-card">
-    <div class="title-hero">
-      <div class="title-badge">✓ Live demo — real HubSpot data</div>
-      <h1>AI Sales Agent</h1>
-      <p>Your pipeline, watched automatically. Hot leads flagged. Stale deals caught. Daily report in Slack by 8am.</p>
-      <div class="title-stats">
-        <div class="stat-box">
-          <div class="stat-num">30 min</div>
-          <div class="stat-lbl">saved every day</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">$79</div>
-          <div class="stat-lbl">one-time, no subscription</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-num">15 min</div>
-          <div class="stat-lbl">to set up</div>
-        </div>
+  <!-- HUBSPOT MOCKUP -->
+  <div id="scr-hubspot">
+    <div class="hs-topbar">
+      <div class="hs-logo">HubSpot</div>
+      <div class="hs-nav">
+        <div class="hs-nav-item">Contacts</div>
+        <div class="hs-nav-item active">CRM ▾</div>
+        <div class="hs-nav-item">Marketing</div>
+        <div class="hs-nav-item">Sales</div>
+        <div class="hs-nav-item">Service</div>
       </div>
-      <div class="connecting">
-        Connecting to HubSpot CRM<span class="dots"><span>.</span><span>.</span><span>.</span></span>
+    </div>
+    <div class="hs-body">
+      <div class="hs-sidebar">
+        <div class="hs-sidebar-icon active">🏠</div>
+        <div class="hs-sidebar-icon">👥</div>
+        <div class="hs-sidebar-icon">💼</div>
+        <div class="hs-sidebar-icon">📊</div>
+        <div class="hs-sidebar-icon">📅</div>
+        <div class="hs-sidebar-icon">⚙️</div>
+      </div>
+      <div class="hs-main">
+        <div class="hs-page-title">Deals Pipeline</div>
+        <div class="hs-sub">Sales Pipeline · 7 open deals · $114,900 total value</div>
+        <div class="hs-toolbar">
+          <button class="hs-btn primary">+ Add Deal</button>
+          <button class="hs-btn">Filter</button>
+          <button class="hs-btn">Sort</button>
+          <div class="hs-search"><span class="hs-search-icon">🔍</span> Search deals...</div>
+          <button class="hs-btn">Board view ▾</button>
+        </div>
+        <div class="hs-pipeline">
+          <div>
+            <div class="hs-col-header"><span>Appointment Set</span><span class="hs-total">$5,800</span></div>
+            <div class="hs-col-body">
+              <div class="hs-card">
+                <div class="hs-card-name">Test Deal</div>
+                <div class="hs-card-amount">$2,900</div>
+                <div class="hs-card-meta"><span class="hs-card-age stale">14d no activity</span></div>
+              </div>
+              <div class="hs-card">
+                <div class="hs-card-name">DeadDeal Inc</div>
+                <div class="hs-card-amount">$2,900</div>
+                <div class="hs-card-meta"><span class="hs-card-age stale">9d no activity</span></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="hs-col-header"><span>Proposal Sent</span><span class="hs-total">$24,000</span></div>
+            <div class="hs-col-body">
+              <div class="hs-card">
+                <div class="hs-card-name">Acme Corp - Enterprise</div>
+                <div class="hs-card-amount">$24,000</div>
+                <div class="hs-card-meta"><span class="hs-card-age stale">9d no activity</span></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="hs-col-header"><span>Contract Sent</span><span class="hs-total">$20,000</span></div>
+            <div class="hs-col-body">
+              <div class="hs-card">
+                <div class="hs-card-name">FastMover Ltd</div>
+                <div class="hs-card-amount">$12,000</div>
+                <div class="hs-card-meta"><span class="hs-card-age stale">7d no activity</span></div>
+              </div>
+              <div class="hs-card">
+                <div class="hs-card-name">GlobalTech - Team</div>
+                <div class="hs-card-amount">$8,000</div>
+                <div class="hs-card-meta"><span class="hs-card-age ok">2d ago</span></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="hs-col-header"><span>Decision Stage</span><span class="hs-total">$65,000</span></div>
+            <div class="hs-col-body">
+              <div class="hs-card">
+                <div class="hs-card-name">MegaCorp - Full Suite</div>
+                <div class="hs-card-amount">$50,000</div>
+                <div class="hs-card-meta"><span class="hs-card-age stale">14d no activity</span></div>
+              </div>
+              <div class="hs-card">
+                <div class="hs-card-name">StartupXYZ - Starter</div>
+                <div class="hs-card-amount">$3,000</div>
+                <div class="hs-card-meta"><span class="hs-card-age ok">1d ago</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Terminal output -->
-  <div id="terminal"></div>
+  <!-- TERMINAL -->
+  <div id="scr-terminal"></div>
 
-  <!-- CTA card (shown at end) -->
-  <div id="cta-card">
-    <h2>Ready to stop reviewing your pipeline manually?</h2>
-    <p>Setup takes 15 minutes. Add your HubSpot API key, Slack webhook, and run the script. That's it.</p>
-    <div class="cta-price">$79</div>
-    <div class="cta-sub">One-time payment · Full source code · No subscription · No lock-in</div>
-    <a class="cta-btn" href="https://abbilabs.xyz/templates/ai-sales-agent" target="_blank">Buy Now — $79 →</a>
+  <!-- SLACK MOCKUP -->
+  <div id="scr-slack">
+    <div class="sl-app">
+      <div class="sl-sidebar">
+        <div class="sl-workspace"><div class="sl-ws-dot">A</div>AcmeCo Sales</div>
+        <div class="sl-section">Channels</div>
+        <div class="sl-channel"><span class="hash">#</span> general</div>
+        <div class="sl-channel"><span class="hash">#</span> random</div>
+        <div class="sl-channel"><span class="hash">#</span> deals</div>
+        <div class="sl-channel active"><span class="hash">#</span> sales-alerts <span class="sl-unread">3</span></div>
+        <div class="sl-channel"><span class="hash">#</span> pipeline</div>
+        <div class="sl-section" style="margin-top:16px">Direct Messages</div>
+        <div class="sl-channel">🟢 you</div>
+        <div class="sl-channel">⚫ Sarah Chen</div>
+      </div>
+      <div class="sl-main">
+        <div class="sl-header">
+          <div>
+            <div style="display:flex;align-items:center;gap:8px">
+              <span class="sl-header-name"># sales-alerts</span>
+              <span class="sl-header-desc">Automated pipeline alerts from AI Sales Agent</span>
+            </div>
+          </div>
+        </div>
+        <div class="sl-messages" id="slackMessages">
+          <div class="sl-day-divider">Yesterday</div>
+          <!-- old messages -->
+          <div class="sl-msg">
+            <div class="sl-avatar bot">🤖</div>
+            <div class="sl-msg-body">
+              <div class="sl-msg-header"><span class="sl-msg-name">AI Sales Agent <span class="sl-app-badge">APP</span></span><span class="sl-msg-time">8:00 AM</span></div>
+              <div class="sl-msg-text">📊 Daily Pipeline Report — 2 stale deals, $62,000 at risk</div>
+            </div>
+          </div>
+          <div class="sl-day-divider">Today</div>
+          <!-- new messages appear here -->
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
 <!-- Audio bar -->
 <div class="audio-bar" id="audioBar">
-  <span class="audio-label">🎙 Voiceover</span>
-  <div class="audio-progress" id="audioProgress">
-    <div class="audio-fill" id="audioFill"></div>
-  </div>
+  <span class="audio-label">🎙 voiceover</span>
+  <div class="audio-progress"><div class="audio-fill" id="audioFill"></div></div>
   <span class="audio-time" id="audioTime">0:00 / 0:00</span>
   <button class="mute-btn" id="muteBtn" onclick="toggleMute()">🔊</button>
 </div>
@@ -298,16 +290,13 @@
 <audio id="audio" src="/downloads/sales-agent-voiceover.mp3" preload="auto"></audio>
 
 <script>
-// Delays tuned to ~90 second terminal window (starts at 30s, runs to ~120s)
-const LINES = [
+const TERMINAL_LINES = [
   { text: '', delay: 0 },
   { text: '╔══════════════════════════════════════════════════════════════╗', cls: 'blue bold', delay: 0 },
   { text: '║          AI SALES AGENT — LIVE DEMO                         ║', cls: 'blue bold', delay: 0 },
   { text: '║          Connected to HubSpot CRM ✓                         ║', cls: 'green', delay: 0 },
   { text: '╚══════════════════════════════════════════════════════════════╝', cls: 'blue bold', delay: 1800 },
   { text: '', delay: 0 },
-
-  // STEP 1
   { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 0 },
   { text: '  STEP 1 — Pulling contacts from HubSpot CRM', cls: 'white bold', delay: 0 },
   { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 600 },
@@ -321,8 +310,6 @@ const LINES = [
   { text: '  • Priya Nair — CEO at SeedStartup', cls: 'white', delay: 400 },
   { text: '  • Tom Bradley — Marketing Manager at RetailCo', cls: 'white', delay: 600 },
   { text: '', delay: 0 },
-
-  // STEP 2
   { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 0 },
   { text: '  STEP 2 — Scoring contacts', cls: 'white bold', delay: 0 },
   { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 600 },
@@ -346,33 +333,8 @@ const LINES = [
   { text: '  ❄️  COLD  Tom Bradley — Score: 20/100', cls: 'dim', delay: 1200 },
   { text: '           Manager +10, retail -5, low engagement +0', cls: 'dim', delay: 1000 },
   { text: '', delay: 0 },
-
-  // STEP 3
   { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 0 },
-  { text: '  STEP 3 — Sending Slack alerts', cls: 'white bold', delay: 0 },
-  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 600 },
-  { text: 'Sarah Chen crossed the hot threshold (85+). Firing Slack alert...', cls: 'dim', delay: 1800 },
-  { text: '', delay: 0 },
-  { text: '┌─────────────────────────────────────────────────────────────┐', cls: 'green', delay: 300 },
-  { text: '│  🔥 Hot lead: Sarah Chen — VP Engineering at DataCorp       │', cls: 'green bold', delay: 0 },
-  { text: '│     Score: 92/100                                           │', cls: 'green', delay: 0 },
-  { text: '│     (VP Engineering +30, 500+ employees +30,                │', cls: 'dim', delay: 0 },
-  { text: '│      tech industry +15, pricing page visit +17)             │', cls: 'dim', delay: 0 },
-  { text: '│     → View in HubSpot                                       │', cls: 'blue', delay: 0 },
-  { text: '└─────────────────────────────────────────────────────────────┘', cls: 'green', delay: 600 },
-  { text: '  ✓ Alert sent to #sales-alerts', cls: 'green', delay: 1200 },
-  { text: '', delay: 0 },
-  { text: '┌─────────────────────────────────────────────────────────────┐', cls: 'blue', delay: 300 },
-  { text: '│  🧊 Lead went cold: Bob Walsh — VP Sales at BigCorp         │', cls: 'blue bold', delay: 0 },
-  { text: '│     Score: 45/100 — dropped by negative signals             │', cls: 'blue', delay: 0 },
-  { text: '│     (email bounced -30 — was scoring 75 without it)         │', cls: 'dim', delay: 0 },
-  { text: '└─────────────────────────────────────────────────────────────┘', cls: 'blue', delay: 600 },
-  { text: '  ✓ Alert sent to #sales-alerts', cls: 'green', delay: 1000 },
-  { text: '', delay: 0 },
-
-  // STEP 4
-  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 0 },
-  { text: '  STEP 4 — Stale deal detection', cls: 'white bold', delay: 0 },
+  { text: '  STEP 3 — Flagging stale deals', cls: 'white bold', delay: 0 },
   { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 600 },
   { text: 'Scanning open pipeline for deals with no activity...', cls: 'dim', delay: 1800 },
   { text: '', delay: 0 },
@@ -382,39 +344,44 @@ const LINES = [
   { text: '      Last activity: 9d ago — FLAGGED', cls: 'red', delay: 200 },
   { text: '  ⚠️  FastMover Ltd - Hot Lead — $12,000 — Contract sent', cls: 'red', delay: 600 },
   { text: '      Last activity: 7d ago — FLAGGED', cls: 'red', delay: 200 },
-  { text: '  ✓  GlobalTech - Team License — $8,000 — Discovery call', cls: 'dim', delay: 600 },
+  { text: '  ✓  GlobalTech - Team License — $8,000', cls: 'dim', delay: 600 },
   { text: '      Last activity: 2d ago — OK', cls: 'dim', delay: 200 },
-  { text: '  ✓  StartupXYZ - Starter — $3,000 — Qualified', cls: 'dim', delay: 600 },
-  { text: '      Last activity: 1d ago — OK', cls: 'dim', delay: 800 },
+  { text: '  ✓  StartupXYZ - Starter — $3,000', cls: 'dim', delay: 600 },
+  { text: '      Last activity: 1d ago — OK', cls: 'dim', delay: 1000 },
   { text: '', delay: 0 },
-  { text: '┌─────────────────────────────────────────────────────────────┐', cls: 'blue', delay: 0 },
-  { text: '│  📊 Daily Pipeline Report — sent to #sales-alerts @ 8am    │', cls: 'blue bold', delay: 0 },
-  { text: '│     Stale deals: 3 flagged (7+ days no activity)           │', cls: 'red', delay: 0 },
-  { text: '│     At risk: $86,000                                        │', cls: 'red', delay: 0 },
-  { text: '│     Hot leads today: 1 (Sarah Chen — VP Eng, DataCorp)     │', cls: 'green', delay: 0 },
-  { text: '│     Warm leads to nurture: 2                                │', cls: 'yellow', delay: 0 },
-  { text: '└─────────────────────────────────────────────────────────────┘', cls: 'blue', delay: 1200 },
-  { text: '', delay: 0 },
-
-  // COMPLETE
+  { text: '  ✓ Sending daily pipeline report to Slack...', cls: 'green', delay: 600 },
+  { text: '', delay: 2000 },
   { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 0 },
-  { text: '  DEMO COMPLETE', cls: 'green bold', delay: 0 },
-  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 600 },
-  { text: '  ✓ 6 contacts scored — hot leads flagged, cold leads filtered', cls: 'green', delay: 400 },
-  { text: '  ✓ Score decay applied — stale leads ranked down automatically', cls: 'green', delay: 400 },
-  { text: '  ✓ Negative signals caught — bounced email, competitor domain', cls: 'green', delay: 400 },
-  { text: '  ✓ 3 stale deals flagged — $86,000 pipeline at risk surfaced', cls: 'green', delay: 400 },
-  { text: '  ✓ Slack alerts sent — team notified before the work day starts', cls: 'green', delay: 800 },
-  { text: '', delay: 0 },
-  { text: '  This runs every 30 minutes. No manual pipeline review. Ever.', cls: 'white', delay: 600 },
-  { text: '', delay: 1000 },
+  { text: '  DEMO COMPLETE — switching to Slack...', cls: 'green bold', delay: 0 },
+  { text: '──────────────────────────────────────────────────────────────', cls: 'gray', delay: 0 },
 ];
 
-let animTimer = null;
+const SLACK_MESSAGES = [
+  {
+    delay: 800,
+    avatar: '🤖', name: 'AI Sales Agent', time: 'just now',
+    text: null,
+    attachment: { type: 'hot', title: '🔥 Hot lead: Sarah Chen — VP Engineering at DataCorp', fields: 'Score: 92/100\n(VP Engineering +30, 500+ employees +30, tech industry +15, pricing page visit +17)', link: '→ View in HubSpot' }
+  },
+  {
+    delay: 2000,
+    avatar: '🤖', name: 'AI Sales Agent', time: 'just now',
+    text: null,
+    attachment: { type: 'cold', title: '🧊 Lead went cold: Bob Walsh — VP Sales at BigCorp', fields: 'Score: 45/100 — dropped by negative signals\n(email bounced -30 — was scoring 75 without it)', link: '→ View in HubSpot' }
+  },
+  {
+    delay: 2500,
+    avatar: '🤖', name: 'AI Sales Agent', time: 'just now',
+    text: null,
+    attachment: { type: 'report', title: '📊 Daily Pipeline Report', fields: 'Stale deals: 3 flagged (7+ days no activity)\nAt risk: $86,000\nHot leads today: 1 (Sarah Chen — VP Eng, DataCorp)\nWarm leads to nurture: 2', link: null }
+  }
+];
+
+let timers = [];
 let muted = false;
 
 function pad(n) { return String(Math.floor(n)).padStart(2, '0'); }
-function fmtTime(s) { return pad(s / 60) + ':' + pad(s % 60); }
+function fmtTime(s) { return pad(s/60)+':'+pad(s%60); }
 
 function toggleMute() {
   muted = !muted;
@@ -422,82 +389,116 @@ function toggleMute() {
   document.getElementById('muteBtn').textContent = muted ? '🔇' : '🔊';
 }
 
+function addTimer(fn, ms) { timers.push(setTimeout(fn, ms)); }
+
 function startDemo() {
-  document.getElementById('start-screen').style.display = 'none';
-  document.getElementById('title-card').style.display = 'block';
+  document.getElementById('scr-start').style.display = 'none';
+  document.getElementById('scr-hubspot').style.display = 'block';
   document.getElementById('audioBar').style.display = 'flex';
   document.getElementById('restartBtn').style.display = 'block';
 
   const audio = document.getElementById('audio');
   audio.currentTime = 0;
   audio.play().catch(() => {});
-
   audio.addEventListener('timeupdate', function() {
     const pct = (audio.currentTime / (audio.duration || 1)) * 100;
     document.getElementById('audioFill').style.width = pct + '%';
-    document.getElementById('audioTime').textContent =
-      fmtTime(audio.currentTime) + ' / ' + fmtTime(audio.duration || 0);
+    document.getElementById('audioTime').textContent = fmtTime(audio.currentTime) + ' / ' + fmtTime(audio.duration || 0);
   });
 
-  // After 30s: hide title card, show terminal, start animation
-  animTimer = setTimeout(() => {
-    document.getElementById('title-card').style.display = 'none';
-    document.getElementById('terminal').style.display = 'block';
-    runAnimation();
+  // 30s: switch HubSpot → terminal
+  addTimer(() => {
+    document.getElementById('scr-hubspot').style.display = 'none';
+    document.getElementById('scr-terminal').style.display = 'block';
+    runTerminal();
   }, 30000);
 }
 
-function runAnimation() {
-  const term = document.getElementById('terminal');
+function runTerminal() {
+  const term = document.getElementById('scr-terminal');
   term.innerHTML = '';
   let i = 0;
-
   function next() {
-    if (i >= LINES.length) {
-      // Remove cursor, show CTA
+    if (i >= TERMINAL_LINES.length) {
       const cur = document.getElementById('cursor');
       if (cur) cur.remove();
-      const cta = document.getElementById('cta-card');
-      cta.style.display = 'block';
-      cta.classList.add('fadein');
-      cta.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Switch to Slack
+      addTimer(showSlack, 800);
       return;
     }
-    const { text, cls, delay } = LINES[i];
+    const { text, cls, delay } = TERMINAL_LINES[i];
     const cur = document.getElementById('cursor');
     if (cur) cur.remove();
-
     const span = document.createElement('span');
     span.className = 'line' + (cls ? ' ' + cls : '');
     span.textContent = text;
     term.appendChild(span);
     term.appendChild(document.createElement('br'));
-
     const cursorEl = document.createElement('span');
-    cursorEl.className = 'cursor';
-    cursorEl.id = 'cursor';
+    cursorEl.className = 'cursor'; cursorEl.id = 'cursor';
     term.appendChild(cursorEl);
     cursorEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
     i++;
-    animTimer = setTimeout(next, delay || 30);
+    addTimer(next, delay || 30);
   }
   next();
 }
 
-function restart() {
-  clearTimeout(animTimer);
-  const audio = document.getElementById('audio');
-  audio.pause();
-  audio.currentTime = 0;
+function showSlack() {
+  document.getElementById('scr-terminal').style.display = 'none';
+  const slack = document.getElementById('scr-slack');
+  slack.style.display = 'block';
+  addTimer(() => slack.classList.add('visible'), 50);
 
-  document.getElementById('title-card').style.display = 'none';
-  document.getElementById('terminal').style.display = 'none';
-  document.getElementById('terminal').innerHTML = '';
-  document.getElementById('cta-card').style.display = 'none';
+  // Add messages one by one
+  let cumDelay = 600;
+  SLACK_MESSAGES.forEach(msg => {
+    cumDelay += msg.delay;
+    addTimer(() => appendSlackMsg(msg), cumDelay);
+  });
+}
+
+function appendSlackMsg(msg) {
+  const container = document.getElementById('slackMessages');
+  const div = document.createElement('div');
+  div.className = 'sl-msg sl-msg-new';
+  const att = msg.attachment;
+  div.innerHTML = `
+    <div class="sl-avatar bot">${msg.avatar}</div>
+    <div class="sl-msg-body">
+      <div class="sl-msg-header">
+        <span class="sl-msg-name">${msg.name} <span class="sl-app-badge">APP</span></span>
+        <span class="sl-msg-time">${msg.time}</span>
+      </div>
+      ${msg.text ? `<div class="sl-msg-text">${msg.text}</div>` : ''}
+      ${att ? `
+      <div class="sl-attachment ${att.type}">
+        <div class="sl-att-title ${att.type}">${att.title}</div>
+        <div class="sl-att-field">${att.fields.replace(/\n/g,'<br>')}</div>
+        ${att.link ? `<span class="sl-att-link">${att.link}</span>` : ''}
+      </div>` : ''}
+    </div>`;
+  container.appendChild(div);
+  div.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  addTimer(() => div.classList.add('show'), 50);
+}
+
+function restart() {
+  timers.forEach(clearTimeout); timers = [];
+  const audio = document.getElementById('audio');
+  audio.pause(); audio.currentTime = 0;
+  document.getElementById('scr-hubspot').style.display = 'none';
+  document.getElementById('scr-terminal').style.display = 'none';
+  document.getElementById('scr-terminal').innerHTML = '';
+  const slack = document.getElementById('scr-slack');
+  slack.style.display = 'none'; slack.classList.remove('visible');
+  document.getElementById('slackMessages').innerHTML = `
+    <div class="sl-day-divider">Yesterday</div>
+    <div class="sl-msg"><div class="sl-avatar bot">🤖</div><div class="sl-msg-body"><div class="sl-msg-header"><span class="sl-msg-name">AI Sales Agent <span class="sl-app-badge">APP</span></span><span class="sl-msg-time">8:00 AM</span></div><div class="sl-msg-text">📊 Daily Pipeline Report — 2 stale deals, $62,000 at risk</div></div></div>
+    <div class="sl-day-divider">Today</div>`;
   document.getElementById('audioFill').style.width = '0%';
   document.getElementById('audioTime').textContent = '0:00 / 0:00';
-  document.getElementById('start-screen').style.display = 'flex';
+  document.getElementById('scr-start').style.display = 'flex';
   document.getElementById('audioBar').style.display = 'none';
   document.getElementById('restartBtn').style.display = 'none';
 }
