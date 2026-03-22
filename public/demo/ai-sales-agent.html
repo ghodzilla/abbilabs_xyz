@@ -501,13 +501,13 @@ const SLACK_MESSAGES = [
     attachment: { type: 'report', title: '\uD83D\uDCCA Daily Pipeline Report', fields: 'Stale deals: 3 flagged (7+ days no activity)\nAt risk: $86,000\nHot leads today: 1 (Sarah Chen \u2014 VP Eng, DataCorp)\nWarm leads to nurture: 2', link: null }}
 ];
 
-let timers = [];
 let muted = false;
+let _cueList = []; // sorted list of {time, fn, done}
+let _audioEl = null;
 
 function pad(n) { return String(Math.floor(n)).padStart(2, '0'); }
 function fmtTime(s) { return pad(s/60)+':'+pad(s%60); }
-function toggleMute() { muted = !muted; document.getElementById('audio').muted = muted; document.getElementById('muteBtn').textContent = muted ? '\uD83D\uDD07' : '\uD83D\uDD0A'; }
-function addTimer(fn, ms) { timers.push(setTimeout(fn, ms)); }
+function toggleMute() { muted = !muted; _audioEl.muted = muted; document.getElementById('muteBtn').textContent = muted ? '\uD83D\uDD07' : '\uD83D\uDD0A'; }
 
 function hideAll() {
   ['scr-start','scr-hubspot','scr-config','scr-terminal','scr-slack','scr-cta'].forEach(id => {
@@ -517,160 +517,61 @@ function hideAll() {
   });
 }
 
-function startDemo() {
-  hideAll();
-  document.getElementById('scr-hubspot').style.display = 'block';
-  document.getElementById('audioBar').style.display = 'flex';
-  document.getElementById('restartBtn').style.display = 'block';
+// Schedule a function at a specific audio timestamp
+function at(t, fn) { _cueList.push({ time: t, fn, done: false }); }
 
-  const audio = document.getElementById('audio');
-  audio.currentTime = 0;
-  audio.play().catch(() => {});
-  
-  let configStarted = false, terminalStarted = false, slackStarted = false, ctaStarted = false;
-  
-  audio.addEventListener('timeupdate', function() {
-    const t = audio.currentTime;
-    const pct = (t / (audio.duration || 1)) * 100;
-    document.getElementById('audioFill').style.width = pct + '%';
-    document.getElementById('audioTime').textContent = fmtTime(t) + ' / ' + fmtTime(audio.duration || 0);
-
-    // Scene transitions — exact cue times derived from measured audio section durations:
-    // s1 (HubSpot narration): 0–10.94s
-    // s2 (Config narration):  10.94–19.68s
-    // s3 (Terminal narration): 19.68–43.58s
-    // s4 (Slack narration):   43.58–53.66s
-    // s5 (CTA narration):     53.66–57.05s
-
-    if (t >= 10.9 && !configStarted) {
-      configStarted = true;
-      hideAll();
-      showConfig();
-    }
-    
-    if (t >= 19.6 && !terminalStarted) {
-      terminalStarted = true;
-      hideAll();
-      document.getElementById('scr-terminal').style.display = 'block';
-      runTerminal();
-    }
-    
-    if (t >= 43.5 && !slackStarted) {
-      slackStarted = true;
-      hideAll();
-      document.getElementById('scr-slack').style.display = 'block';
-      document.getElementById('scr-slack').classList.add('visible');
-      setTimeout(() => { document.getElementById('slack-new-1').classList.add('visible'); }, 800);
-      setTimeout(() => { document.getElementById('slack-new-2').classList.add('visible'); }, 1600);
-      setTimeout(() => { document.getElementById('slack-new-3').classList.add('visible'); }, 3600);
-    }
-    
-    if (t >= 53.6 && !ctaStarted) {
-      ctaStarted = true;
-      hideAll();
-      document.getElementById('buyBar').style.display = 'none';
-      const cta = document.getElementById('scr-cta');
-      cta.style.display = 'block';
-      setTimeout(() => cta.classList.add('visible'), 50);
-    }
-  });
-
-  // Show buy bar after 20s
-  addTimer(() => { document.getElementById('buyBar').style.display = 'flex'; }, 20000);
-}
-
-/* ── Config scene ── */
-function showConfig() {
-  const scr = document.getElementById('scr-config');
-  scr.style.display = 'block';
-  addTimer(() => scr.classList.add('visible'), 50);
-
-  const block = document.getElementById('configBlock');
-  block.innerHTML = '';
-  let i = 0;
-
-  function nextLine() {
-    if (i >= CONFIG_LINES.length) {
-      // Scene transition now handled by audio.currentTime listener
-      return;
-    }
-    const line = CONFIG_LINES[i];
-    const div = document.createElement('div');
-    if (line.highlight) div.className = 'cfg-highlight';
-
-    if (line.parts) {
-      div.innerHTML = line.text;
-      line.parts.forEach(p => {
-        const s = document.createElement('span');
-        if (p.cls) s.className = p.cls;
-        s.textContent = p.text;
-        div.appendChild(s);
-      });
-    } else {
-      if (line.cls) {
-        const s = document.createElement('span');
-        s.className = line.cls;
-        s.textContent = line.text;
-        div.appendChild(s);
-      } else {
-        div.textContent = line.text || '\u00A0';
-      }
-    }
-
-    block.appendChild(div);
-    i++;
-    addTimer(nextLine, 40); // fast: config reveals in ~3s so narration is describing live content
+// Called on every audio timeupdate — fires any cues whose time has passed
+function _onTick() {
+  const t = _audioEl.currentTime;
+  const pct = (t / (_audioEl.duration || 1)) * 100;
+  document.getElementById('audioFill').style.width = pct + '%';
+  document.getElementById('audioTime').textContent = fmtTime(t) + ' / ' + fmtTime(_audioEl.duration || 0);
+  for (const cue of _cueList) {
+    if (!cue.done && t >= cue.time) { cue.done = true; cue.fn(); }
   }
-  addTimer(nextLine, 200);
 }
 
-/* ── Terminal scene ── */
-function runTerminal() {
+// Render a config line into the block
+function _renderConfigLine(line, block) {
+  const div = document.createElement('div');
+  if (line.highlight) div.className = 'cfg-highlight';
+  if (line.parts) {
+    line.parts.forEach(p => {
+      const s = document.createElement('span');
+      if (p.cls) s.className = p.cls;
+      s.textContent = p.text;
+      div.appendChild(s);
+    });
+  } else if (line.cls) {
+    const s = document.createElement('span');
+    s.className = line.cls;
+    s.textContent = line.text;
+    div.appendChild(s);
+  } else {
+    div.textContent = line.text || '\u00A0';
+  }
+  block.appendChild(div);
+  block.scrollTop = block.scrollHeight;
+}
+
+// Render a terminal line into the terminal
+function _renderTermLine(lineObj) {
   const term = document.getElementById('scr-terminal');
-  term.innerHTML = '';
-  let i = 0;
-  function next() {
-    if (i >= TERMINAL_LINES.length) {
-      const cur = document.getElementById('cursor');
-      if (cur) cur.remove();
-      // Scene transition now handled by audio.currentTime listener
-      return;
-    }
-    const { text, cls, delay } = TERMINAL_LINES[i];
-    const cur = document.getElementById('cursor');
-    if (cur) cur.remove();
-    const span = document.createElement('span');
-    span.className = 'line' + (cls ? ' ' + cls : '');
-    span.textContent = text;
-    term.appendChild(span);
-    term.appendChild(document.createElement('br'));
-    const cursorEl = document.createElement('span');
-    cursorEl.className = 'cursor'; cursorEl.id = 'cursor';
-    term.appendChild(cursorEl);
-    cursorEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    i++;
-    addTimer(next, Math.round((delay || 30) * 0.75));
-  }
-  next();
+  const cur = document.getElementById('cursor');
+  if (cur) cur.remove();
+  const span = document.createElement('span');
+  span.className = 'line' + (lineObj.cls ? ' ' + lineObj.cls : '');
+  span.textContent = lineObj.text;
+  term.appendChild(span);
+  term.appendChild(document.createElement('br'));
+  const c = document.createElement('span');
+  c.className = 'cursor'; c.id = 'cursor';
+  term.appendChild(c);
+  c.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-/* ── Slack scene ── */
-function showSlack() {
-  hideAll();
-  const slack = document.getElementById('scr-slack');
-  slack.style.display = 'block';
-  addTimer(() => slack.classList.add('visible'), 50);
-
-  let cumDelay = 600;
-  SLACK_MESSAGES.forEach(msg => {
-    cumDelay += msg.delay;
-    addTimer(() => appendSlackMsg(msg), cumDelay);
-  });
-
-  // CTA transition now handled by audio.currentTime listener
-}
-
-function appendSlackMsg(msg) {
+// Render a Slack message
+function _renderSlackMsg(msg) {
   const container = document.getElementById('slackMessages');
   const div = document.createElement('div');
   div.className = 'sl-msg sl-msg-new';
@@ -683,8 +584,7 @@ function appendSlackMsg(msg) {
         <span class="sl-msg-time">${msg.time}</span>
       </div>
       ${msg.text ? `<div class="sl-msg-text">${msg.text}</div>` : ''}
-      ${att ? `
-      <div class="sl-attachment ${att.type}">
+      ${att ? `<div class="sl-attachment ${att.type}">
         <div class="sl-att-title ${att.type}">${att.title}</div>
         <div class="sl-att-field">${att.fields.replace(/\n/g,'<br>')}</div>
         ${att.link ? `<span class="sl-att-link">${att.link}</span>` : ''}
@@ -692,23 +592,106 @@ function appendSlackMsg(msg) {
     </div>`;
   container.appendChild(div);
   div.scrollIntoView({ behavior: 'smooth', block: 'end' });
-  addTimer(() => div.classList.add('show'), 50);
+  requestAnimationFrame(() => div.classList.add('show'));
 }
 
-/* ── CTA scene ── */
-function showCTA() {
+function startDemo() {
   hideAll();
-  document.getElementById('buyBar').style.display = 'none';
-  const cta = document.getElementById('scr-cta');
-  cta.style.display = 'block';
-  addTimer(() => cta.classList.add('visible'), 50);
+  _cueList = [];
+  _audioEl = document.getElementById('audio');
+  _audioEl.removeEventListener('timeupdate', _onTick);
+
+  document.getElementById('scr-hubspot').style.display = 'block';
+  document.getElementById('audioBar').style.display = 'flex';
+  document.getElementById('restartBtn').style.display = 'block';
+
+  _audioEl.currentTime = 0;
+  _audioEl.play().catch(() => {});
+  _audioEl.addEventListener('timeupdate', _onTick);
+
+  // ── Measured audio section boundaries ──
+  // s1 HubSpot:  0.00 – 10.94s
+  // s2 Config:  10.94 – 19.68s  (8.74s to type 77 lines = 113ms/line)
+  // s3 Terminal:19.68 – 43.58s  (23.9s for terminal lines, scaled proportionally)
+  // s4 Slack:   43.58 – 53.66s
+  // s5 CTA:     53.66 – 57.05s
+  const T_CONFIG   = 10.94;
+  const T_TERMINAL = 19.68;
+  const T_SLACK    = 43.58;
+  const T_CTA      = 53.66;
+
+  // Buy bar appears at 8s
+  at(8, () => { document.getElementById('buyBar').style.display = 'flex'; });
+
+  // ── Scene: Config ──
+  at(T_CONFIG, () => {
+    hideAll();
+    const scr = document.getElementById('scr-config');
+    scr.style.display = 'block';
+    const block = document.getElementById('configBlock');
+    block.innerHTML = '';
+    requestAnimationFrame(() => scr.classList.add('visible'));
+  });
+  // Each config line appears proportionally across the 8.74s window
+  const configWindow = T_TERMINAL - T_CONFIG; // 8.74s
+  CONFIG_LINES.forEach((line, i) => {
+    const t = T_CONFIG + 0.2 + (i / CONFIG_LINES.length) * (configWindow - 0.3);
+    at(t, () => {
+      const block = document.getElementById('configBlock');
+      if (block) _renderConfigLine(line, block);
+    });
+  });
+
+  // ── Scene: Terminal ──
+  at(T_TERMINAL, () => {
+    hideAll();
+    const term = document.getElementById('scr-terminal');
+    term.style.display = 'block';
+    term.innerHTML = '';
+  });
+  // Each terminal line appears proportionally across the 23.9s window
+  const termWindow = T_SLACK - T_TERMINAL; // 23.9s
+  const totalTermDelay = TERMINAL_LINES.reduce((s, l) => s + (l.delay || 30), 0);
+  let cumDelay = 0;
+  TERMINAL_LINES.forEach(line => {
+    const t = T_TERMINAL + (cumDelay / totalTermDelay) * termWindow;
+    const captured = line;
+    at(t, () => _renderTermLine(captured));
+    cumDelay += (line.delay || 30);
+  });
+
+  // ── Scene: Slack ──
+  at(T_SLACK, () => {
+    hideAll();
+    const slack = document.getElementById('scr-slack');
+    slack.style.display = 'block';
+    requestAnimationFrame(() => slack.classList.add('visible'));
+  });
+  // Slack messages spaced across first 6s of Slack window
+  const slackTimes = [T_SLACK + 1.0, T_SLACK + 2.8, T_SLACK + 5.0];
+  SLACK_MESSAGES.forEach((msg, i) => {
+    const captured = msg;
+    at(slackTimes[i], () => _renderSlackMsg(captured));
+  });
+
+  // ── Scene: CTA ──
+  at(T_CTA, () => {
+    hideAll();
+    document.getElementById('buyBar').style.display = 'none';
+    const cta = document.getElementById('scr-cta');
+    cta.style.display = 'block';
+    requestAnimationFrame(() => cta.classList.add('visible'));
+  });
 }
 
 /* ── Restart ── */
 function restart() {
-  timers.forEach(clearTimeout); timers = [];
-  const audio = document.getElementById('audio');
-  audio.pause(); audio.currentTime = 0;
+  if (_audioEl) {
+    _audioEl.removeEventListener('timeupdate', _onTick);
+    _audioEl.pause();
+    _audioEl.currentTime = 0;
+  }
+  _cueList = [];
   hideAll();
   document.getElementById('scr-terminal').innerHTML = '';
   document.getElementById('configBlock').innerHTML = '';
