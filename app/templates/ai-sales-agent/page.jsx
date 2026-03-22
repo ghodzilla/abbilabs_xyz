@@ -143,12 +143,94 @@ export default function AISalesAgentPage() {
         </div>
       </section>
 
-      {/* Objection handling */}
+      {/* HubSpot native comparison */}
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.5rem' }}>vs HubSpot native lead scoring</h2>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>HubSpot's own lead scoring requires Marketing Hub Professional or Enterprise. Here's the math.</p>
+        <div style={{ border: '1px solid #e5e7eb', borderRadius: '0.75rem', overflow: 'hidden' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', background: '#f9fafb', borderBottom: '1px solid #e5e7eb' }}>
+            <div style={{ padding: '0.75rem 1rem', fontWeight: 700, fontSize: '0.8rem', color: '#6b7280', textTransform: 'uppercase' }}></div>
+            <div style={{ padding: '0.75rem 1rem', fontWeight: 700, fontSize: '0.8rem', color: '#dc2626', borderLeft: '1px solid #e5e7eb' }}>HubSpot Marketing Hub Pro</div>
+            <div style={{ padding: '0.75rem 1rem', fontWeight: 700, fontSize: '0.8rem', color: '#16a34a', borderLeft: '1px solid #e5e7eb' }}>AI Sales Agent</div>
+          </div>
+          {[
+            ['Price', '$800/mo ($9,600/yr minimum)', '$79 one-time'],
+            ['Lead scoring', '✅ Included', '✅ Included'],
+            ['Works on free HubSpot', '❌ Requires Pro/Enterprise', '✅ Works on free CRM'],
+            ['Custom scoring rules', '✅ UI-based', '✅ JSON config'],
+            ['Slack alerts', '❌ Not included', '✅ Built in'],
+            ['Stale deal detection', '❌ Not included', '✅ Built in'],
+            ['Daily pipeline report', '❌ Not included', '✅ Built in'],
+            ['You own the code', '❌ SaaS lock-in', '✅ Full source code'],
+          ].map(([feature, hubspot, ours], i) => (
+            <div key={i} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', borderBottom: i < 7 ? '1px solid #e5e7eb' : 'none' }}>
+              <div style={{ padding: '0.75rem 1rem', fontSize: '0.875rem', color: '#374151', fontWeight: 500 }}>{feature}</div>
+              <div style={{ padding: '0.75rem 1rem', fontSize: '0.875rem', color: hubspot.startsWith('✅') ? '#374151' : '#dc2626', borderLeft: '1px solid #e5e7eb' }}>{hubspot}</div>
+              <div style={{ padding: '0.75rem 1rem', fontSize: '0.875rem', color: '#16a34a', fontWeight: 600, borderLeft: '1px solid #e5e7eb' }}>{ours}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', borderRadius: '0.5rem', padding: '0.875rem 1rem', marginTop: '0.75rem' }}>
+          <strong style={{ color: '#15803d' }}>$79 once vs $9,600/year minimum.</strong>
+          <span style={{ color: '#374151', fontSize: '0.875rem' }}> Same outcome. Fraction of the cost. You own it forever.</span>
+        </div>
+      </section>
+
+      {/* Example config */}
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.5rem' }}>Example scoring config</h2>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>Change the rules in config.json — no code changes required.</p>
+        <div style={{ background: '#111827', borderRadius: '0.75rem', padding: '1.5rem', fontFamily: 'monospace', fontSize: '0.8rem', overflowX: 'auto' }}>
+          <div style={{ color: '#6b7280', marginBottom: '0.5rem' }}>{'// config.json — customise per your business'}</div>
+          <pre style={{ margin: 0, color: '#e2e8f0', lineHeight: 1.8 }}>{`{
+  "scoring": {
+    "job_title_weight": 25,
+    "company_size_weight": 20,
+    "engagement_multiplier": 1.5,
+    "hot_threshold": 85,
+    "stale_deal_days": 7
+  },
+  "job_title_scores": {
+    "ceo": 25, "founder": 25,
+    "vp": 20, "director": 15,
+    "manager": 10, "other": 5
+  },
+  "company_size_scores": {
+    "1-10": 10, "11-50": 15,
+    "51-200": 20, "201-500": 22,
+    "500+": 25
+  },
+  "slack": {
+    "webhook_url": "YOUR_WEBHOOK",
+    "daily_report_time": "08:00",
+    "weekly_report_day": "monday"
+  }
+}`}</pre>
+        </div>
+        <p style={{ color: '#6b7280', fontSize: '0.8rem', marginTop: '0.5rem' }}>Examples for B2B SaaS, agencies, and consulting included in the download.</p>
+      </section>
+
+      {/* Objection handling — specific */}
       <section style={{ background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: '0.75rem', padding: '1.5rem', marginBottom: '2.5rem' }}>
         <h3 style={{ fontWeight: 700, color: '#111827', marginBottom: '0.75rem' }}>&ldquo;But I can build this myself.&rdquo;</h3>
-        <p style={{ color: '#374151', lineHeight: 1.7, margin: 0 }}>
-          You can. It&apos;ll take 10–20 hours. You&apos;ll hit HubSpot&apos;s pagination quirks, Slack&apos;s webhook formatting edge cases, and Google Sheets&apos; auth flow. You&apos;ll write the scoring logic, the alert rules, the error handling. Or you can pay $79 and be live by lunch.
+        <p style={{ color: '#374151', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+          You can. It&apos;ll take 10–20 hours. Here&apos;s what you&apos;ll hit:
         </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '0.5rem', marginBottom: '1rem' }}>
+          {[
+            'HubSpot API pagination quirks — handled',
+            'Slack webhook formatting edge cases — handled',
+            'Google Sheets OAuth token refresh — handled',
+            'Lead scoring logic — pre-built',
+            'Stale deal detection — pre-built',
+            'Error handling and retries — production-tested',
+          ].map((item) => (
+            <div key={item} style={{ fontSize: '0.825rem', color: '#374151', display: 'flex', gap: '0.5rem', alignItems: 'flex-start' }}>
+              <span style={{ color: '#16a34a', flexShrink: 0 }}>✓</span>{item}
+            </div>
+          ))}
+        </div>
+        <p style={{ color: '#374151', lineHeight: 1.7, margin: 0, fontWeight: 600 }}>Or pay $79 and be live by lunch.</p>
       </section>
 
       {/* Framework compatibility */}
