@@ -1,6 +1,8 @@
 const DOWNLOAD_URLS = {
-  'ai-sales-agent': 'https://github.com/ghodzilla/abbi-skills/releases/download/v1.0/ai-sales-agent.tar.gz',
-  'ai-payment-monitor': 'https://github.com/ghodzilla/abbi-skills/releases/download/v1.0/ai-payment-monitor.tar.gz',
+  'ai-sales-agent': 'https://www.abbilabs.xyz/downloads/ai-sales-agent.tar.gz',
+  'ai-payment-monitor': 'https://www.abbilabs.xyz/downloads/ai-payment-monitor.tar.gz',
+  'ai-customer-support-agent': 'https://www.abbilabs.xyz/downloads/ai-customer-support-agent.tar.gz',
+  'ai-ceo-blueprint': 'https://www.abbilabs.xyz/downloads/ai-ceo-blueprint.tar.gz',
 };
 
 export async function GET(request) {
@@ -24,7 +26,9 @@ export async function GET(request) {
 
     const session = await response.json();
 
-    if (!response.ok || session.payment_status !== 'paid') {
+    // Accept 'paid' (normal purchase) or 'no_payment_required' ($0 with coupon)
+    const validStatuses = ['paid', 'no_payment_required'];
+    if (!response.ok || !validStatuses.includes(session.payment_status)) {
       return Response.json({ error: 'Payment not verified' }, { status: 403 });
     }
 
