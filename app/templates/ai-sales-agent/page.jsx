@@ -51,6 +51,17 @@ export default function AISalesAgentPage() {
               Buy Now — $79
             </button>
             <p style={{ fontSize: '0.75rem', color: '#6b7280', marginTop: '0.5rem' }}>Try it 30 days. If it doesn&apos;t save you 2 hours/week, I&apos;ll refund you instantly — no forms, no questions.</p>
+
+            {/* Urgency — Early Access Pricing */}
+            <div style={{ marginTop: '0.875rem', background: '#fefce8', border: '1px solid #fde68a', borderRadius: '0.5rem', padding: '0.75rem 1rem', textAlign: 'left' }}>
+              <div style={{ fontWeight: 700, color: '#92400e', fontSize: '0.875rem', marginBottom: '0.25rem' }}>⏳ Early access pricing</div>
+              <p style={{ margin: 0, fontSize: '0.8rem', color: '#78350f', lineHeight: 1.5 }}>
+                <strong>$79 while we&apos;re in beta.</strong> Price goes to $129 when the Pro tier launches.
+              </p>
+              <p style={{ margin: '0.35rem 0 0', fontSize: '0.75rem', color: '#92400e', lineHeight: 1.5 }}>
+                🔒 Limited founding-user spots remaining at this price.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -124,6 +135,35 @@ export default function AISalesAgentPage() {
             </p>
           </div>
         </div>
+      </section>
+
+      {/* Setup steps — reduce anxiety */}
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '0.25rem' }}>Up and running in 15 minutes</h2>
+        <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1.25rem' }}>No cloud setup. No ongoing subscription. Runs on your machine.</p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
+          {[
+            { step: 1, time: '1 click', title: 'Download the package', desc: 'Instant download — one zip, all scripts and config included.' },
+            { step: 2, time: '2 min', title: 'Add your HubSpot API key to config.json', desc: 'Open config.json, paste your API key. That\'s the whole HubSpot setup.' },
+            { step: 3, time: '1 min', title: 'Verify it works', desc: 'Run node scripts/lead-scorer.cjs --test — scores sample leads with no live data needed.' },
+            { step: 4, time: '2 min', title: 'Set your Slack webhook URL', desc: 'Paste your Slack webhook into config.json. Alerts and reports route there automatically.' },
+            { step: 5, time: '5 min', title: 'Add the cron job', desc: 'One crontab line — runs every 30 minutes from then on. Done.' },
+          ].map(({ step, time, title, desc }) => (
+            <div key={step} style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start', background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: '0.5rem', padding: '0.875rem 1rem' }}>
+              <div style={{ flexShrink: 0, width: '2rem', height: '2rem', background: '#2563eb', color: '#fff', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 700, fontSize: '0.875rem' }}>{step}</div>
+              <div style={{ flex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem', flexWrap: 'wrap' }}>
+                  <span style={{ fontWeight: 700, color: '#111827', fontSize: '0.925rem' }}>{title}</span>
+                  <span style={{ fontSize: '0.75rem', color: '#6b7280', background: '#e5e7eb', padding: '0.1rem 0.5rem', borderRadius: '9999px' }}>{time}</span>
+                </div>
+                <p style={{ margin: '0.2rem 0 0', color: '#6b7280', fontSize: '0.825rem', lineHeight: 1.5 }}>{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+        <p style={{ marginTop: '0.875rem', fontSize: '0.825rem', color: '#2563eb', fontWeight: 600 }}>
+          ✓ No cloud setup. No ongoing subscription. Runs on your machine.
+        </p>
       </section>
 
       {/* Full 13-feature grid */}
@@ -467,6 +507,19 @@ export default function AISalesAgentPage() {
         <p style={{ color: '#1d4ed8', margin: 0, lineHeight: 1.6 }}>
           Deploy this for SaaS clients in 15 minutes. Customise scoring rules per client. Bill $2,000–$5,000 for CRM automation. One $79 purchase covers all your projects.
         </p>
+      </section>
+
+      {/* Testimonials — placeholder slot */}
+      <section style={{ marginBottom: '2.5rem' }}>
+        <h2 style={{ fontSize: '1.5rem', fontWeight: 700, color: '#111827', marginBottom: '1rem' }}>What early users are saying</h2>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+          <div style={{ border: '1px solid #d1d5db', borderRadius: '0.625rem', padding: '1.25rem 1.5rem', background: '#f9fafb' }}>
+            <p style={{ fontStyle: 'italic', color: '#6b7280', fontSize: '0.9rem', lineHeight: 1.7, margin: '0 0 0.875rem' }}>
+              &ldquo;[Beta user feedback — updating as reviews come in]&rdquo;
+            </p>
+            <div style={{ fontSize: '0.8rem', color: '#9ca3af' }}>— Early beta user</div>
+          </div>
+        </div>
       </section>
 
       {/* Bottom CTA */}
