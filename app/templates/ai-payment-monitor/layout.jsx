@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'AI Payment Monitor — Stripe Dispute Alerts in Slack | $39 One-Time',
-  description: 'Never miss a Stripe dispute again. Instant Slack alerts for disputes, failed payments, and revenue changes. 5-minute setup. No subscription. Pure Node.js.',
+  title: 'AI Payment Monitor — Stripe Dispute Alerts in Slack Before the 7-Day Window Closes | $39',
+  description: 'Never miss a Stripe dispute again. Instant Slack alerts for chargebacks, failed payments, and revenue anomalies — so you respond before the 7-day window closes. One-time $39, no subscription.',
 }
 
 export default function Layout({ children }) {

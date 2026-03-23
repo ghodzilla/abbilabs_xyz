@@ -33,5 +33,10 @@ export default function sitemap() {
     { url: `${base}/blog/ai-agent-for-slack`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/blog/ai-agent-for-notion`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${base}/blog/ai-agent-for-google-sheets`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
+
+    // SEO blog posts — buyer-intent keyword targeting
+    { url: `${base}/blog/hubspot-stale-deal-alerts-slack`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${base}/blog/automate-hubspot-pipeline-review`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
+    { url: `${base}/blog/stripe-dispute-alerts-slack`, lastModified: now, changeFrequency: 'monthly', priority: 0.85 },
   ];
 }

@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'AI Support Agent — Auto-Resolve 70% of Tickets | $99 One-Time',
-  description: 'AI agent that responds from your knowledge base and escalates with full context. Connects to Email + Intercom. Configurable confidence threshold. No subscription.',
+  title: 'AI Customer Support Agent — Auto-Resolve 70% of Tickets, Cheaper Than Intercom | $99',
+  description: 'AI agent that reads your knowledge base, resolves repetitive tickets automatically, and escalates complex issues with full context. Connects to Email + Intercom. One-time $99 — not $400/month.',
 }
 
 export default function Layout({ children }) {
